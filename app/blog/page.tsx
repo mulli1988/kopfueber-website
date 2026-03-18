@@ -10,7 +10,7 @@ export const metadata = {
   description: "Neuigkeiten, Einblicke und Geschichten rund um Kopfüber.",
 };
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export default async function BlogPage() {
   await connectToDatabase();

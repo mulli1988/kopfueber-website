@@ -7,7 +7,7 @@ import BlogPost from "@/lib/db/models/BlogPost";
 import Badge from "@/components/ui/Badge";
 import type { Metadata } from "next";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 interface Props {
   params: Promise<{ slug: string }>;
