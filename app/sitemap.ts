@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { MetadataRoute } from "next";
 import { connectToDatabase } from "@/lib/db/mongodb";
 import Product from "@/lib/db/models/Product";
