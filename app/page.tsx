@@ -3,83 +3,121 @@ import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 
+const CATEGORIES = [
+  { name: "Für Kindergärten", emoji: "🏫", color: "bg-[#FFE4B5]", border: "border-[#F5A623]", desc: "Portfolio-Vorlagen, Lernmaterial, Morgenkreis & mehr" },
+  { name: "Für Familien",     emoji: "👨‍👩‍👧", color: "bg-[#D4F5E9]", border: "border-[#4ECDC4]", desc: "Wochenpläne, Spiele & Beschäftigung für Zuhause" },
+  { name: "Wandposter",       emoji: "🖼️",  color: "bg-[#FFE0F0]", border: "border-[#FF6B9D]", desc: "Schöne Poster zum Ausdrucken & Aufhängen" },
+  { name: "Weihnachten",      emoji: "🎄",  color: "bg-[#D4EDDA]", border: "border-[#28A745]", desc: "Adventskalender, Spiele & festliche Vorlagen" },
+  { name: "English Collection", emoji: "🌍", color: "bg-[#D0E8FF]", border: "border-[#4A90D9]", desc: "Bilingual materials for multilingual families" },
+  { name: "Kurse und Ratgeber", emoji: "📚", color: "bg-[#EDE0FF]", border: "border-[#9B59B6]", desc: "Wissen & Inspiration für Pädagog:innen" },
+];
+
+const HIGHLIGHTS = [
+  { emoji: "🎂", label: "Geburtstagskalender" },
+  { emoji: "🎲", label: "Spiele" },
+  { emoji: "📋", label: "Portfolio-Vorlagen" },
+  { emoji: "📖", label: "Lernmaterial" },
+  { emoji: "📅", label: "Wochenpläne" },
+  { emoji: "🌅", label: "Morgenkreis" },
+  { emoji: "👗", label: "Anziehtafeln" },
+  { emoji: "🌈", label: "Wandposter" },
+];
+
 export default function HomePage() {
   return (
     <div>
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-20">
-        <div className="max-w-3xl">
-          <Badge variant="accent" className="mb-6 text-sm px-4 py-1.5">
-            ✨ Neue Prints jetzt im Shop
-          </Badge>
-          <h1 className="font-display text-6xl sm:text-7xl font-black leading-[1.05] tracking-tight text-foreground mb-6">
-            Kunst, die{" "}
-            <span className="text-primary">kopfüber</span>{" "}
-            macht.
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-xl">
-            Handgemachte Drucke & digitale Grafiken — jedes Stück mit Persönlichkeit.
-            Entdecke einzigartige Kunstwerke für dein Zuhause oder deinen Schreibtisch.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/shop">
-              <Button size="lg">Shop entdecken →</Button>
-            </Link>
-            <Link href="/about">
-              <Button size="lg" variant="outline">Über mich</Button>
-            </Link>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <Badge variant="accent" className="mb-6 text-sm px-4 py-1.5">
+              🖨️ Sofort druckbereit · Digitale Downloads
+            </Badge>
+            <h1 className="font-display text-5xl sm:text-6xl font-black leading-[1.05] tracking-tight text-foreground mb-6">
+              Liebevoll gestaltete{" "}
+              <span className="text-primary">Materialien</span>{" "}
+              für Kita & Zuhause
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-xl">
+              Druckbare Vorlagen, Lernmaterial und Poster — mit Herz gestaltet
+              für Erzieher:innen, Eltern und Kinder.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/shop">
+                <Button size="lg">Zum Shop →</Button>
+              </Link>
+              <Link href="/shop?category=F%C3%BCr+Kinderg%C3%A4rten">
+                <Button size="lg" variant="outline">🏫 Für Kitas</Button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Produkt-Highlight Chips */}
+          <div className="hidden lg:flex flex-wrap gap-3 justify-center">
+            {HIGHLIGHTS.map((h) => (
+              <div
+                key={h.label}
+                className="flex items-center gap-2 bg-surface border-2 border-dark rounded-2xl px-4 py-3 shadow-[var(--shadow-sm)] font-semibold text-sm"
+              >
+                <span className="text-2xl">{h.emoji}</span>
+                <span>{h.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Decorative ticker */}
+      {/* Ticker */}
       <div className="border-y-2 border-dark bg-accent py-3 overflow-hidden">
-        <p className="text-sm font-bold text-dark whitespace-nowrap">
-          ★ Drucke &nbsp;&nbsp;&nbsp; ★ Digitale Downloads &nbsp;&nbsp;&nbsp; ★ Kunstgrafiken &nbsp;&nbsp;&nbsp; ★ Limitierte Editionen &nbsp;&nbsp;&nbsp; ★ Drucke &nbsp;&nbsp;&nbsp; ★ Digitale Downloads &nbsp;&nbsp;&nbsp; ★ Kunstgrafiken &nbsp;&nbsp;&nbsp; ★ Limitierte Editionen &nbsp;&nbsp;&nbsp;
+        <p className="text-sm font-bold text-dark whitespace-nowrap animate-pulse">
+          🏫 Portfolio-Vorlagen &nbsp;·&nbsp; 🎂 Geburtstagskalender &nbsp;·&nbsp; 🎲 Spiele &nbsp;·&nbsp; 📋 Wochenpläne &nbsp;·&nbsp; 🌅 Morgenkreis &nbsp;·&nbsp; 🖼️ Wandposter &nbsp;·&nbsp; 📖 Lernmaterial &nbsp;·&nbsp; 🌈 Für Kita & Zuhause &nbsp;·&nbsp;
+          🏫 Portfolio-Vorlagen &nbsp;·&nbsp; 🎂 Geburtstagskalender &nbsp;·&nbsp; 🎲 Spiele &nbsp;·&nbsp; 📋 Wochenpläne &nbsp;·&nbsp;
         </p>
       </div>
 
-      {/* Featured section */}
+      {/* Kategorien-Übersicht */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-20">
         <div className="flex items-end justify-between mb-8">
-          <h2 className="font-display text-4xl font-black">Highlights</h2>
+          <div>
+            <h2 className="font-display text-4xl font-black">Was findest du hier?</h2>
+            <p className="text-muted-foreground mt-1">Alle Materialien zum Sofort-Ausdrucken</p>
+          </div>
           <Link href="/shop" className="text-sm font-semibold text-primary hover:underline">
-            Alle ansehen →
+            Alle Produkte →
           </Link>
         </div>
 
-        {/* Product placeholder grid — wird in Phase 3 mit echten Daten befüllt */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { title: "Platzhalter Print #1", price: "12,00 €", category: "Print" },
-            { title: "Platzhalter Print #2", price: "9,00 €",  category: "Digital" },
-            { title: "Platzhalter Print #3", price: "15,00 €", category: "Print" },
-          ].map((item) => (
-            <Card hover key={item.title} className="p-0 overflow-hidden">
-              <div className="w-full aspect-square bg-muted flex items-center justify-center border-b-2 border-dark">
-                <span className="text-5xl">🖼</span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {CATEGORIES.map((cat) => (
+            <Link
+              key={cat.name}
+              href={`/shop?category=${encodeURIComponent(cat.name)}`}
+              className="no-underline group"
+            >
+              <div className={`${cat.color} border-2 ${cat.border} rounded-[var(--radius-xl)] p-6 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-1 transition-all`}>
+                <div className="text-4xl mb-3">{cat.emoji}</div>
+                <h3 className="font-display text-xl font-black mb-1 group-hover:text-primary transition-colors">
+                  {cat.name}
+                </h3>
+                <p className="text-sm text-dark/70 leading-snug">{cat.desc}</p>
               </div>
-              <div className="p-4">
-                <Badge variant="secondary" className="mb-2">{item.category}</Badge>
-                <h3 className="font-display text-lg font-bold mt-1 mb-1">{item.title}</h3>
-                <p className="font-semibold text-primary">{item.price}</p>
-              </div>
-            </Card>
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* About teaser */}
+      {/* Über mich Teaser */}
       <section className="bg-dark text-white py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="max-w-2xl">
-            <Badge variant="accent" className="mb-4">Über mich</Badge>
+            <Badge variant="accent" className="mb-4">Über Kopfüber</Badge>
             <h2 className="font-display text-4xl font-black mb-4 leading-tight">
-              Hinter jedem Druck steckt eine Geschichte.
+              Materialien mit Herzblut gemacht.
             </h2>
             <p className="text-white/70 leading-relaxed mb-6">
-              Ich bin die Person hinter Kopfüber — und ich mache Dinge gerne verkehrt herum.
-              Mehr über mich, meine Arbeit und meine Inspiration erfährst du auf der About-Seite.
+              Kopfüber steht für liebevoll gestaltete, druckbare Materialien —
+              für Erzieher:innen, die Abwechslung suchen, und Eltern, die Zuhause
+              etwas Besonderes schaffen wollen. Alles direkt ausdruckbar. Sofort einsatzbereit.
             </p>
             <Link href="/about">
               <Button variant="secondary" size="lg">Meine Geschichte →</Button>
@@ -91,13 +129,20 @@ export default function HomePage() {
       {/* CTA */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-20">
         <Card className="bg-accent border-dark text-center py-12">
+          <p className="text-4xl mb-4">🌈</p>
           <h2 className="font-display text-3xl font-black mb-3">Nichts verpassen.</h2>
           <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-            Neue Prints, Blog-Beiträge und Community-Updates — erstell dir jetzt ein Konto.
+            Neue Materialien, Blog-Beiträge und Inspirationen —
+            erstell dir jetzt ein Konto und bleib auf dem Laufenden.
           </p>
-          <Link href="/register">
-            <Button size="lg">Jetzt kostenlos registrieren</Button>
-          </Link>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Link href="/register">
+              <Button size="lg">Jetzt kostenlos registrieren</Button>
+            </Link>
+            <Link href="/shop">
+              <Button size="lg" variant="outline">Zum Shop</Button>
+            </Link>
+          </div>
         </Card>
       </section>
     </div>

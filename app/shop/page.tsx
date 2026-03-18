@@ -12,70 +12,109 @@ interface ShopPageProps {
 
 export const metadata = {
   title: "Shop",
-  description: "Alle Drucke & digitalen Grafiken im Kopfüber-Shop.",
+  description: "Liebevoll gestaltete Materialien zum Ausdrucken für Kita & Zuhause.",
 };
+
+// Feste Kategorien mit Icons – spiegeln den Etsy-Shop wider
+export const SHOP_CATEGORIES = [
+  { name: "Für Kindergärten", emoji: "🏫", color: "bg-[#FFE4B5]", border: "border-[#F5A623]" },
+  { name: "Für Familien",     emoji: "👨‍👩‍👧", color: "bg-[#D4F5E9]", border: "border-[#4ECDC4]" },
+  { name: "Wandposter",       emoji: "🖼️",  color: "bg-[#FFE0F0]", border: "border-[#FF6B9D]" },
+  { name: "Weihnachten",      emoji: "🎄",  color: "bg-[#D4EDDA]", border: "border-[#28A745]" },
+  { name: "English Collection", emoji: "🌍", color: "bg-[#D0E8FF]", border: "border-[#4A90D9]" },
+  { name: "Kurse und Ratgeber", emoji: "📚", color: "bg-[#EDE0FF]", border: "border-[#9B59B6]" },
+];
 
 async function getProducts(category?: string) {
   await connectToDatabase();
   const filter: Record<string, unknown> = { published: true };
   if (category) filter.category = category;
-  const products = await Product.find(filter).sort({ createdAt: -1 }).lean();
-  return products;
-}
-
-async function getCategories() {
-  await connectToDatabase();
-  const cats = await Product.distinct("category", { published: true });
-  return cats as string[];
+  return Product.find(filter).sort({ createdAt: -1 }).lean();
 }
 
 export default async function ShopPage({ searchParams }: ShopPageProps) {
   const { category } = await searchParams;
-  const [products, categories] = await Promise.all([
-    getProducts(category),
-    getCategories(),
-  ]);
+  const products = await getProducts(category);
+
+  const activeCategory = SHOP_CATEGORIES.find((c) => c.name === category);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-      <div className="mb-10">
-        <h1 className="font-display text-5xl font-black mb-2">Shop</h1>
-        <p className="text-muted-foreground">
-          {products.length} {products.length === 1 ? "Produkt" : "Produkte"}
-          {category ? ` in "${category}"` : ""}
+    <div className="min-h-screen">
+      {/* Hero */}
+      <div className="bg-[var(--color-accent)] border-b-4 border-dark py-14 px-4 text-center">
+        <p className="text-sm font-bold uppercase tracking-widest text-dark/60 mb-2">
+          Digitale Downloads · Sofort druckbereit
+        </p>
+        <h1 className="font-display text-5xl sm:text-6xl font-black leading-tight mb-3">
+          Der Kopfüber-Shop
+        </h1>
+        <p className="text-lg font-semibold text-dark/70 max-w-xl mx-auto">
+          Liebevoll gestaltete Materialien zum Ausdrucken<br />
+          für Kita &amp; Zuhause 🌈
         </p>
       </div>
 
-      <div className="mb-8">
-        <Suspense>
-          <CategoryFilter categories={categories} />
-        </Suspense>
-      </div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
 
-      {products.length === 0 ? (
-        <div className="text-center py-24">
-          <p className="text-5xl mb-4">🎨</p>
-          <p className="font-display text-2xl font-bold mb-2">Noch keine Produkte</p>
-          <p className="text-muted-foreground">Schau bald wieder vorbei!</p>
+        {/* Kategorie-Karten */}
+        <div className="mb-10">
+          <h2 className="font-display text-2xl font-black mb-5">Was suchst du?</h2>
+          <Suspense>
+            <CategoryFilter categories={SHOP_CATEGORIES} activeCategory={category} />
+          </Suspense>
         </div>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((p) => (
-            <ProductCard
-              key={p._id.toString()}
-              product={{
-                _id:          p._id.toString(),
-                title:        p.title,
-                slug:         p.slug,
-                price:        p.price,
-                images:       p.images,
-                category:     p.category,
-                downloadFile: p.downloadFile,
-              }}
-            />
-          ))}
-        </div>
-      )}
+
+        {/* Aktive Kategorie-Kopfzeile */}
+        {category && (
+          <div className="flex items-center gap-3 mb-6">
+            {activeCategory && (
+              <span className={`text-3xl px-4 py-2 rounded-2xl border-2 ${activeCategory.color} ${activeCategory.border}`}>
+                {activeCategory.emoji}
+              </span>
+            )}
+            <div>
+              <h2 className="font-display text-3xl font-black">{category}</h2>
+              <p className="text-muted-foreground text-sm">
+                {products.length} {products.length === 1 ? "Produkt" : "Produkte"}
+              </p>
+            </div>
+          </div>
+        )}
+
+        {!category && products.length > 0 && (
+          <p className="text-muted-foreground mb-6 text-sm font-semibold">
+            {products.length} Produkte insgesamt
+          </p>
+        )}
+
+        {/* Produkt-Grid */}
+        {products.length === 0 ? (
+          <div className="text-center py-24 border-4 border-dashed border-muted rounded-[var(--radius-xl)]">
+            <p className="text-5xl mb-4">🎨</p>
+            <p className="font-display text-2xl font-bold mb-2">
+              {category ? `Noch keine Produkte in "${category}"` : "Noch keine Produkte"}
+            </p>
+            <p className="text-muted-foreground">Schau bald wieder vorbei!</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {products.map((p) => (
+              <ProductCard
+                key={p._id.toString()}
+                product={{
+                  _id:          p._id.toString(),
+                  title:        p.title,
+                  slug:         p.slug,
+                  price:        p.price,
+                  images:       p.images,
+                  category:     p.category,
+                  downloadFile: p.downloadFile,
+                }}
+              />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
