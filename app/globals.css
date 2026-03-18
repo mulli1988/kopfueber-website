@@ -2,30 +2,30 @@
 @plugin "@tailwindcss/typography";
 
 @theme inline {
-  /* Brand Colors — abgestimmt auf Logo (Boho Rainbow) */
-  --color-primary:        #A06B5B;   /* Terrakotta / Braun */
-  --color-primary-light:  #C08878;
-  --color-primary-dark:   #7A4F42;
+  /* Brand Colors — Pastell, hell & verspielt */
+  --color-primary:        #5B9EA0;   /* Teal (wie im Banner "FÜR KITA") */
+  --color-primary-light:  #7DBFC1;
+  --color-primary-dark:   #3D8082;
 
-  --color-secondary:      #5B8A8B;   /* Teal / Blaugrün */
-  --color-secondary-light:#7AABAD;
-  --color-secondary-dark: #3D6E6F;
+  --color-secondary:      #C07B6B;   /* Warmes Terrakotta (wie im Banner) */
+  --color-secondary-light:#D99A8D;
+  --color-secondary-dark: #A05E50;
 
-  --color-accent:         #EDD5CB;   /* Dusty Rose / Altrosa */
-  --color-accent-dark:    #D4B0A4;
+  --color-accent:         #FFF0EB;   /* Zartes Pastell-Rosa */
+  --color-accent-dark:    #FDDDD4;
 
-  --color-dark:           #3D2B27;   /* Dunkles Braun */
-  --color-dark-light:     #5C4440;
+  --color-dark:           #3D3535;   /* Weiches Dunkelgrau-Braun */
+  --color-dark-light:     #5C4E4E;
 
   /* Backgrounds */
-  --color-background:     #FDF8F6;   /* Warmes Cremeweiß */
+  --color-background:     #FFFCFB;   /* Fast weiß, ganz warm */
   --color-surface:        #FFFFFF;
-  --color-muted:          #F5EDE9;   /* Helles Rosé */
-  --color-border:         #E8D5CF;
+  --color-muted:          #FFF5F2;   /* Zartes Rosa-Weiß */
+  --color-border:         #F0DDD8;
 
   /* Text */
-  --color-foreground:     #3D2B27;
-  --color-muted-foreground: #7A6360;
+  --color-foreground:     #3D3535;
+  --color-muted-foreground: #8A7070;
 
   /* Fonts */
   --font-display: var(--font-fraunces), Georgia, serif;
@@ -40,9 +40,9 @@
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm:  2px 3px 0px #A06B5B;
-  --shadow-md:  4px 5px 0px #A06B5B;
-  --shadow-lg:  6px 7px 0px #A06B5B;
+  --shadow-sm:  2px 3px 0px #C8A8A0;
+  --shadow-md:  4px 5px 0px #C8A8A0;
+  --shadow-lg:  6px 7px 0px #C8A8A0;
 }
 
 * {

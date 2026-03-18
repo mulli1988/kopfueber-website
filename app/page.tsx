@@ -1,139 +1,123 @@
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
-import Badge from "@/components/ui/Badge";
 
 const CATEGORIES = [
-  { name: "Für Kindergärten", emoji: "🏫", color: "bg-[#EDD5CB]", border: "border-[#A06B5B]", desc: "Portfolio-Vorlagen, Lernmaterial, Morgenkreis & mehr" },
-  { name: "Für Familien",     emoji: "👨‍👩‍👧", color: "bg-[#C9DFE0]", border: "border-[#5B8A8B]", desc: "Wochenpläne, Spiele & Beschäftigung für Zuhause" },
-  { name: "Wandposter",       emoji: "🖼️",  color: "bg-[#F5EDE9]", border: "border-[#C08878]", desc: "Schöne Poster zum Ausdrucken & Aufhängen" },
-  { name: "Weihnachten",      emoji: "🎄",  color: "bg-[#D4E8D4]", border: "border-[#5B8A8B]", desc: "Adventskalender, Spiele & festliche Vorlagen" },
-  { name: "English Collection", emoji: "🌍", color: "bg-[#C9DFE0]", border: "border-[#3D6E6F]", desc: "Bilingual materials for multilingual families" },
-  { name: "Kurse und Ratgeber", emoji: "📚", color: "bg-[#EDD5CB]", border: "border-[#7A4F42]", desc: "Wissen & Inspiration für Pädagog:innen" },
-];
-
-const HIGHLIGHTS = [
-  { emoji: "🎂", label: "Geburtstagskalender" },
-  { emoji: "🎲", label: "Spiele" },
-  { emoji: "📋", label: "Portfolio-Vorlagen" },
-  { emoji: "📖", label: "Lernmaterial" },
-  { emoji: "📅", label: "Wochenpläne" },
-  { emoji: "🌅", label: "Morgenkreis" },
-  { emoji: "👗", label: "Anziehtafeln" },
-  { emoji: "🌈", label: "Wandposter" },
+  { name: "Für Kindergärten", emoji: "🏫", bg: "#E8F4F4", border: "#5B9EA0", desc: "Portfolio-Vorlagen, Lernmaterial, Morgenkreis & mehr" },
+  { name: "Für Familien",     emoji: "🌈", bg: "#FFF0EB", border: "#C07B6B", desc: "Wochenpläne, Spiele & Beschäftigung für Zuhause" },
+  { name: "Wandposter",       emoji: "🖼️", bg: "#FFF8E8", border: "#D4A855", desc: "Schöne Poster zum Ausdrucken & Aufhängen" },
+  { name: "Weihnachten",      emoji: "🎄", bg: "#EBF5EB", border: "#6BA87A", desc: "Adventskalender, Spiele & festliche Vorlagen" },
+  { name: "English Collection", emoji: "🌍", bg: "#E8F4F4", border: "#5B9EA0", desc: "Bilingual materials for multilingual families" },
+  { name: "Kurse und Ratgeber", emoji: "📚", bg: "#FFF0EB", border: "#C07B6B", desc: "Wissen & Inspiration für Pädagog:innen" },
 ];
 
 export default function HomePage() {
   return (
     <div>
-      {/* Hero */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <Badge variant="accent" className="mb-6 text-sm px-4 py-1.5">
-              🖨️ Sofort druckbereit · Digitale Downloads
-            </Badge>
-            <h1 className="font-display text-5xl sm:text-6xl font-black leading-[1.05] tracking-tight text-foreground mb-6">
-              Liebevoll gestaltete{" "}
-              <span className="text-primary">Materialien</span>{" "}
-              für Kita & Zuhause
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-xl">
-              Druckbare Vorlagen, Lernmaterial und Poster — mit Herz gestaltet
-              für Erzieher:innen, Eltern und Kinder.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/shop">
-                <Button size="lg">Zum Shop →</Button>
-              </Link>
-              <Link href="/shop?category=F%C3%BCr+Kinderg%C3%A4rten">
-                <Button size="lg" variant="outline">🏫 Für Kitas</Button>
-              </Link>
-            </div>
-          </div>
 
-          {/* Produkt-Highlight Chips */}
-          <div className="hidden lg:flex flex-wrap gap-3 justify-center">
-            {HIGHLIGHTS.map((h) => (
-              <div
-                key={h.label}
-                className="flex items-center gap-2 bg-surface border-2 border-dark rounded-2xl px-4 py-3 shadow-[var(--shadow-sm)] font-semibold text-sm"
-              >
-                <span className="text-2xl">{h.emoji}</span>
-                <span>{h.label}</span>
-              </div>
-            ))}
+      {/* Hero — wie Etsy Banner: hell, luftig, Markenname groß */}
+      <section className="bg-white py-20 px-4 text-center relative overflow-hidden">
+        {/* Dezente Hintergrund-Deko */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+          <div className="absolute top-8 left-8 w-32 h-32 rounded-full bg-[#FFF0EB] opacity-60" />
+          <div className="absolute bottom-8 right-8 w-40 h-40 rounded-full bg-[#E8F4F4] opacity-60" />
+          <div className="absolute top-1/2 left-1/4 w-20 h-20 rounded-full bg-[#FFF8E8] opacity-40" />
+        </div>
+
+        <div className="relative max-w-3xl mx-auto">
+          <p className="text-sm font-bold uppercase tracking-widest text-[#C07B6B] mb-4">
+            🖨️ Digitale Downloads · Sofort druckbereit
+          </p>
+          <h1 className="font-display text-6xl sm:text-7xl font-black leading-tight text-[#3D3535] mb-3">
+            Kopf<span className="text-[#C07B6B]">über</span>
+          </h1>
+          <p className="text-xl font-semibold text-[#5B9EA0] uppercase tracking-wide mb-4">
+            Liebevoll gestaltete Materialien zum Ausdrucken
+          </p>
+          <p className="text-2xl font-black text-[#3D3535] mb-8">
+            für Kita & Zuhause 🌈
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Link href="/shop">
+              <Button size="lg">Zum Shop →</Button>
+            </Link>
+            <Link href={`/shop?category=${encodeURIComponent("Für Kindergärten")}`}>
+              <Button size="lg" variant="outline">🏫 Für Kitas</Button>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Ticker */}
-      <div className="border-y-2 border-dark bg-accent py-3 overflow-hidden">
-        <p className="text-sm font-bold text-dark whitespace-nowrap animate-pulse">
-          🏫 Portfolio-Vorlagen &nbsp;·&nbsp; 🎂 Geburtstagskalender &nbsp;·&nbsp; 🎲 Spiele &nbsp;·&nbsp; 📋 Wochenpläne &nbsp;·&nbsp; 🌅 Morgenkreis &nbsp;·&nbsp; 🖼️ Wandposter &nbsp;·&nbsp; 📖 Lernmaterial &nbsp;·&nbsp; 🌈 Für Kita & Zuhause &nbsp;·&nbsp;
-          🏫 Portfolio-Vorlagen &nbsp;·&nbsp; 🎂 Geburtstagskalender &nbsp;·&nbsp; 🎲 Spiele &nbsp;·&nbsp; 📋 Wochenpläne &nbsp;·&nbsp;
-        </p>
+      {/* Pastell-Streifen */}
+      <div className="flex h-3">
+        <div className="flex-1 bg-[#FDDDD4]" />
+        <div className="flex-1 bg-[#FFF8E8]" />
+        <div className="flex-1 bg-[#C5E0E0]" />
+        <div className="flex-1 bg-[#EBF5EB]" />
+        <div className="flex-1 bg-[#FFF0EB]" />
       </div>
 
-      {/* Kategorien-Übersicht */}
+      {/* Kategorien */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-20">
-        <div className="flex items-end justify-between mb-8">
-          <div>
-            <h2 className="font-display text-4xl font-black">Was findest du hier?</h2>
-            <p className="text-muted-foreground mt-1">Alle Materialien zum Sofort-Ausdrucken</p>
-          </div>
-          <Link href="/shop" className="text-sm font-semibold text-primary hover:underline">
-            Alle Produkte →
-          </Link>
+        <div className="text-center mb-12">
+          <h2 className="font-display text-4xl font-black text-[#3D3535] mb-2">Was findest du hier?</h2>
+          <p className="text-[#8A7070]">Alle Materialien zum Sofort-Ausdrucken — mit Liebe gestaltet</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {CATEGORIES.map((cat) => (
             <Link
               key={cat.name}
               href={`/shop?category=${encodeURIComponent(cat.name)}`}
               className="no-underline group"
             >
-              <div className={`${cat.color} border-2 ${cat.border} rounded-[var(--radius-xl)] p-6 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-1 transition-all`}>
+              <div
+                className="rounded-3xl p-6 border-2 transition-all hover:-translate-y-1 hover:shadow-lg"
+                style={{ backgroundColor: cat.bg, borderColor: cat.border }}
+              >
                 <div className="text-4xl mb-3">{cat.emoji}</div>
-                <h3 className="font-display text-xl font-black mb-1 group-hover:text-primary transition-colors">
+                <h3 className="font-display text-xl font-black mb-1 text-[#3D3535] group-hover:text-[#5B9EA0] transition-colors">
                   {cat.name}
                 </h3>
-                <p className="text-sm text-dark/70 leading-snug">{cat.desc}</p>
+                <p className="text-sm text-[#8A7070] leading-snug">{cat.desc}</p>
               </div>
             </Link>
           ))}
         </div>
+
+        <div className="text-center mt-8">
+          <Link href="/shop" className="text-[#5B9EA0] font-bold hover:underline">
+            Alle Produkte ansehen →
+          </Link>
+        </div>
       </section>
 
-      {/* Über mich Teaser */}
-      <section className="bg-dark text-white py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="max-w-2xl">
-            <Badge variant="accent" className="mb-4">Über Kopfüber</Badge>
-            <h2 className="font-display text-4xl font-black mb-4 leading-tight">
-              Materialien mit Herzblut gemacht.
-            </h2>
-            <p className="text-white/70 leading-relaxed mb-6">
-              Kopfüber steht für liebevoll gestaltete, druckbare Materialien —
-              für Erzieher:innen, die Abwechslung suchen, und Eltern, die Zuhause
-              etwas Besonderes schaffen wollen. Alles direkt ausdruckbar. Sofort einsatzbereit.
-            </p>
-            <Link href="/about">
-              <Button variant="secondary" size="lg">Meine Geschichte →</Button>
-            </Link>
-          </div>
+      {/* Über mich */}
+      <section className="bg-[#FFF5F2] py-20 px-4">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-4xl mb-4">💛</p>
+          <h2 className="font-display text-4xl font-black text-[#3D3535] mb-4">
+            Materialien mit Herzblut gemacht.
+          </h2>
+          <p className="text-[#8A7070] leading-relaxed mb-6 text-lg">
+            Hinter Kopfüber steckt Julia Flagmeyer — und die Überzeugung,
+            dass liebevoll gestaltete Materialien den Kita-Alltag schöner machen.
+            Alles direkt ausdruckbar. Sofort einsatzbereit.
+          </p>
+          <Link href="/about">
+            <Button size="lg" variant="outline">Meine Geschichte →</Button>
+          </Link>
         </div>
       </section>
 
       {/* CTA */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-20">
-        <Card className="bg-accent border-dark text-center py-12">
-          <p className="text-4xl mb-4">🌈</p>
-          <h2 className="font-display text-3xl font-black mb-3">Nichts verpassen.</h2>
-          <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-            Neue Materialien, Blog-Beiträge und Inspirationen —
-            erstell dir jetzt ein Konto und bleib auf dem Laufenden.
+        <Card className="text-center py-14" style={{ background: "linear-gradient(135deg, #FFF0EB 0%, #E8F4F4 100%)", border: "2px solid #F0DDD8" }}>
+          <p className="text-5xl mb-4">🌈</p>
+          <h2 className="font-display text-3xl font-black text-[#3D3535] mb-3">Nichts verpassen!</h2>
+          <p className="text-[#8A7070] mb-6 max-w-md mx-auto">
+            Neue Materialien, Inspirationen und exklusive Angebote —
+            melde dich jetzt kostenlos an.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link href="/register">
