@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { connectToDatabase } from "@/lib/db/mongodb";
 import BlogPost from "@/lib/db/models/BlogPost";
 import Card from "@/components/ui/Card";

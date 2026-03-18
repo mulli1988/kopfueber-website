@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { connectToDatabase } from "@/lib/db/mongodb";
 import ForumThread from "@/lib/db/models/ForumThread";
 import ForumCategory from "@/lib/db/models/ForumCategory";

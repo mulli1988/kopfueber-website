@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import { connectToDatabase } from "@/lib/db/mongodb";
 import ForumCategory from "@/lib/db/models/ForumCategory";
