@@ -10,8 +10,6 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "i.etsystatic.com" },
     ],
   },
-  // Für Railway Deployment
-  output: "standalone",
 };
 
 export default nextConfig;
