@@ -2,30 +2,30 @@
 @plugin "@tailwindcss/typography";
 
 @theme inline {
-  /* Brand Colors */
-  --color-primary:        #FF6B35;
-  --color-primary-light:  #FF8F63;
-  --color-primary-dark:   #E04E18;
+  /* Brand Colors — abgestimmt auf Logo (Boho Rainbow) */
+  --color-primary:        #A06B5B;   /* Terrakotta / Braun */
+  --color-primary-light:  #C08878;
+  --color-primary-dark:   #7A4F42;
 
-  --color-secondary:      #4ECDC4;
-  --color-secondary-light:#7DE0D9;
-  --color-secondary-dark: #2FB5AC;
+  --color-secondary:      #5B8A8B;   /* Teal / Blaugrün */
+  --color-secondary-light:#7AABAD;
+  --color-secondary-dark: #3D6E6F;
 
-  --color-accent:         #FFE66D;
-  --color-accent-dark:    #F0D030;
+  --color-accent:         #EDD5CB;   /* Dusty Rose / Altrosa */
+  --color-accent-dark:    #D4B0A4;
 
-  --color-dark:           #2D3047;
-  --color-dark-light:     #434766;
+  --color-dark:           #3D2B27;   /* Dunkles Braun */
+  --color-dark-light:     #5C4440;
 
   /* Backgrounds */
-  --color-background:     #FFFEF7;
+  --color-background:     #FDF8F6;   /* Warmes Cremeweiß */
   --color-surface:        #FFFFFF;
-  --color-muted:          #F5F4EE;
-  --color-border:         #E8E6DC;
+  --color-muted:          #F5EDE9;   /* Helles Rosé */
+  --color-border:         #E8D5CF;
 
   /* Text */
-  --color-foreground:     #2D3047;
-  --color-muted-foreground: #6B6A62;
+  --color-foreground:     #3D2B27;
+  --color-muted-foreground: #7A6360;
 
   /* Fonts */
   --font-display: var(--font-fraunces), Georgia, serif;
@@ -40,9 +40,9 @@
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm:  2px 3px 0px #2D3047;
-  --shadow-md:  4px 5px 0px #2D3047;
-  --shadow-lg:  6px 7px 0px #2D3047;
+  --shadow-sm:  2px 3px 0px #A06B5B;
+  --shadow-md:  4px 5px 0px #A06B5B;
+  --shadow-lg:  6px 7px 0px #A06B5B;
 }
 
 * {

@@ -4,12 +4,12 @@ import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 
 const CATEGORIES = [
-  { name: "Für Kindergärten", emoji: "🏫", color: "bg-[#FFE4B5]", border: "border-[#F5A623]", desc: "Portfolio-Vorlagen, Lernmaterial, Morgenkreis & mehr" },
-  { name: "Für Familien",     emoji: "👨‍👩‍👧", color: "bg-[#D4F5E9]", border: "border-[#4ECDC4]", desc: "Wochenpläne, Spiele & Beschäftigung für Zuhause" },
-  { name: "Wandposter",       emoji: "🖼️",  color: "bg-[#FFE0F0]", border: "border-[#FF6B9D]", desc: "Schöne Poster zum Ausdrucken & Aufhängen" },
-  { name: "Weihnachten",      emoji: "🎄",  color: "bg-[#D4EDDA]", border: "border-[#28A745]", desc: "Adventskalender, Spiele & festliche Vorlagen" },
-  { name: "English Collection", emoji: "🌍", color: "bg-[#D0E8FF]", border: "border-[#4A90D9]", desc: "Bilingual materials for multilingual families" },
-  { name: "Kurse und Ratgeber", emoji: "📚", color: "bg-[#EDE0FF]", border: "border-[#9B59B6]", desc: "Wissen & Inspiration für Pädagog:innen" },
+  { name: "Für Kindergärten", emoji: "🏫", color: "bg-[#EDD5CB]", border: "border-[#A06B5B]", desc: "Portfolio-Vorlagen, Lernmaterial, Morgenkreis & mehr" },
+  { name: "Für Familien",     emoji: "👨‍👩‍👧", color: "bg-[#C9DFE0]", border: "border-[#5B8A8B]", desc: "Wochenpläne, Spiele & Beschäftigung für Zuhause" },
+  { name: "Wandposter",       emoji: "🖼️",  color: "bg-[#F5EDE9]", border: "border-[#C08878]", desc: "Schöne Poster zum Ausdrucken & Aufhängen" },
+  { name: "Weihnachten",      emoji: "🎄",  color: "bg-[#D4E8D4]", border: "border-[#5B8A8B]", desc: "Adventskalender, Spiele & festliche Vorlagen" },
+  { name: "English Collection", emoji: "🌍", color: "bg-[#C9DFE0]", border: "border-[#3D6E6F]", desc: "Bilingual materials for multilingual families" },
+  { name: "Kurse und Ratgeber", emoji: "📚", color: "bg-[#EDD5CB]", border: "border-[#7A4F42]", desc: "Wissen & Inspiration für Pädagog:innen" },
 ];
 
 const HIGHLIGHTS = [
