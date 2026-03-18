@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Button from "@/components/ui/Button";
-import Card from "@/components/ui/Card";
 
 const CATEGORIES = [
   { name: "Für Kindergärten", emoji: "🏫", bg: "#E8F4F4", border: "#5B9EA0", desc: "Portfolio-Vorlagen, Lernmaterial, Morgenkreis & mehr" },
@@ -112,7 +111,7 @@ export default function HomePage() {
 
       {/* CTA */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-20">
-        <Card className="text-center py-14" style={{ background: "linear-gradient(135deg, #FFF0EB 0%, #E8F4F4 100%)", border: "2px solid #F0DDD8" }}>
+        <div className="rounded-[var(--radius-xl)] text-center py-14 px-6" style={{ background: "linear-gradient(135deg, #FFF0EB 0%, #E8F4F4 100%)", border: "2px solid #F0DDD8" }}>
           <p className="text-5xl mb-4">🌈</p>
           <h2 className="font-display text-3xl font-black text-[#3D3535] mb-3">Nichts verpassen!</h2>
           <p className="text-[#8A7070] mb-6 max-w-md mx-auto">
@@ -127,7 +126,7 @@ export default function HomePage() {
               <Button size="lg" variant="outline">Zum Shop</Button>
             </Link>
           </div>
-        </Card>
+        </div>
       </section>
     </div>
   );
