@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Navigation from "./Navigation";
 import MobileMenu from "./MobileMenu";
 
@@ -7,11 +8,15 @@ export default function Header() {
     <header className="sticky top-0 z-40 bg-surface border-b-2 border-dark">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4 relative">
         {/* Logo */}
-        <Link
-          href="/"
-          className="font-display text-2xl font-black text-foreground no-underline hover:text-primary transition-colors tracking-tight"
-        >
-          Kopf<span className="text-primary">über</span>
+        <Link href="/" className="no-underline flex items-center">
+          <Image
+            src="/logo.jpg"
+            alt="Kopfüber Logo"
+            width={120}
+            height={60}
+            className="h-12 w-auto object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
