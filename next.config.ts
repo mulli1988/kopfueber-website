@@ -1,7 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      // Uploadthing
+      { protocol: "https", hostname: "utfs.io" },
+      { protocol: "https", hostname: "*.ufs.sh" },
+      // Etsy (für spätere Migration)
+      { protocol: "https", hostname: "i.etsystatic.com" },
+    ],
+  },
+  // Für Railway Deployment
+  output: "standalone",
 };
 
 export default nextConfig;
