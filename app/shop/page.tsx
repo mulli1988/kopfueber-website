@@ -21,8 +21,8 @@ export const SHOP_CATEGORIES = [
   { name: "Für Familien",      emoji: "👨‍👩‍👧", color: "bg-[#FFF8E8]", border: "border-[#D4A855]" },
   { name: "Wandposter",        emoji: "🖼️",  color: "bg-[#FDDDD4]", border: "border-[#D68876]" },
   { name: "Weihnachten",       emoji: "🎄",  color: "bg-[#EBF5EB]", border: "border-[#6BA87A]" },
-  { name: "English Collection",emoji: "🌍",  color: "bg-[#FFF0EB]", border: "border-[#D68876]" },
-  { name: "Kurse und Ratgeber",emoji: "📚",  color: "bg-[#FDDDD4]", border: "border-[#D68876]" },
+  { name: "English Collection",emoji: "🌍",  color: "bg-[#FFF0EB]", border: "border-[#C07B6B]" },
+  { name: "Kurse und Ratgeber",emoji: "📚",  color: "bg-[#EDE8F5]", border: "border-[#9B8EC4]" },
 ];
 
 async function getProducts(category?: string) {
