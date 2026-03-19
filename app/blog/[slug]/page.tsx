@@ -32,54 +32,82 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <article className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-      {/* Back */}
-      <Link href="/blog" className="text-sm font-semibold text-muted-foreground hover:text-foreground no-underline mb-8 inline-block">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+      <Link href="/blog" className="text-sm font-semibold text-[#555555] hover:text-[#222222] no-underline mb-8 inline-block">
         ← Zurück zum Blog
       </Link>
 
-      {/* Tags */}
-      <div className="flex flex-wrap gap-2 mb-4">
-        {post.tags.map((tag: string) => (
-          <Badge key={tag} variant="secondary">{tag}</Badge>
-        ))}
+      <div className="flex flex-col lg:flex-row gap-12">
+
+        {/* Hauptinhalt */}
+        <article className="flex-1 min-w-0">
+          <div className="flex flex-wrap gap-2 mb-4">
+            {post.tags.map((tag: string) => (
+              <Badge key={tag} variant="secondary">{tag}</Badge>
+            ))}
+          </div>
+
+          <h1 className="font-display text-4xl sm:text-5xl font-black leading-tight mb-4">
+            {post.title}
+          </h1>
+
+          <p className="text-sm text-[#555555] mb-8">
+            {post.publishedAt
+              ? new Date(post.publishedAt).toLocaleDateString("de-DE", {
+                  day: "numeric", month: "long", year: "numeric",
+                })
+              : ""}
+          </p>
+
+          {post.coverImage && (
+            <div className="relative w-full aspect-video rounded-3xl overflow-hidden mb-10">
+              <Image
+                src={post.coverImage}
+                alt={post.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 768px"
+                priority
+              />
+            </div>
+          )}
+
+          <div className="prose prose-lg max-w-none
+            prose-headings:font-display prose-headings:font-black
+            prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+            prose-img:rounded-xl">
+            <MDXRemote source={post.content} />
+          </div>
+        </article>
+
+        {/* Sidebar */}
+        <aside className="lg:w-72 flex-shrink-0">
+          <div className="sticky top-24 bg-[#FFF5F2] rounded-3xl border-2 border-[#F0DDD8] p-6 text-center">
+            <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-[#D68876] mb-4">
+              <Image
+                src="/julia-blog.jpg"
+                alt="Julia Flagmeyer"
+                width={128}
+                height={128}
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+            <h3 className="font-display text-xl font-black text-[#222222] mb-3">
+              Hey, schön dass du da bist!
+            </h3>
+            <p className="text-sm text-[#555555] leading-relaxed mb-4">
+              Ich möchte mich von Herzen bei dir für deinen Besuch bedanken.
+              Es freut mich, dass du hier bist und meine Beiträge liest. Ich hoffe,
+              dass du hier wertvolle Informationen findest und inspirierende
+              Geschichten liest. Dein Interesse bedeutet mir viel, und ich freue
+              mich darauf, meine Gedanken und Erfahrungen zu teilen.
+            </p>
+            <p className="text-sm font-bold text-[#555555]">Viel Spaß beim Stöbern!</p>
+            <p className="font-display text-lg font-bold text-[#D68876] mt-2">July</p>
+          </div>
+        </aside>
+
       </div>
-
-      {/* Title */}
-      <h1 className="font-display text-4xl sm:text-5xl font-black leading-tight mb-4">
-        {post.title}
-      </h1>
-
-      {/* Date */}
-      <p className="text-sm text-muted-foreground mb-8">
-        {post.publishedAt
-          ? new Date(post.publishedAt).toLocaleDateString("de-DE", {
-              day: "numeric", month: "long", year: "numeric",
-            })
-          : ""}
-      </p>
-
-      {/* Cover image */}
-      {post.coverImage && (
-        <div className="relative w-full aspect-video rounded-[var(--radius-xl)] overflow-hidden border-2 border-dark mb-10">
-          <Image
-            src={post.coverImage}
-            alt={post.title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 768px"
-            priority
-          />
-        </div>
-      )}
-
-      {/* Content */}
-      <div className="prose prose-lg max-w-none
-        prose-headings:font-display prose-headings:font-black
-        prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-        prose-img:rounded-xl prose-img:border-2 prose-img:border-dark">
-        <MDXRemote source={post.content} />
-      </div>
-    </article>
+    </div>
   );
 }
