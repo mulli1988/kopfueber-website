@@ -136,16 +136,40 @@ export default async function HomePage() {
       {/* Über mich */}
       <section className="bg-white py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-display text-4xl font-black text-[#222222] mb-4">
-            Hey du!
+          <h2 className="font-display text-4xl font-black text-[#222222] mb-6">
+            Wie schön, dass du da bist!
           </h2>
-          <p className="text-[#555555] leading-relaxed mb-6 text-lg">
-            Mein Name ist Julia — und mit acht Jahren Erfahrung in der Leitung meines eigenen
-            kleinen Kindergartens im Gepäck bin ich hier, um mit dir auf eine Reise durch die
-            zauberhafte Welt der Kindererziehung und des Kindergartens zu gehen.
-          </p>
+          <div className="text-[#555555] leading-relaxed text-lg space-y-4 text-left mb-8">
+            <p>
+              Herzlich willkommen in meiner kleinen Ecke des Internets, wo die Worte fliegen
+              und die Kinderlachen erklingen!
+            </p>
+            <p>
+              Mein Name ist Julia, und ich bin keine gewöhnliche Pädagogin — ich bin die
+              Pädagogin mit einem breiten Lächeln und einer Prise sonniger Herzlichkeit.
+            </p>
+            <p>
+              Mit sieben Jahren Erfahrung in der Leitung meines eigenen kleinen Kindergartens
+              im Gepäck bin ich hier, um mit dir auf eine Reise durch die zauberhafte Welt
+              der Kindererziehung zu gehen. Meine Vision ist einfach: Ich möchte, dass die
+              Erziehung deiner Kinder genauso fröhlich und unvergesslich wird wie ein Tag
+              unter der Sonne am Meer.
+            </p>
+            <p>
+              In meinem Blog findest du nicht nur nützliche Tipps und Ratschläge zur
+              Kindererziehung, sondern auch amüsante Anekdoten aus meinem eigenen
+              Kindergartenalltag. Hier vereint sich die sonnige Wärme meiner derzeitigen
+              Heimat Teneriffa mit meinem reichen Erfahrungsschatz in Hamburg zu einer
+              einzigartigen Mischung.
+            </p>
+            <p>
+              Lass uns gemeinsam auf dieser spannenden Reise gehen — ich freue mich darauf,
+              dich in unserer bunten, humorvollen Gemeinschaft willkommen zu heißen!
+            </p>
+            <p className="font-display text-2xl font-bold text-[#D68876]">July</p>
+          </div>
           <Link href="/about">
-            <Button size="lg" variant="outline">Meine Geschichte →</Button>
+            <Button size="lg" variant="outline">Mehr über mich</Button>
           </Link>
         </div>
       </section>
