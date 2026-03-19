@@ -1,6 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import Link from "next/link";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import ProductCard from "@/components/shop/ProductCard";
 import ContactForm from "@/components/home/ContactForm";
