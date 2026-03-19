@@ -1,6 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import { Suspense } from "react";
+import Image from "next/image";
 import { connectToDatabase } from "@/lib/db/mongodb";
 import Product from "@/lib/db/models/Product";
 import ProductCard from "@/components/shop/ProductCard";
@@ -19,7 +20,7 @@ export const metadata = {
 export const SHOP_CATEGORIES = [
   { name: "Für Kindergärten",  emoji: "🏫", color: "bg-[#C5E0E0]", border: "border-[#81ABAD]" },
   { name: "Für Familien",      emoji: "👨‍👩‍👧", color: "bg-[#FFF8E8]", border: "border-[#D4A855]" },
-  { name: "Wandposter",        emoji: "🖼️",  color: "bg-[#FDDDD4]", border: "border-[#D68876]" },
+  { name: "Wandposter",        emoji: "🖼️",  color: "bg-[#FEF0D0]", border: "border-[#C9A84C]" },
   { name: "Weihnachten",       emoji: "🎄",  color: "bg-[#EBF5EB]", border: "border-[#6BA87A]" },
   { name: "English Collection",emoji: "🌍",  color: "bg-[#FFF0EB]", border: "border-[#C07B6B]" },
   { name: "Kurse und Ratgeber",emoji: "📚",  color: "bg-[#EDE8F5]", border: "border-[#9B8EC4]" },
@@ -40,19 +41,15 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
 
   return (
     <div className="min-h-screen">
-      {/* Hero */}
-      <div className="bg-[var(--color-accent)] border-b-4 border-dark py-14 px-4 text-center">
-        <p className="text-sm font-bold uppercase tracking-widest text-dark/60 mb-2">
-          Digitale Downloads · Sofort druckbereit
-        </p>
-        <h1 className="font-display text-5xl sm:text-6xl font-black leading-tight mb-3">
-          Der Kopf<span className="text-[#D68876] inline-block [transform:scaleY(-1)]">über</span>-Shop
-        </h1>
-        <p className="text-lg font-semibold text-dark/70 max-w-xl mx-auto">
-          Liebevoll gestaltete Materialien zum Ausdrucken<br />
-          für Kita &amp; Zuhause 🌈
-        </p>
-      </div>
+      {/* Banner */}
+      <Image
+        src="/banner.jpg"
+        alt="Kopfüber Shop"
+        width={3000}
+        height={750}
+        className="w-full h-auto"
+        priority
+      />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
 
