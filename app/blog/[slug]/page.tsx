@@ -83,13 +83,12 @@ export default async function BlogPostPage({ params }: Props) {
         {/* Sidebar */}
         <aside className="lg:w-72 flex-shrink-0">
           <div className="sticky top-24 bg-[#FFF5F2] rounded-3xl border-2 border-[#F0DDD8] p-6 text-center">
-            <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-[#D68876] mb-4">
+            <div className="relative w-full h-56 rounded-2xl overflow-hidden mb-4">
               <Image
                 src="/julia-blog.jpg"
                 alt="Julia Flagmeyer"
-                width={128}
-                height={128}
-                className="w-full h-full object-cover object-top"
+                fill
+                className="object-cover object-top"
               />
             </div>
             <h3 className="font-display text-xl font-black text-[#222222] mb-3">
