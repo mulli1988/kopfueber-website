@@ -1,17 +1,30 @@
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import ProductCard from "@/components/shop/ProductCard";
+import ContactForm from "@/components/home/ContactForm";
+import { connectToDatabase } from "@/lib/db/mongodb";
+import Product from "@/lib/db/models/Product";
+import BlogPost from "@/lib/db/models/BlogPost";
 
-const CATEGORIES = [
-  { name: "Für Kindergärten", emoji: "🏫", bg: "#E8F4F4", border: "#81ABAD", desc: "Portfolio-Vorlagen, Lernmaterial, Morgenkreis & mehr" },
-  { name: "Für Familien",     emoji: "🌈", bg: "#FFF0EB", border: "#D68876", desc: "Wochenpläne, Spiele & Beschäftigung für Zuhause" },
-  { name: "Wandposter",       emoji: "🖼️", bg: "#FFF8E8", border: "#D4A855", desc: "Schöne Poster zum Ausdrucken & Aufhängen" },
-  { name: "Weihnachten",      emoji: "🎄", bg: "#EBF5EB", border: "#6BA87A", desc: "Adventskalender, Spiele & festliche Vorlagen" },
-  { name: "English Collection", emoji: "🌍", bg: "#E8F4F4", border: "#81ABAD", desc: "Bilingual materials for multilingual families" },
-  { name: "Kurse und Ratgeber", emoji: "📚", bg: "#FFF0EB", border: "#D68876", desc: "Wissen & Inspiration für Pädagog:innen" },
-];
+async function getLatestProducts() {
+  await connectToDatabase();
+  return Product.find({ published: true }).sort({ createdAt: -1 }).limit(3).lean();
+}
 
-export default function HomePage() {
+async function getLatestBlogPost() {
+  await connectToDatabase();
+  return BlogPost.findOne({ published: true }).sort({ publishedAt: -1 }).lean();
+}
+
+export default async function HomePage() {
+  const [products, latestPost] = await Promise.all([
+    getLatestProducts(),
+    getLatestBlogPost(),
+  ]);
+
   return (
     <div>
 
@@ -46,43 +59,83 @@ export default function HomePage() {
         </Link>
       </div>
 
-      {/* Kategorien */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-20">
-        <div className="text-center mb-12">
-          <h2 className="font-display text-4xl font-black text-[#3D3535] mb-2">Was findest du hier?</h2>
-          <p className="text-[#8A7070]">Alle Materialien zum Sofort-Ausdrucken — mit Liebe gestaltet</p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {CATEGORIES.map((cat) => (
-            <Link
-              key={cat.name}
-              href={`/shop?category=${encodeURIComponent(cat.name)}`}
-              className="no-underline group"
-            >
-              <div
-                className="rounded-3xl p-6 border-2 transition-all hover:-translate-y-1 hover:shadow-lg"
-                style={{ backgroundColor: cat.bg, borderColor: cat.border }}
-              >
-                <div className="text-4xl mb-3">{cat.emoji}</div>
-                <h3 className="font-display text-xl font-black mb-1 text-[#3D3535] group-hover:text-[#81ABAD] transition-colors">
-                  {cat.name}
-                </h3>
-                <p className="text-sm text-[#8A7070] leading-snug">{cat.desc}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        <div className="text-center mt-8">
-          <Link href="/shop" className="text-[#81ABAD] font-bold hover:underline">
-            Alle Produkte ansehen →
+      {/* Neuheiten */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h2 className="font-display text-4xl font-black text-[#3D3535]">✨ Neuheiten</h2>
+            <p className="text-[#8A7070] mt-1">Die neuesten Materialien aus dem Shop</p>
+          </div>
+          <Link href="/shop" className="text-[#81ABAD] font-bold hover:underline text-sm">
+            Alle ansehen →
           </Link>
         </div>
+
+        {products.length === 0 ? (
+          <div className="text-center py-16 border-4 border-dashed border-[#F0DDD8] rounded-3xl">
+            <p className="text-4xl mb-3">🎨</p>
+            <p className="text-[#8A7070]">Produkte folgen in Kürze!</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {products.map((p) => (
+              <ProductCard
+                key={p._id.toString()}
+                product={{
+                  _id:          p._id.toString(),
+                  title:        p.title,
+                  slug:         p.slug,
+                  price:        p.price,
+                  images:       p.images,
+                  category:     p.category,
+                  downloadFile: p.downloadFile,
+                }}
+              />
+            ))}
+          </div>
+        )}
       </section>
 
+      {/* Letzter Blogbeitrag */}
+      {latestPost && (
+        <section className="bg-[#FFF5F2] py-16 px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="font-display text-4xl font-black text-[#3D3535]">📝 Aus dem Blog</h2>
+                <p className="text-[#8A7070] mt-1">Tipps & Inspiration für Kita und Zuhause</p>
+              </div>
+              <Link href="/blog" className="text-[#81ABAD] font-bold hover:underline text-sm">
+                Alle Beiträge →
+              </Link>
+            </div>
+            <Link href={`/blog/${latestPost.slug}`} className="no-underline group">
+              <div className="bg-white rounded-3xl border-2 border-[#F0DDD8] overflow-hidden flex flex-col sm:flex-row hover:shadow-lg transition-all hover:-translate-y-1">
+                {latestPost.coverImage && (
+                  <div className="relative w-full sm:w-72 h-48 sm:h-auto flex-shrink-0">
+                    <Image src={latestPost.coverImage} alt={latestPost.title} fill className="object-cover" />
+                  </div>
+                )}
+                <div className="p-8 flex flex-col justify-center">
+                  <p className="text-xs font-bold uppercase tracking-widest text-[#81ABAD] mb-2">
+                    {latestPost.publishedAt
+                      ? new Date(latestPost.publishedAt).toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" })
+                      : "Neuer Beitrag"}
+                  </p>
+                  <h3 className="font-display text-2xl font-black text-[#3D3535] mb-3 group-hover:text-[#81ABAD] transition-colors">
+                    {latestPost.title}
+                  </h3>
+                  <p className="text-[#8A7070] leading-relaxed mb-4">{latestPost.excerpt}</p>
+                  <span className="text-[#D68876] font-bold text-sm">Weiterlesen →</span>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
+      )}
+
       {/* Über mich */}
-      <section className="bg-[#FFF5F2] py-20 px-4">
+      <section className="bg-white py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-4xl mb-4">💛</p>
           <h2 className="font-display text-4xl font-black text-[#3D3535] mb-4">
@@ -99,25 +152,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-20">
-        <div className="rounded-[var(--radius-xl)] text-center py-14 px-6" style={{ background: "linear-gradient(135deg, #FFF0EB 0%, #E8F4F4 100%)", border: "2px solid #F0DDD8" }}>
-          <p className="text-5xl mb-4">🌈</p>
-          <h2 className="font-display text-3xl font-black text-[#3D3535] mb-3">Nichts verpassen!</h2>
-          <p className="text-[#8A7070] mb-6 max-w-md mx-auto">
-            Neue Materialien, Inspirationen und exklusive Angebote —
-            melde dich jetzt kostenlos an.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Link href="/register">
-              <Button size="lg">Jetzt kostenlos registrieren</Button>
-            </Link>
-            <Link href="/shop">
-              <Button size="lg" variant="outline">Zum Shop</Button>
-            </Link>
+      {/* Kontaktformular */}
+      <section className="bg-[#FFF5F2] py-16 px-4">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-4xl mb-3">✉️</p>
+            <h2 className="font-display text-4xl font-black text-[#3D3535] mb-2">Individuelle Anfrage?</h2>
+            <p className="text-[#8A7070]">
+              Du brauchst etwas Besonderes oder hast eine Frage? Schreib mir einfach!
+            </p>
+          </div>
+          <div className="bg-white rounded-3xl border-2 border-[#F0DDD8] p-8">
+            <ContactForm />
           </div>
         </div>
       </section>
+
     </div>
   );
 }
