@@ -9,23 +9,15 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4 relative">
 
         {/* Logo + Markenname */}
-        <Link href="/" className="no-underline flex items-center gap-3 group">
+        <Link href="/" className="no-underline">
           <Image
             src="/logo.jpg"
             alt="Kopfüber Logo"
-            width={56}
-            height={56}
-            className="h-14 w-14 object-contain rounded-full"
+            width={72}
+            height={72}
+            className="h-16 w-16 object-contain rounded-full"
             priority
           />
-          <div className="flex flex-col leading-tight">
-            <span className="font-display text-2xl font-black tracking-tight">
-              <span className="text-[#81ABAD]">KOPF</span><span className="text-[#D68876] inline-block [transform:scaleY(-1)]">ÜBER</span>
-            </span>
-            <span className="text-[10px] font-semibold text-[#8A7070] uppercase tracking-widest">
-              by Julia Flagmeyer
-            </span>
-          </div>
         </Link>
 
         {/* Desktop Navigation */}
