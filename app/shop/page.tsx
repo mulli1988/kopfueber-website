@@ -1,7 +1,6 @@
 export const dynamic = "force-dynamic";
 
 import { Suspense } from "react";
-import Image from "next/image";
 import { connectToDatabase } from "@/lib/db/mongodb";
 import Product from "@/lib/db/models/Product";
 import ProductCard from "@/components/shop/ProductCard";
