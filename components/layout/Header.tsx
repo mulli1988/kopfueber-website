@@ -20,7 +20,7 @@ export default function Header() {
           />
           <div className="flex flex-col leading-tight">
             <span className="font-display text-2xl font-black text-[#3D3535] group-hover:text-[#81ABAD] transition-colors tracking-tight">
-              Kopf<span className="text-[#D68876] inline-block rotate-180">über</span>
+              Kopf<span className="text-[#D68876] inline-block [transform:scaleY(-1)]">über</span>
             </span>
             <span className="text-[10px] font-semibold text-[#8A7070] uppercase tracking-widest">
               by Julia Flagmeyer

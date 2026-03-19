@@ -46,7 +46,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
           Digitale Downloads · Sofort druckbereit
         </p>
         <h1 className="font-display text-5xl sm:text-6xl font-black leading-tight mb-3">
-          Der Kopf<span className="text-[#D68876] inline-block rotate-180">über</span>-Shop
+          Der Kopf<span className="text-[#D68876] inline-block [transform:scaleY(-1)]">über</span>-Shop
         </h1>
         <p className="text-lg font-semibold text-dark/70 max-w-xl mx-auto">
           Liebevoll gestaltete Materialien zum Ausdrucken<br />
