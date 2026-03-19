@@ -16,24 +16,22 @@ export default function HomePage() {
     <div>
 
       {/* Hero Banner */}
-      <section className="bg-white py-8 px-4">
-        <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
-          <Image
-            src="/banner.jpg"
-            alt="Kopfüber — Liebevoll gestaltete Materialien zum Ausdrucken für Kita & Zuhause"
-            width={3000}
-            height={750}
-            className="w-full h-auto rounded-3xl"
-            priority
-          />
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Link href="/shop">
-              <Button size="lg">Zum Shop →</Button>
-            </Link>
-            <Link href={`/shop?category=${encodeURIComponent("Für Kindergärten")}`}>
-              <Button size="lg" variant="outline">🏫 Für Kitas</Button>
-            </Link>
-          </div>
+      <section className="bg-white">
+        <Image
+          src="/banner.jpg"
+          alt="Kopfüber — Liebevoll gestaltete Materialien zum Ausdrucken für Kita & Zuhause"
+          width={3000}
+          height={750}
+          className="w-full h-auto"
+          priority
+        />
+        <div className="flex flex-wrap gap-3 justify-center py-6 px-4">
+          <Link href="/shop">
+            <Button size="lg">Zum Shop →</Button>
+          </Link>
+          <Link href={`/shop?category=${encodeURIComponent("Für Kindergärten")}`}>
+            <Button size="lg" variant="outline">🏫 Für Kitas</Button>
+          </Link>
         </div>
       </section>
 
