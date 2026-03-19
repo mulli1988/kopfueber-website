@@ -15,6 +15,9 @@ interface CategoryFilterProps {
   activeCategory?: string;
 }
 
+const ALL_BG    = "#FDDDD4";
+const ALL_BORDER = "#D68876";
+
 export default function CategoryFilter({ categories, activeCategory }: CategoryFilterProps) {
   const router = useRouter();
   const params = useSearchParams();
@@ -34,31 +37,33 @@ export default function CategoryFilter({ categories, activeCategory }: CategoryF
       {/* "Alle" Button */}
       <button
         onClick={() => select(null)}
-        className={cn(
-          "flex items-center gap-2 px-5 py-3 rounded-2xl border-2 border-dark font-bold text-sm transition-all shadow-[var(--shadow-sm)] hover:-translate-y-0.5",
-          !activeCategory
-            ? "bg-dark text-white"
-            : "bg-surface text-foreground hover:bg-muted"
-        )}
+        className="px-5 py-3 rounded-2xl border-2 font-bold text-sm transition-all hover:-translate-y-0.5 hover:brightness-95 text-[#3D3535]"
+        style={{
+          backgroundColor: ALL_BG,
+          borderColor: ALL_BORDER,
+          boxShadow: !activeCategory ? "3px 4px 0px #C8A8A0" : undefined,
+          transform: !activeCategory ? "translateY(-2px)" : undefined,
+        }}
       >
-        <span>✨</span>
-        <span>Alle Produkte</span>
+        Alle Produkte
       </button>
 
-      {/* Kategorie-Karten */}
+      {/* Kategorie-Buttons */}
       {categories.map((cat) => (
         <button
           key={cat.name}
           onClick={() => select(cat.name)}
           className={cn(
-            "flex items-center gap-2 px-5 py-3 rounded-2xl border-2 font-bold text-sm transition-all shadow-[var(--shadow-sm)] hover:-translate-y-0.5",
-            activeCategory === cat.name
-              ? `${cat.color} ${cat.border} -translate-y-0.5 shadow-[var(--shadow-md)]`
-              : "bg-surface border-dark text-foreground hover:bg-muted"
+            "px-5 py-3 rounded-2xl border-2 font-bold text-sm transition-all hover:-translate-y-0.5 hover:brightness-95 text-[#3D3535]",
+            activeCategory === cat.name && "-translate-y-0.5"
           )}
+          style={{
+            backgroundColor: cat.color.replace("bg-[", "").replace("]", ""),
+            borderColor: cat.border.replace("border-[", "").replace("]", ""),
+            boxShadow: activeCategory === cat.name ? "3px 4px 0px #C8A8A0" : undefined,
+          }}
         >
-          <span className="text-lg">{cat.emoji}</span>
-          <span>{cat.name}</span>
+          {cat.name}
         </button>
       ))}
     </div>
