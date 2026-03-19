@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 
 const CATEGORIES = [
@@ -14,36 +15,25 @@ export default function HomePage() {
   return (
     <div>
 
-      {/* Hero — wie Etsy Banner: hell, luftig, Markenname groß */}
-      <section className="bg-white py-20 px-4 text-center relative overflow-hidden">
-        {/* Dezente Hintergrund-Deko */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-          <div className="absolute top-8 left-8 w-32 h-32 rounded-full bg-[#FFF0EB] opacity-60" />
-          <div className="absolute bottom-8 right-8 w-40 h-40 rounded-full bg-[#E8F4F4] opacity-60" />
-          <div className="absolute top-1/2 left-1/4 w-20 h-20 rounded-full bg-[#FFF8E8] opacity-40" />
+      {/* Hero Banner */}
+      <section className="bg-white">
+        <div className="w-full">
+          <Image
+            src="/banner.jpg"
+            alt="Kopfüber — Liebevoll gestaltete Materialien zum Ausdrucken für Kita & Zuhause"
+            width={3000}
+            height={750}
+            className="w-full h-auto"
+            priority
+          />
         </div>
-
-        <div className="relative max-w-3xl mx-auto">
-          <p className="text-sm font-bold uppercase tracking-widest text-[#C07B6B] mb-4">
-            🖨️ Digitale Downloads · Sofort druckbereit
-          </p>
-          <h1 className="font-display text-6xl sm:text-7xl font-black leading-tight text-[#3D3535] mb-3">
-            Kopf<span className="text-[#D68876] inline-block rotate-180">über</span>
-          </h1>
-          <p className="text-xl font-semibold text-[#5B9EA0] uppercase tracking-wide mb-4">
-            Liebevoll gestaltete Materialien zum Ausdrucken
-          </p>
-          <p className="text-2xl font-black text-[#3D3535] mb-8">
-            für Kita & Zuhause 🌈
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Link href="/shop">
-              <Button size="lg">Zum Shop →</Button>
-            </Link>
-            <Link href={`/shop?category=${encodeURIComponent("Für Kindergärten")}`}>
-              <Button size="lg" variant="outline">🏫 Für Kitas</Button>
-            </Link>
-          </div>
+        <div className="flex flex-wrap gap-3 justify-center py-8 px-4">
+          <Link href="/shop">
+            <Button size="lg">Zum Shop →</Button>
+          </Link>
+          <Link href={`/shop?category=${encodeURIComponent("Für Kindergärten")}`}>
+            <Button size="lg" variant="outline">🏫 Für Kitas</Button>
+          </Link>
         </div>
       </section>
 
