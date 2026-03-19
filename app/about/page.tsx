@@ -36,8 +36,8 @@ export default function AboutPage() {
               Hey! Wie schön, dass du da bist!
             </h1>
             <p className="text-xl text-[#555555] leading-relaxed">
-              Erzieherin aus Hamburg, Kindergartenleiterin mit Leib und Seele —
-              und heute mit Sonnenschein auf Teneriffa.
+              Mein Name ist Julia, Erzieherin aus Hamburg, Kindergartenleiterin
+              mit Leib und Seele — und heute mit Sonnenschein auf Teneriffa.
             </p>
           </div>
         </div>
