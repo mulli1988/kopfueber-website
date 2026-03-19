@@ -1,48 +1,99 @@
 import type { Metadata } from "next";
-import Card from "@/components/ui/Card";
-import Badge from "@/components/ui/Badge";
-import Button from "@/components/ui/Button";
+import Image from "next/image";
 import Link from "next/link";
+import Button from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Über mich",
-  description: "Die Geschichte hinter Kopfüber.",
+  description: "Julia Flagmeyer — Erzieherin, Kindergartenleiterin und Gründerin von Kopfüber.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-      <Badge variant="accent" className="mb-4">Über mich</Badge>
-      <h1 className="font-display text-5xl font-black leading-tight mb-6">
-        Hinter jedem Druck<br />steckt eine Geschichte.
-      </h1>
+    <div>
+      {/* Hero */}
+      <section className="bg-[#FFF5F2] py-16 px-4">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
 
-      {/* Platzhalter — wird mit echtem Inhalt befüllt */}
-      <div className="prose prose-lg max-w-none mb-10
-        prose-headings:font-display prose-headings:font-black
-        prose-a:text-primary">
-        <p>
-          Hier steht deine persönliche Geschichte — wer du bist, was dich antreibt
-          und warum du Kopfüber gegründet hast. Dieser Text kann im Admin-Portal
-          jederzeit angepasst werden.
-        </p>
-        <p>
-          Kopfüber steht für Kunst, die aus dem Kopf fällt und das Herz anspricht.
-          Jedes Stück ist mit Sorgfalt und Leidenschaft entstanden.
-        </p>
-      </div>
+          {/* Foto */}
+          <div className="flex-shrink-0">
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-[#D68876] shadow-lg">
+              <Image
+                src="/julia.jpg"
+                alt="Julia Flagmeyer"
+                width={320}
+                height={320}
+                className="w-full h-full object-cover"
+                priority
+              />
+            </div>
+          </div>
 
-      <Card className="bg-muted border-dark mb-8">
-        <h2 className="font-display text-xl font-bold mb-2">Kontakt</h2>
-        <p className="text-muted-foreground text-sm">
-          Du hast Fragen, Wünsche oder möchtest einfach Hallo sagen?
-          Schreib mir gerne — ich freue mich!
-        </p>
-      </Card>
+          {/* Intro */}
+          <div>
+            <p className="text-sm font-bold uppercase tracking-widest text-[#81ABAD] mb-2">Über mich</p>
+            <h1 className="font-display text-5xl font-black text-[#3D3535] leading-tight mb-4">
+              Hallo, ich bin Julia! 👋
+            </h1>
+            <p className="text-xl text-[#8A7070] leading-relaxed">
+              Erzieherin aus Hamburg, Kindergartenleiterin mit Leib und Seele —
+              und heute mit Sonnenschein auf Teneriffa.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <Link href="/shop">
-        <Button size="lg">Zum Shop →</Button>
-      </Link>
+      {/* Text */}
+      <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
+
+        <div className="space-y-6 text-lg text-[#5C4E4E] leading-relaxed">
+          <p>
+            Ich bin Julia, gebürtig aus dem wunderschönen Hamburg — und seit 15 Jahren mit Herz
+            und Seele Erzieherin. In den letzten sieben Jahren habe ich meinen eigenen Kindergarten
+            geleitet und mich dabei auf die Arbeit mit Krippenkindern spezialisiert.
+          </p>
+          <p>
+            Die ersten Lebensjahre sind eine magische Zeit voller Entdeckungen. Die Kleinen brauchen
+            viel Vertrauen, Wärme und liebevolle Unterstützung — und genau das ist der Kern meiner
+            Arbeit. Jedes Material, das ich gestalte, entsteht aus dieser Überzeugung heraus.
+          </p>
+          <p>
+            Heute lebe ich auf Teneriffa und bringe die sonnige Energie der Insel in alles ein,
+            was ich tue. Diese Mischung aus Hamburger Gründlichkeit und kanarischer Leichtigkeit
+            macht meine Materialien zu dem, was sie sind: durchdacht, liebevoll — und mit einem
+            Lächeln gemacht.
+          </p>
+          <p>
+            Ich freue mich darauf, dich in meiner warmen und humorvollen Community willkommen zu
+            heißen. Gemeinsam entdecken wir die Wunder der Kindheit — kopfüber! 🌈
+          </p>
+        </div>
+
+        {/* Highlights */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-12">
+          <div className="bg-[#C5E0E0] rounded-3xl p-6 text-center border-2 border-[#81ABAD]">
+            <p className="text-4xl font-black text-[#3D3535] mb-1">15</p>
+            <p className="text-sm font-bold text-[#5C4E4E]">Jahre als Erzieherin</p>
+          </div>
+          <div className="bg-[#FDDDD4] rounded-3xl p-6 text-center border-2 border-[#D68876]">
+            <p className="text-4xl font-black text-[#3D3535] mb-1">7</p>
+            <p className="text-sm font-bold text-[#5C4E4E]">Jahre Kindergartenleitung</p>
+          </div>
+          <div className="bg-[#EBF5EB] rounded-3xl p-6 text-center border-2 border-[#6BA87A]">
+            <p className="text-3xl font-black text-[#3D3535] mb-1">☀️</p>
+            <p className="text-sm font-bold text-[#5C4E4E]">Heute auf Teneriffa</p>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-3">
+          <Link href="/shop">
+            <Button size="lg">Zum Shop →</Button>
+          </Link>
+          <Link href="/#kontakt">
+            <Button size="lg" variant="outline">Schreib mir ✉️</Button>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }
