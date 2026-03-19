@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, Geist_Mono } from "next/font/google";
+import { Baloo_2, Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SessionProvider from "@/components/layout/SessionProvider";
 
-const fraunces = Fraunces({
+const baloo2 = Baloo_2({
   variable: "--font-fraunces",
   subsets: ["latin"],
-  axes: ["opsz", "SOFT", "WONK"],
-  weight: "variable",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const inter = Inter({
@@ -47,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body
-        className={`${fraunces.variable} ${inter.variable} ${geistMono.variable} antialiased`}
+        className={`${baloo2.variable} ${inter.variable} ${geistMono.variable} antialiased`}
       >
         <SessionProvider>
           <Header />

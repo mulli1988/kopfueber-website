@@ -28,7 +28,7 @@ export default function HomePage() {
             🖨️ Digitale Downloads · Sofort druckbereit
           </p>
           <h1 className="font-display text-6xl sm:text-7xl font-black leading-tight text-[#3D3535] mb-3">
-            Kopf<span className="text-[#C07B6B]">über</span>
+            Kopf<span className="text-[#D68876] inline-block rotate-180">über</span>
           </h1>
           <p className="text-xl font-semibold text-[#5B9EA0] uppercase tracking-wide mb-4">
             Liebevoll gestaltete Materialien zum Ausdrucken

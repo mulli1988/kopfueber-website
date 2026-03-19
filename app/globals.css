@@ -3,13 +3,13 @@
 
 @theme inline {
   /* Brand Colors — Pastell, hell & verspielt */
-  --color-primary:        #5B9EA0;   /* Teal (wie im Banner "FÜR KITA") */
-  --color-primary-light:  #7DBFC1;
-  --color-primary-dark:   #3D8082;
+  --color-primary:        #81ABAD;   /* Teal — Logo-Farbe */
+  --color-primary-light:  #A0C5C7;
+  --color-primary-dark:   #5D8F91;
 
-  --color-secondary:      #C07B6B;   /* Warmes Terrakotta (wie im Banner) */
-  --color-secondary-light:#D99A8D;
-  --color-secondary-dark: #A05E50;
+  --color-secondary:      #D68876;   /* Terrakotta — Logo-Farbe */
+  --color-secondary-light:#E5A898;
+  --color-secondary-dark: #B86E5E;
 
   --color-accent:         #FFF0EB;   /* Zartes Pastell-Rosa */
   --color-accent-dark:    #FDDDD4;
