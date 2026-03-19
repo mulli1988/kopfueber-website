@@ -88,7 +88,7 @@ export default async function BlogPostPage({ params }: Props) {
                 src="/julia-blog.jpg"
                 alt="Julia Flagmeyer"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-center"
               />
             </div>
             <h3 className="font-display text-xl font-black text-[#222222] mb-3">
