@@ -41,15 +41,6 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
 
   return (
     <div className="min-h-screen">
-      {/* Banner */}
-      <Image
-        src="/banner.jpg"
-        alt="Kopfüber Shop"
-        width={3000}
-        height={750}
-        className="w-full h-auto"
-        priority
-      />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
 
