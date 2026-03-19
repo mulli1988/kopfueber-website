@@ -87,7 +87,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
         {/* Produkt-Grid */}
         {products.length === 0 ? (
           <div className="text-center py-24 border-4 border-dashed border-muted rounded-[var(--radius-xl)]">
-            <p className="text-5xl mb-4">🎨</p>
+
             <p className="font-display text-2xl font-bold mb-2">
               {category ? `Noch keine Produkte in "${category}"` : "Noch keine Produkte"}
             </p>

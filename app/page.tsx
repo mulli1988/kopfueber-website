@@ -42,20 +42,20 @@ export default async function HomePage() {
 
       {/* Pastell-Navigationsleiste */}
       <div className="flex">
-        <Link href="/shop" className="flex-1 bg-[#FDDDD4] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#3D3535] uppercase tracking-widest">
-          🛍️ Shop
+        <Link href="/shop" className="flex-1 bg-[#FDDDD4] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#222222] uppercase tracking-widest">
+          Shop
         </Link>
-        <Link href="/shop?category=F%C3%BCr%20Kinderg%C3%A4rten" className="flex-1 bg-[#C5E0E0] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#3D3535] uppercase tracking-widest">
-          🏫 Für Kitas
+        <Link href="/shop?category=F%C3%BCr%20Kinderg%C3%A4rten" className="flex-1 bg-[#C5E0E0] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#222222] uppercase tracking-widest">
+          Für Kitas
         </Link>
-        <Link href="/shop?category=F%C3%BCr%20Familien" className="flex-1 bg-[#FFF8E8] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#3D3535] uppercase tracking-widest">
-          🌈 Für Familien
+        <Link href="/shop?category=F%C3%BCr%20Familien" className="flex-1 bg-[#FFF8E8] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#222222] uppercase tracking-widest">
+          Für Familien
         </Link>
-        <Link href="/blog" className="flex-1 bg-[#EBF5EB] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#3D3535] uppercase tracking-widest">
-          📝 Blog
+        <Link href="/blog" className="flex-1 bg-[#EBF5EB] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#222222] uppercase tracking-widest">
+          Blog
         </Link>
-        <Link href="/forum" className="flex-1 bg-[#FFF0EB] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#3D3535] uppercase tracking-widest">
-          💬 Forum
+        <Link href="/forum" className="flex-1 bg-[#FFF0EB] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#222222] uppercase tracking-widest">
+          Forum
         </Link>
       </div>
 
@@ -63,8 +63,8 @@ export default async function HomePage() {
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="font-display text-4xl font-black text-[#3D3535]">✨ Neuheiten</h2>
-            <p className="text-[#8A7070] mt-1">Die neuesten Materialien aus dem Shop</p>
+            <h2 className="font-display text-4xl font-black text-[#222222]">Neuheiten</h2>
+            <p className="text-[#555555] mt-1">Die neuesten Materialien aus dem Shop</p>
           </div>
           <Link href="/shop" className="text-[#81ABAD] font-bold hover:underline text-sm">
             Alle ansehen →
@@ -73,8 +73,7 @@ export default async function HomePage() {
 
         {products.length === 0 ? (
           <div className="text-center py-16 border-4 border-dashed border-[#F0DDD8] rounded-3xl">
-            <p className="text-4xl mb-3">🎨</p>
-            <p className="text-[#8A7070]">Produkte folgen in Kürze!</p>
+            <p className="text-[#555555]">Produkte folgen in Kürze!</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -102,8 +101,8 @@ export default async function HomePage() {
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h2 className="font-display text-4xl font-black text-[#3D3535]">📝 Aus dem Blog</h2>
-                <p className="text-[#8A7070] mt-1">Tipps & Inspiration für Kita und Zuhause</p>
+                <h2 className="font-display text-4xl font-black text-[#222222]">Aus dem Blog</h2>
+                <p className="text-[#555555] mt-1">Tipps & Inspiration für Kita und Zuhause</p>
               </div>
               <Link href="/blog" className="text-[#81ABAD] font-bold hover:underline text-sm">
                 Alle Beiträge →
@@ -122,10 +121,10 @@ export default async function HomePage() {
                       ? new Date(latestPost.publishedAt).toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" })
                       : "Neuer Beitrag"}
                   </p>
-                  <h3 className="font-display text-2xl font-black text-[#3D3535] mb-3 group-hover:text-[#81ABAD] transition-colors">
+                  <h3 className="font-display text-2xl font-black text-[#222222] mb-3 group-hover:text-[#81ABAD] transition-colors">
                     {latestPost.title}
                   </h3>
-                  <p className="text-[#8A7070] leading-relaxed mb-4">{latestPost.excerpt}</p>
+                  <p className="text-[#555555] leading-relaxed mb-4">{latestPost.excerpt}</p>
                   <span className="text-[#D68876] font-bold text-sm">Weiterlesen →</span>
                 </div>
               </div>
@@ -137,11 +136,10 @@ export default async function HomePage() {
       {/* Über mich */}
       <section className="bg-white py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <p className="text-4xl mb-4">💛</p>
-          <h2 className="font-display text-4xl font-black text-[#3D3535] mb-4">
+          <h2 className="font-display text-4xl font-black text-[#222222] mb-4">
             Materialien mit Herzblut gemacht.
           </h2>
-          <p className="text-[#8A7070] leading-relaxed mb-6 text-lg">
+          <p className="text-[#555555] leading-relaxed mb-6 text-lg">
             Hinter Kopfüber steckt Julia Flagmeyer — und die Überzeugung,
             dass liebevoll gestaltete Materialien den Kita-Alltag schöner machen.
             Alles direkt ausdruckbar. Sofort einsatzbereit.
@@ -156,9 +154,8 @@ export default async function HomePage() {
       <section className="bg-[#FFF5F2] py-16 px-4">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-10">
-            <p className="text-4xl mb-3">✉️</p>
-            <h2 className="font-display text-4xl font-black text-[#3D3535] mb-2">Individuelle Anfrage?</h2>
-            <p className="text-[#8A7070]">
+            <h2 className="font-display text-4xl font-black text-[#222222] mb-2">Individuelle Anfrage?</h2>
+            <p className="text-[#555555]">
               Du brauchst etwas Besonderes oder hast eine Frage? Schreib mir einfach!
             </p>
           </div>

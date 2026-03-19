@@ -26,9 +26,8 @@ export default function ContactForm() {
   if (status === "success") {
     return (
       <div className="text-center py-10">
-        <p className="text-4xl mb-3">💛</p>
-        <p className="font-display text-2xl font-black text-[#3D3535] mb-2">Vielen Dank!</p>
-        <p className="text-[#8A7070]">Ich melde mich so schnell wie möglich bei dir.</p>
+        <p className="font-display text-2xl font-black text-[#222222] mb-2">Vielen Dank!</p>
+        <p className="text-[#555555]">Ich melde mich so schnell wie möglich bei dir.</p>
       </div>
     );
   }
