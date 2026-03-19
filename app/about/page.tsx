@@ -33,7 +33,7 @@ export default function AboutPage() {
           <div>
             <p className="text-sm font-bold uppercase tracking-widest text-[#81ABAD] mb-2">Über mich</p>
             <h1 className="font-display text-5xl font-black text-[#222222] leading-tight mb-4">
-              Hallo, ich bin Julia!
+              Hey! Wie schön, dass du da bist!
             </h1>
             <p className="text-xl text-[#555555] leading-relaxed">
               Erzieherin aus Hamburg, Kindergartenleiterin mit Leib und Seele —
