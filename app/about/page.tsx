@@ -23,7 +23,7 @@ export default function AboutPage() {
                 alt="Julia Flagmeyer"
                 width={320}
                 height={320}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
                 priority
               />
             </div>
@@ -35,7 +35,7 @@ export default function AboutPage() {
             <h1 className="font-display text-5xl font-black text-[#3D3535] leading-tight mb-4">
               Hallo, ich bin Julia! 👋
             </h1>
-            <p className="text-xl text-[#8A7070] leading-relaxed">
+            <p className="text-xl text-[#666666] leading-relaxed">
               Erzieherin aus Hamburg, Kindergartenleiterin mit Leib und Seele —
               und heute mit Sonnenschein auf Teneriffa.
             </p>
@@ -46,7 +46,7 @@ export default function AboutPage() {
       {/* Text */}
       <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
 
-        <div className="space-y-6 text-lg text-[#5C4E4E] leading-relaxed">
+        <div className="space-y-6 text-lg text-[#555555] leading-relaxed">
           <p>
             Ich bin Julia, gebürtig aus dem wunderschönen Hamburg — und seit 15 Jahren mit Herz
             und Seele Erzieherin. In den letzten sieben Jahren habe ich meinen eigenen Kindergarten
@@ -73,15 +73,15 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-12">
           <div className="bg-[#C5E0E0] rounded-3xl p-6 text-center border-2 border-[#81ABAD]">
             <p className="text-4xl font-black text-[#3D3535] mb-1">15</p>
-            <p className="text-sm font-bold text-[#5C4E4E]">Jahre als Erzieherin</p>
+            <p className="text-sm font-bold text-[#555555]">Jahre als Erzieherin</p>
           </div>
           <div className="bg-[#FDDDD4] rounded-3xl p-6 text-center border-2 border-[#D68876]">
             <p className="text-4xl font-black text-[#3D3535] mb-1">7</p>
-            <p className="text-sm font-bold text-[#5C4E4E]">Jahre Kindergartenleitung</p>
+            <p className="text-sm font-bold text-[#555555]">Jahre Kindergartenleitung</p>
           </div>
           <div className="bg-[#EBF5EB] rounded-3xl p-6 text-center border-2 border-[#6BA87A]">
             <p className="text-3xl font-black text-[#3D3535] mb-1">☀️</p>
-            <p className="text-sm font-bold text-[#5C4E4E]">Heute auf Teneriffa</p>
+            <p className="text-sm font-bold text-[#555555]">Heute auf Teneriffa</p>
           </div>
         </div>
 
