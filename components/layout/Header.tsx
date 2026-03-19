@@ -20,7 +20,7 @@ export default function Header() {
           />
           <div className="flex flex-col leading-tight">
             <span className="font-display text-2xl font-black tracking-tight">
-              <span className="text-[#81ABAD]">Kopf</span><span className="text-[#D68876] inline-block [transform:scaleY(-1)]">über</span>
+              <span className="text-[#81ABAD]">KOPF</span><span className="text-[#D68876] inline-block [transform:scaleY(-1)]">ÜBER</span>
             </span>
             <span className="text-[10px] font-semibold text-[#8A7070] uppercase tracking-widest">
               by Julia Flagmeyer
