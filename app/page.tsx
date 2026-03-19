@@ -137,12 +137,12 @@ export default async function HomePage() {
       <section className="bg-white py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="font-display text-4xl font-black text-[#222222] mb-4">
-            Materialien mit Herzblut gemacht.
+            Hey du!
           </h2>
           <p className="text-[#555555] leading-relaxed mb-6 text-lg">
-            Hinter Kopfüber steckt Julia Flagmeyer — und die Überzeugung,
-            dass liebevoll gestaltete Materialien den Kita-Alltag schöner machen.
-            Alles direkt ausdruckbar. Sofort einsatzbereit.
+            Mein Name ist Julia — und mit acht Jahren Erfahrung in der Leitung meines eigenen
+            kleinen Kindergartens im Gepäck bin ich hier, um mit dir auf eine Reise durch die
+            zauberhafte Welt der Kindererziehung und des Kindergartens zu gehen.
           </p>
           <Link href="/about">
             <Button size="lg" variant="outline">Meine Geschichte →</Button>
