@@ -48,25 +48,37 @@ export default function AboutPage() {
 
         <div className="space-y-6 text-lg text-[#444444] leading-relaxed">
           <p>
-            Ich bin Julia, gebürtig aus dem wunderschönen Hamburg — und seit 15 Jahren mit Herz
-            und Seele Erzieherin. In den letzten sieben Jahren habe ich meinen eigenen Kindergarten
-            geleitet und mich dabei auf die Arbeit mit Krippenkindern spezialisiert.
+            Herzlich willkommen in meiner kleinen Ecke des Internets, wo die Worte fliegen
+            und die Kinderlachen erklingen!
           </p>
           <p>
-            Die ersten Lebensjahre sind eine magische Zeit voller Entdeckungen. Die Kleinen brauchen
-            viel Vertrauen, Wärme und liebevolle Unterstützung — und genau das ist der Kern meiner
-            Arbeit. Jedes Material, das ich gestalte, entsteht aus dieser Überzeugung heraus.
+            Mein Name ist Julia, und ich bin keine gewöhnliche Pädagogin — ich bin die
+            Pädagogin mit einem breiten Lächeln und einer Prise sonniger Herzlichkeit.
           </p>
           <p>
-            Heute lebe ich auf Teneriffa und bringe die sonnige Energie der Insel in alles ein,
-            was ich tue. Diese Mischung aus Hamburger Gründlichkeit und kanarischer Leichtigkeit
-            macht meine Materialien zu dem, was sie sind: durchdacht, liebevoll — und mit einem
-            Lächeln gemacht.
+            Mit sieben Jahren Erfahrung in der Leitung meines eigenen kleinen Kindergartens
+            im Gepäck bin ich hier, um mit dir auf eine Reise durch die zauberhafte Welt
+            der Kindererziehung zu gehen. Meine Vision ist einfach: Ich möchte, dass die
+            Erziehung deiner Kinder genauso fröhlich und unvergesslich wird wie ein Tag
+            unter der Sonne am Meer.
           </p>
           <p>
-            Ich freue mich darauf, dich in meiner warmen und humorvollen Community willkommen zu
-            heißen. Gemeinsam entdecken wir die Wunder der Kindheit — kopfüber!
+            In meinem Blog findest du nicht nur nützliche Tipps und Ratschläge zur
+            Kindererziehung, sondern auch amüsante Anekdoten aus meinem eigenen
+            Kindergartenalltag. Hier vereint sich die sonnige Wärme meiner derzeitigen
+            Heimat Teneriffa mit meinem reichen Erfahrungsschatz in Hamburg zu einer
+            einzigartigen Mischung.
           </p>
+          <p>
+            Lass uns gemeinsam auf dieser spannenden Reise gehen, bei der wir die Welt der
+            Kindergartenkinder erkunden und die Elternschaft als das süße und erfüllende
+            Abenteuer gestalten, das es sein kann.
+          </p>
+          <p>
+            Ich freue mich darauf, dich in unserer bunten, humorvollen Gemeinschaft
+            willkommen zu heißen!
+          </p>
+          <p className="font-display text-2xl font-bold text-[#D68876]">July</p>
         </div>
 
         {/* Highlights */}
