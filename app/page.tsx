@@ -25,14 +25,6 @@ export default function HomePage() {
           className="w-full h-auto"
           priority
         />
-        <div className="flex flex-wrap gap-3 justify-center py-6 px-4">
-          <Link href="/shop">
-            <Button size="lg">Zum Shop →</Button>
-          </Link>
-          <Link href={`/shop?category=${encodeURIComponent("Für Kindergärten")}`}>
-            <Button size="lg" variant="outline">🏫 Für Kitas</Button>
-          </Link>
-        </div>
       </section>
 
       {/* Pastell-Navigationsleiste */}
