@@ -19,8 +19,8 @@ export default function Header() {
             priority
           />
           <div className="flex flex-col leading-tight">
-            <span className="font-display text-2xl font-black text-[#3D3535] group-hover:text-[#81ABAD] transition-colors tracking-tight">
-              Kopf<span className="text-[#D68876] inline-block [transform:scaleY(-1)]">über</span>
+            <span className="font-display text-2xl font-black tracking-tight">
+              <span className="text-[#81ABAD]">Kopf</span><span className="text-[#D68876] inline-block [transform:scaleY(-1)]">über</span>
             </span>
             <span className="text-[10px] font-semibold text-[#8A7070] uppercase tracking-widest">
               by Julia Flagmeyer
@@ -41,7 +41,7 @@ export default function Header() {
           </Link>
           <Link
             href="/shop"
-            className="px-5 py-2 rounded-full bg-[#5B9EA0] text-white text-sm font-bold hover:bg-[#3D8082] transition-colors no-underline"
+            className="px-5 py-2 rounded-full bg-[#81ABAD] text-white text-sm font-bold hover:bg-[#5D8F91] transition-colors no-underline"
           >
             Zum Shop →
           </Link>

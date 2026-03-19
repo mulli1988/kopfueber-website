@@ -3,12 +3,12 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 
 const CATEGORIES = [
-  { name: "Für Kindergärten", emoji: "🏫", bg: "#E8F4F4", border: "#5B9EA0", desc: "Portfolio-Vorlagen, Lernmaterial, Morgenkreis & mehr" },
-  { name: "Für Familien",     emoji: "🌈", bg: "#FFF0EB", border: "#C07B6B", desc: "Wochenpläne, Spiele & Beschäftigung für Zuhause" },
+  { name: "Für Kindergärten", emoji: "🏫", bg: "#E8F4F4", border: "#81ABAD", desc: "Portfolio-Vorlagen, Lernmaterial, Morgenkreis & mehr" },
+  { name: "Für Familien",     emoji: "🌈", bg: "#FFF0EB", border: "#D68876", desc: "Wochenpläne, Spiele & Beschäftigung für Zuhause" },
   { name: "Wandposter",       emoji: "🖼️", bg: "#FFF8E8", border: "#D4A855", desc: "Schöne Poster zum Ausdrucken & Aufhängen" },
   { name: "Weihnachten",      emoji: "🎄", bg: "#EBF5EB", border: "#6BA87A", desc: "Adventskalender, Spiele & festliche Vorlagen" },
-  { name: "English Collection", emoji: "🌍", bg: "#E8F4F4", border: "#5B9EA0", desc: "Bilingual materials for multilingual families" },
-  { name: "Kurse und Ratgeber", emoji: "📚", bg: "#FFF0EB", border: "#C07B6B", desc: "Wissen & Inspiration für Pädagog:innen" },
+  { name: "English Collection", emoji: "🌍", bg: "#E8F4F4", border: "#81ABAD", desc: "Bilingual materials for multilingual families" },
+  { name: "Kurse und Ratgeber", emoji: "📚", bg: "#FFF0EB", border: "#D68876", desc: "Wissen & Inspiration für Pädagog:innen" },
 ];
 
 export default function HomePage() {
@@ -65,7 +65,7 @@ export default function HomePage() {
                 style={{ backgroundColor: cat.bg, borderColor: cat.border }}
               >
                 <div className="text-4xl mb-3">{cat.emoji}</div>
-                <h3 className="font-display text-xl font-black mb-1 text-[#3D3535] group-hover:text-[#5B9EA0] transition-colors">
+                <h3 className="font-display text-xl font-black mb-1 text-[#3D3535] group-hover:text-[#81ABAD] transition-colors">
                   {cat.name}
                 </h3>
                 <p className="text-sm text-[#8A7070] leading-snug">{cat.desc}</p>
@@ -75,7 +75,7 @@ export default function HomePage() {
         </div>
 
         <div className="text-center mt-8">
-          <Link href="/shop" className="text-[#5B9EA0] font-bold hover:underline">
+          <Link href="/shop" className="text-[#81ABAD] font-bold hover:underline">
             Alle Produkte ansehen →
           </Link>
         </div>
