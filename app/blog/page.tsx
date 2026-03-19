@@ -19,9 +19,17 @@ export default async function BlogPage() {
     .lean();
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-      <h1 className="font-display text-5xl font-black mb-2">Blog</h1>
-      <p className="text-muted-foreground mb-10">Einblicke, Geschichten & Neuigkeiten.</p>
+    <div>
+      <div className="text-center py-16 px-4">
+        <h1 className="font-display text-5xl sm:text-6xl font-black text-[#D68876] mb-4">
+          Willkommen in meiner Blog-Oase
+        </h1>
+        <p className="text-xl font-bold text-[#222222]">
+          Deine Quelle für Kinder, Elternschaft und Spaß
+        </p>
+      </div>
+
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
 
       {posts.length === 0 ? (
         <Card className="text-center py-16">
@@ -70,6 +78,7 @@ export default async function BlogPage() {
           ))}
         </div>
       )}
+    </div>
     </div>
   );
 }
