@@ -17,12 +17,12 @@ export const metadata = {
 
 // Feste Kategorien mit Icons – spiegeln den Etsy-Shop wider
 export const SHOP_CATEGORIES = [
-  { name: "Für Kindergärten", emoji: "🏫", color: "bg-[#EDD5CB]", border: "border-[#A06B5B]" },
-  { name: "Für Familien",     emoji: "👨‍👩‍👧", color: "bg-[#C9DFE0]", border: "border-[#5B8A8B]" },
-  { name: "Wandposter",       emoji: "🖼️",  color: "bg-[#F5EDE9]", border: "border-[#C08878]" },
-  { name: "Weihnachten",      emoji: "🎄",  color: "bg-[#D4E8D4]", border: "border-[#5B8A8B]" },
-  { name: "English Collection", emoji: "🌍", color: "bg-[#C9DFE0]", border: "border-[#3D6E6F]" },
-  { name: "Kurse und Ratgeber", emoji: "📚", color: "bg-[#EDD5CB]", border: "border-[#7A4F42]" },
+  { name: "Für Kindergärten",  emoji: "🏫", color: "bg-[#C5E0E0]", border: "border-[#81ABAD]" },
+  { name: "Für Familien",      emoji: "👨‍👩‍👧", color: "bg-[#FFF8E8]", border: "border-[#D4A855]" },
+  { name: "Wandposter",        emoji: "🖼️",  color: "bg-[#FDDDD4]", border: "border-[#D68876]" },
+  { name: "Weihnachten",       emoji: "🎄",  color: "bg-[#EBF5EB]", border: "border-[#6BA87A]" },
+  { name: "English Collection",emoji: "🌍",  color: "bg-[#FFF0EB]", border: "border-[#D68876]" },
+  { name: "Kurse und Ratgeber",emoji: "📚",  color: "bg-[#FDDDD4]", border: "border-[#D68876]" },
 ];
 
 async function getProducts(category?: string) {
