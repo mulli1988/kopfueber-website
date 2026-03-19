@@ -31,12 +31,10 @@ export default async function HomePage() {
 
       {/* Neuheiten */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <h2 className="font-display text-4xl font-black text-[#222222]">Neuheiten</h2>
-            <p className="text-[#555555] mt-1">Die neuesten Materialien aus dem Shop</p>
-          </div>
-          <Link href="/shop" className="text-[#81ABAD] font-bold hover:underline text-sm">
+        <div className="text-center mb-8">
+          <h2 className="font-display text-4xl font-black text-[#222222]">Jetzt neu im Shop</h2>
+          <p className="text-[#555555] mt-1">Die neuesten Materialien aus dem Shop</p>
+          <Link href="/shop" className="text-[#81ABAD] font-bold hover:underline text-sm inline-block mt-2">
             Alle ansehen →
           </Link>
         </div>
@@ -69,12 +67,10 @@ export default async function HomePage() {
       {latestPost && (
         <section className="bg-[#FFF5F2] py-16 px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-center justify-between mb-8">
-              <div>
-                <h2 className="font-display text-4xl font-black text-[#222222]">Aus dem Blog</h2>
-                <p className="text-[#555555] mt-1">Tipps & Inspiration für Kita und Zuhause</p>
-              </div>
-              <Link href="/blog" className="text-[#81ABAD] font-bold hover:underline text-sm">
+            <div className="text-center mb-8">
+              <h2 className="font-display text-4xl font-black text-[#222222]">Neuste Blogbeiträge</h2>
+              <p className="text-[#555555] mt-1">Tipps & Inspiration für Kita und Zuhause</p>
+              <Link href="/blog" className="text-[#81ABAD] font-bold hover:underline text-sm inline-block mt-2">
                 Alle Beiträge →
               </Link>
             </div>
