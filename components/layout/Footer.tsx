@@ -13,7 +13,8 @@ export default function Footer() {
               Kopf<span className="text-primary">über</span>
             </p>
             <p className="text-sm text-white/60 leading-relaxed">
-              Handgemachte Drucke & Grafiken mit Herz. Jedes Stück ein kleines Unikat.
+              Digitale Materialien für Kitas & Familien —<br />
+              von einer Pädagogin für den Alltag gemacht.
             </p>
           </div>
 

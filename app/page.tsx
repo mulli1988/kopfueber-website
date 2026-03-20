@@ -5,6 +5,7 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import ProductCard from "@/components/shop/ProductCard";
 import ContactForm from "@/components/home/ContactForm";
+import WaitlistForm from "@/components/home/WaitlistForm";
 import { connectToDatabase } from "@/lib/db/mongodb";
 import Product from "@/lib/db/models/Product";
 import BlogPost from "@/lib/db/models/BlogPost";
@@ -28,6 +29,37 @@ export default async function HomePage() {
   return (
     <div>
 
+      {/* Hero */}
+      <section className="bg-[#FFF5F2] py-14 px-4 text-center">
+        <div className="max-w-2xl mx-auto">
+          <p className="text-xs font-bold uppercase tracking-widest text-[#81ABAD] mb-3">
+            Von einer Erzieherin — mit Herz und Praxis-Know-how
+          </p>
+          <h1 className="font-display text-4xl sm:text-5xl font-black text-[#222222] leading-tight mb-4">
+            Druckfertige Materialien für den Kita-Alltag & das Familienleben
+          </h1>
+          <p className="text-lg text-[#555555] leading-relaxed mb-8">
+            Kein Design-Aufwand, kein langes Suchen — einfach herunterladen, ausdrucken und loslegen.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link href="/shop">
+              <Button size="lg">Alle Materialien ansehen</Button>
+            </Link>
+            <Link href="/blog">
+              <Button size="lg" variant="outline">Tipps & Inspiration lesen</Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust-Bar */}
+      <div className="bg-white border-y border-[#F0DDD8] py-4 px-4">
+        <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-[#555555] font-medium">
+          <span>✓ Von einer Kindergartenleiterin mit 15 Jahren Erfahrung</span>
+          <span>✓ Sofort druckbereit — kein Design-Aufwand</span>
+          <span>✓ Für Kita-Alltag & Familien</span>
+        </div>
+      </div>
 
       {/* Neuheiten */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
@@ -40,9 +72,7 @@ export default async function HomePage() {
         </div>
 
         {products.length === 0 ? (
-          <div className="text-center py-16 border-4 border-dashed border-[#F0DDD8] rounded-3xl">
-            <p className="text-[#555555]">Produkte folgen in Kürze!</p>
-          </div>
+          <WaitlistForm />
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {products.map((p) => (
@@ -101,18 +131,32 @@ export default async function HomePage() {
 
       {/* Über mich */}
       <section className="bg-white py-16 px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-display text-4xl font-black text-[#222222] mb-4">
-            Hey, ich bin Julia!
-          </h2>
-          <p className="text-[#555555] leading-relaxed mb-6 text-lg">
-            Mit sieben Jahren Erfahrung als Kindergartenleiterin bin ich hier, um mit dir
-            auf eine Reise durch die zauberhafte Welt der Kindererziehung zu gehen —
-            mit Herzblut, Humor und einer Prise Teneriffa-Sonne.
-          </p>
-          <Link href="/about">
-            <Button size="lg" variant="outline">Mehr über mich</Button>
-          </Link>
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
+          <div className="flex-shrink-0">
+            <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-[#D68876] shadow-md">
+              <Image
+                src="/julia.jpg"
+                alt="Julia Flagmeyer"
+                width={224}
+                height={224}
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+          </div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-[#81ABAD] mb-2">Über mich</p>
+            <h2 className="font-display text-4xl font-black text-[#222222] mb-4">
+              Hey, ich bin Julia!
+            </h2>
+            <p className="text-[#555555] leading-relaxed mb-6 text-lg">
+              Mit 15 Jahren als Erzieherin und 7 Jahren als Kindergartenleiterin weiß ich, was
+              im Kita-Alltag wirklich gebraucht wird. Alles, was du sonst stundenlang selbst
+              gestaltest, bekommst du hier sofort — fertig, schön und direkt einsetzbar.
+            </p>
+            <Link href="/about">
+              <Button size="lg" variant="outline">Mehr über mich</Button>
+            </Link>
+          </div>
         </div>
       </section>
 

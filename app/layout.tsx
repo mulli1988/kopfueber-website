@@ -26,15 +26,15 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kopfüber — Prints & Grafik",
+    default: "Kopfüber | Kita-Materialien & Elternratgeber zum Ausdrucken",
     template: "%s | Kopfüber",
   },
   description:
-    "Handgemachte Drucke & Grafiken mit Herz. Entdecke einzigartige Kunstdrucke, digitale Downloads und mehr im Kopfüber-Shop.",
+    "Druckfertige Materialien für Kitas & Familien — von Julia, einer Kindergartenleiterin mit 15 Jahren Erfahrung. Sofort nutzbar, liebevoll gestaltet.",
   openGraph: {
-    title: "Kopfüber — Prints & Grafik",
+    title: "Kopfüber | Kita-Materialien & Elternratgeber zum Ausdrucken",
     description:
-      "Handgemachte Drucke & Grafiken mit Herz. Entdecke einzigartige Kunstdrucke im Kopfüber-Shop.",
+      "Druckfertige Materialien für Kitas & Familien — von einer Pädagogin für den Alltag gemacht.",
     type: "website",
     locale: "de_DE",
   },
@@ -79,8 +79,8 @@ export default function RootLayout({
             <Link href="/blog" className="flex-1 bg-[#EBF5EB] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#222222] uppercase tracking-widest">
               Blog
             </Link>
-            <Link href="/forum" className="flex-1 bg-[#FFF0EB] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#222222] uppercase tracking-widest">
-              Forum
+            <Link href="/about" className="flex-1 bg-[#FFF0EB] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#222222] uppercase tracking-widest">
+              Über mich
             </Link>
           </div>
 

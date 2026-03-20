@@ -7,7 +7,7 @@ import Card from "@/components/ui/Card";
 
 export const metadata = {
   title: "Blog",
-  description: "Neuigkeiten, Einblicke und Geschichten rund um Kopfüber.",
+  description: "Praktische Tipps und Inspiration rund um Kindererziehung, Kita-Alltag und Familienleben — von einer Pädagogin mit Herzblut.",
 };
 
 export const dynamic = "force-dynamic";

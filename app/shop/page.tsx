@@ -5,6 +5,7 @@ import { connectToDatabase } from "@/lib/db/mongodb";
 import Product from "@/lib/db/models/Product";
 import ProductCard from "@/components/shop/ProductCard";
 import CategoryFilter from "@/components/shop/CategoryFilter";
+import WaitlistForm from "@/components/home/WaitlistForm";
 
 interface ShopPageProps {
   searchParams: Promise<{ category?: string }>;
@@ -12,7 +13,7 @@ interface ShopPageProps {
 
 export const metadata = {
   title: "Shop",
-  description: "Liebevoll gestaltete Materialien zum Ausdrucken für Kita & Zuhause.",
+  description: "Alle Materialien auf einen Blick: Für Kindergärten, Tagesmütter, Erzieher und Familien. Einfach ausdrucken und loslegen.",
 };
 
 // Feste Kategorien mit Icons – spiegeln den Etsy-Shop wider
@@ -76,12 +77,8 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
 
         {/* Produkt-Grid */}
         {products.length === 0 ? (
-          <div className="text-center py-24 border-4 border-dashed border-muted rounded-[var(--radius-xl)]">
-
-            <p className="font-display text-2xl font-bold mb-2">
-              {category ? `Noch keine Produkte in "${category}"` : "Noch keine Produkte"}
-            </p>
-            <p className="text-muted-foreground">Schau bald wieder vorbei!</p>
+          <div className="py-8">
+            <WaitlistForm />
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

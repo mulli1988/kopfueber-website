@@ -5,6 +5,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { connectToDatabase } from "@/lib/db/mongodb";
 import BlogPost from "@/lib/db/models/BlogPost";
 import Badge from "@/components/ui/Badge";
+import BlogNewsletterForm from "@/components/blog/BlogNewsletterForm";
 import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
@@ -77,6 +78,27 @@ export default async function BlogPostPage({ params }: Props) {
             prose-a:text-primary prose-a:no-underline hover:prose-a:underline
             prose-img:rounded-xl">
             <MDXRemote source={post.content} />
+          </div>
+
+          {/* Artikel-Footer: Produkt-Bridge + Newsletter */}
+          <div className="mt-12 pt-10 border-t-2 border-[#F0DDD8] flex flex-col gap-6">
+            <div className="bg-[#FFF5F2] rounded-3xl border-2 border-[#F0DDD8] p-6">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#81ABAD] mb-2">Passende Materialien</p>
+              <h3 className="font-display text-xl font-black text-[#222222] mb-2">
+                Direkt loslegen?
+              </h3>
+              <p className="text-[#555555] text-sm leading-relaxed mb-4">
+                Diese Materialien passen zum Thema dieses Artikels — sofort druckbereit, kein Design-Aufwand.
+              </p>
+              <Link
+                href="/shop"
+                className="inline-block bg-[#81ABAD] text-white font-bold text-sm px-5 py-3 rounded-2xl hover:bg-[#5D8F91] transition-colors no-underline"
+              >
+                Materialien entdecken
+              </Link>
+            </div>
+
+            <BlogNewsletterForm />
           </div>
         </article>
 

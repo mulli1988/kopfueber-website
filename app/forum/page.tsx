@@ -1,68 +1,67 @@
-export const dynamic = "force-dynamic";
+"use client";
 
-import Link from "next/link";
-import { connectToDatabase } from "@/lib/db/mongodb";
-import ForumCategory from "@/lib/db/models/ForumCategory";
-import ForumThread from "@/lib/db/models/ForumThread";
-import Card from "@/components/ui/Card";
-import Badge from "@/components/ui/Badge";
+import { useState } from "react";
+import Button from "@/components/ui/Button";
 
-export const metadata = {
-  title: "Forum",
-  description: "Die Kopfüber Community — tausch dich aus, stell Fragen, teile deine Gedanken.",
-};
+export default function ForumPage() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-export default async function ForumPage() {
-  await connectToDatabase();
-  const categories = await ForumCategory.find().sort({ order: 1 }).lean();
-
-  const categoriesWithCounts = await Promise.all(
-    categories.map(async (cat) => {
-      const threadCount = await ForumThread.countDocuments({ categorySlug: cat.slug });
-      const latest = await ForumThread.findOne({ categorySlug: cat.slug })
-        .sort({ lastReplyAt: -1 })
-        .lean();
-      return { ...cat, threadCount, latest };
-    })
-  );
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, name: "" }),
+      });
+      if (!res.ok) throw new Error();
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
+  }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-      <div className="mb-10">
-        <h1 className="font-display text-5xl font-black mb-2">Community</h1>
-        <p className="text-muted-foreground">Tausch dich aus, stell Fragen, teile deine Gedanken.</p>
-      </div>
+    <div className="min-h-[60vh] flex items-center justify-center px-4 py-16">
+      <div className="max-w-lg w-full text-center">
+        <p className="text-xs font-bold uppercase tracking-widest text-[#81ABAD] mb-3">Coming Soon</p>
+        <h1 className="font-display text-4xl sm:text-5xl font-black text-[#222222] leading-tight mb-4">
+          Die Community entsteht
+        </h1>
+        <p className="text-lg text-[#555555] leading-relaxed mb-4">
+          Hier entsteht ein Ort zum Austauschen, Fragen stellen und Ideen teilen —
+          für Erzieherinnen, Eltern und alle, die Kinder begleiten.
+        </p>
+        <p className="text-[#555555] mb-8">
+          Trag dich ein und werde informiert, sobald das Forum öffnet:
+        </p>
 
-      {categoriesWithCounts.length === 0 ? (
-        <Card className="text-center py-16">
-          <p className="text-4xl mb-4">💬</p>
-          <p className="font-display text-2xl font-bold mb-2">Noch keine Kategorien</p>
-          <p className="text-muted-foreground">Das Forum wird bald eingerichtet.</p>
-        </Card>
-      ) : (
-        <div className="flex flex-col gap-4">
-          {categoriesWithCounts.map((cat) => (
-            <Link key={cat.slug} href={`/forum/${cat.slug}`} className="no-underline block group">
-              <Card hover className="flex items-center justify-between gap-4 flex-wrap">
-                <div>
-                  <h2 className="font-display text-xl font-bold group-hover:text-primary transition-colors">
-                    {cat.name}
-                  </h2>
-                  <p className="text-sm text-muted-foreground mt-1">{cat.description}</p>
-                </div>
-                <div className="text-right flex-shrink-0">
-                  <Badge variant="muted">{cat.threadCount} Threads</Badge>
-                  {cat.latest && (
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Zuletzt: {new Date(cat.latest.lastReplyAt).toLocaleDateString("de-DE")}
-                    </p>
-                  )}
-                </div>
-              </Card>
-            </Link>
-          ))}
-        </div>
-      )}
+        {status === "success" ? (
+          <div className="bg-[#FFF5F2] rounded-3xl border-2 border-[#F0DDD8] p-8">
+            <p className="font-display text-xl font-black text-[#924d44] mb-1">Du bist dabei!</p>
+            <p className="text-[#555555] text-sm">Wir melden uns, wenn es losgeht.</p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="Deine E-Mail-Adresse"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="flex-1 px-4 py-3 rounded-2xl border-2 border-[#F0DDD8] bg-white text-[#222222] placeholder-[#AAAAAA] focus:outline-none focus:border-[#81ABAD] transition-colors"
+            />
+            <Button type="submit" disabled={status === "loading"}>
+              {status === "loading" ? "Wird eingetragen…" : "Benachrichtigen"}
+            </Button>
+          </form>
+        )}
+        {status === "error" && (
+          <p className="text-red-500 text-sm mt-3">Etwas ist schiefgelaufen. Bitte versuche es nochmal.</p>
+        )}
+      </div>
     </div>
   );
 }
