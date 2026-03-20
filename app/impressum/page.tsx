@@ -11,24 +11,28 @@ export default function ImpressumPage() {
       <h1 className="font-display text-4xl font-black mb-8">Impressum</h1>
 
       <div className="prose prose-lg max-w-none prose-headings:font-display prose-headings:font-bold">
+
         <h2>Angaben gemäß § 5 TMG</h2>
         <p>
-          <strong>DEIN NAME</strong><br />
-          DEINE STRASSE UND HAUSNUMMER<br />
-          DEINE PLZ ORT<br />
-          Deutschland
+          <strong>Julia Flagmeyer</strong><br />
+          Kopfüber
         </p>
 
         <h2>Kontakt</h2>
         <p>
-          E-Mail: <a href="mailto:DEINE@EMAIL.DE">DEINE@EMAIL.DE</a>
+          E-Mail: <a href="mailto:Julyfleur@outlook.com">Julyfleur@outlook.com</a>
         </p>
 
-        <h2>Umsatzsteuer-ID</h2>
+        <h2>Hinweis</h2>
         <p>
-          Gemäß § 19 UStG wird keine Umsatzsteuer berechnet
-          (Kleinunternehmerregelung).<br />
-          <em>(Falls du umsatzsteuerpflichtig bist, hier deine USt-IdNr. eintragen.)</em>
+          Alle Inhalte sind eigene Erfahrungsberichte und stellen keine Garantie dar.
+          Produktnennungen werden entsprechend gekennzeichnet.
+        </p>
+        <p>
+          Dieses Impressum gilt auch für folgende Inhalte auf{" "}
+          <a href="https://www.instagram.com/july.fleur/" target="_blank" rel="noopener noreferrer">
+            https://www.instagram.com/july.fleur/
+          </a>
         </p>
 
         <h2>Streitschlichtung</h2>
@@ -43,10 +47,37 @@ export default function ImpressumPage() {
           Verbraucherschlichtungsstelle teilzunehmen.
         </p>
 
-        <p className="text-sm text-muted-foreground mt-8 p-4 bg-accent rounded-xl border border-dark">
-          ⚠️ <strong>Hinweis:</strong> Bitte ersetze alle Platzhalter (DEIN NAME, DEINE STRASSE etc.)
-          mit deinen echten Angaben. Das Impressum ist gesetzlich vorgeschrieben.
+        <h2>Haftung für Inhalte</h2>
+        <p>
+          Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten
+          nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
+          Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
+          Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige
+          Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von
+          Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine
+          diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten
+          Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden
+          wir diese Inhalte umgehend entfernen.
         </p>
+
+        <h2>Haftung für Links</h2>
+        <p>
+          Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen
+          Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
+          Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der
+          Seiten verantwortlich. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links
+          umgehend entfernen.
+        </p>
+
+        <h2>Urheberrecht</h2>
+        <p>
+          Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
+          dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art
+          der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen
+          Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind
+          nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+        </p>
+
       </div>
     </div>
   );
