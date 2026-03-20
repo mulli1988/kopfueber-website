@@ -141,8 +141,8 @@ export default async function HomePage() {
               Hey, ich bin Julia!
             </h2>
             <p className="text-[#555555] leading-relaxed mb-6 text-lg">
-              Mit 15 Jahren als Erzieherin und 7 Jahren als Kindergartenleiterin weiß ich, was
-              im Kita-Alltag wirklich gebraucht wird. Alles, was du sonst stundenlang selbst
+              Mit mehr als 15 Jahren Erfahrung als Erzieherin und Kindergartenleiterin weiß ich,
+              was im Kita-Alltag wirklich gebraucht wird. Alles, was du sonst stundenlang selbst
               gestaltest, bekommst du hier sofort — fertig, schön und direkt einsetzbar.
             </p>
             <Link href="/about">
