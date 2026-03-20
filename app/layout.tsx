@@ -56,7 +56,7 @@ export default function RootLayout({
           {/* Banner */}
           <div className="bg-white">
             <Image
-              src="/banner.jpg"
+              src="/banner2.jpg"
               alt="Kopfüber — Liebevoll gestaltete Materialien zum Ausdrucken für Kita & Zuhause"
               width={3000}
               height={750}
