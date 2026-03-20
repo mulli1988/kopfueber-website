@@ -47,7 +47,7 @@ export default async function HomePage() {
       {/* Trust-Bar */}
       <div className="bg-white border-y border-[#F0DDD8] py-4 px-4">
         <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-[#555555] font-medium">
-          <span>✓ Von einer Kindergartenleiterin mit 15 Jahren Erfahrung</span>
+          <span>✓ Von einer Kindergartenleiterin mit mehr als 15 Jahren Erfahrung</span>
           <span>✓ Sofort druckbereit — kein Design-Aufwand</span>
           <span>✓ Für Kita-Alltag & Familien</span>
         </div>

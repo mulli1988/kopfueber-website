@@ -56,7 +56,7 @@ export default function AboutPage() {
             Pädagogin mit einem breiten Lächeln und einer Prise sonniger Herzlichkeit.
           </p>
           <p>
-            Mit sieben Jahren Erfahrung in der Leitung meines eigenen kleinen Kindergartens
+            Mit mehr als sieben Jahren Erfahrung in der Leitung meines eigenen kleinen Kindergartens
             im Gepäck bin ich hier, um mit dir auf eine Reise durch die zauberhafte Welt
             der Kindererziehung zu gehen. Meine Vision ist einfach: Ich möchte, dass die
             Erziehung deiner Kinder genauso fröhlich und unvergesslich wird wie ein Tag
@@ -84,12 +84,12 @@ export default function AboutPage() {
         {/* Highlights */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-12">
           <div className="bg-[#C5E0E0] rounded-3xl p-6 text-center border-2 border-[#81ABAD]">
-            <p className="text-4xl font-black text-[#222222] mb-1">15</p>
-            <p className="text-sm font-bold text-[#444444]">Jahre als Erzieherin</p>
+            <p className="text-2xl font-black text-[#222222] mb-1">15+ Jahre</p>
+            <p className="text-sm font-bold text-[#444444]">als Erzieherin</p>
           </div>
           <div className="bg-[#FDDDD4] rounded-3xl p-6 text-center border-2 border-[#D68876]">
-            <p className="text-4xl font-black text-[#222222] mb-1">7</p>
-            <p className="text-sm font-bold text-[#444444]">Jahre Kindergartenleitung</p>
+            <p className="text-2xl font-black text-[#222222] mb-1">7+ Jahre</p>
+            <p className="text-sm font-bold text-[#444444]">Kindergartenleitung</p>
           </div>
           <div className="bg-[#EBF5EB] rounded-3xl p-6 text-center border-2 border-[#6BA87A]">
             <p className="text-4xl font-black text-[#222222] mb-1">Teneriffa</p>
