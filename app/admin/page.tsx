@@ -39,12 +39,12 @@ export default async function AdminDashboard() {
   const totalRevenue = revenue[0]?.total ?? 0;
 
   const stats = [
-    { label: "Umsatz gesamt",   value: formatPrice(totalRevenue), icon: "💰", href: "/admin/orders" },
-    { label: "Bestellungen",    value: orderCount,                icon: "📦", href: "/admin/orders" },
-    { label: "Produkte",        value: productCount,              icon: "🖼",  href: "/admin/products" },
-    { label: "Nutzer",          value: userCount,                 icon: "👤", href: "#" },
-    { label: "Blog-Beiträge",   value: blogCount,                 icon: "✍️", href: "/admin/blog" },
-    { label: "Forum-Threads",   value: threadCount,               icon: "💬", href: "/admin/forum" },
+    { label: "Umsatz gesamt",   value: formatPrice(totalRevenue), href: "/admin/orders" },
+    { label: "Bestellungen",    value: orderCount,                href: "/admin/orders" },
+    { label: "Produkte",        value: productCount,              href: "/admin/products" },
+    { label: "Nutzer",          value: userCount,                 href: "#" },
+    { label: "Blog-Beiträge",   value: blogCount,                 href: "/admin/blog" },
+    { label: "Forum-Threads",   value: threadCount,               href: "/admin/forum" },
   ];
 
   return (
@@ -53,10 +53,9 @@ export default async function AdminDashboard() {
 
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
-        {stats.map(({ label, value, icon, href }) => (
+        {stats.map(({ label, value, href }) => (
           <Link key={label} href={href} className="no-underline">
             <Card hover className="py-5">
-              <p className="text-2xl mb-1">{icon}</p>
               <p className="text-2xl font-black font-display">{value}</p>
               <p className="text-sm text-muted-foreground mt-1">{label}</p>
             </Card>

@@ -4,11 +4,11 @@ import { authOptions } from "@/lib/auth/options";
 import Link from "next/link";
 
 const navItems = [
-  { href: "/admin",          label: "Dashboard",  icon: "📊" },
-  { href: "/admin/products", label: "Produkte",   icon: "🖼" },
-  { href: "/admin/blog",     label: "Blog",       icon: "✍️" },
-  { href: "/admin/orders",   label: "Bestellungen", icon: "📦" },
-  { href: "/admin/forum",    label: "Forum",      icon: "💬" },
+  { href: "/admin",          label: "Dashboard" },
+  { href: "/admin/products", label: "Produkte" },
+  { href: "/admin/blog",     label: "Blog" },
+  { href: "/admin/orders",   label: "Bestellungen" },
+  { href: "/admin/forum",    label: "Forum" },
 ];
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -18,31 +18,29 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Sidebar */}
-      <aside className="w-full md:w-56 bg-dark text-white flex-shrink-0 border-r-2 border-dark">
-        <div className="p-4 border-b border-white/10">
-          <p className="font-display text-lg font-black">
+      <aside className="w-full md:w-56 bg-[#F5EDE8] flex-shrink-0 border-r-2 border-[#E8D5CE]">
+        <div className="p-4 border-b border-[#E8D5CE]">
+          <p className="font-display text-lg font-black text-[#3D3535]">
             Kopf<span className="text-primary">über</span>
           </p>
-          <p className="text-xs text-white/40 mt-0.5">Admin</p>
+          <p className="text-xs text-[#9A8070] mt-0.5">Admin</p>
         </div>
         <nav className="p-3 flex flex-row md:flex-col gap-1 overflow-x-auto">
-          {navItems.map(({ href, label, icon }) => (
+          {navItems.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              className="flex items-center gap-2 px-3 py-2.5 rounded-[var(--radius-md)] text-sm font-semibold text-white/70 hover:text-white hover:bg-white/10 transition-all no-underline whitespace-nowrap"
+              className="flex items-center gap-2 px-3 py-2.5 rounded-[var(--radius-md)] text-sm font-semibold text-[#6B5550] hover:text-[#3D3535] hover:bg-[#EDD8D0] transition-all no-underline whitespace-nowrap"
             >
-              <span>{icon}</span>
-              <span>{label}</span>
+              {label}
             </Link>
           ))}
           <div className="hidden md:block flex-1" />
           <Link
             href="/"
-            className="flex items-center gap-2 px-3 py-2.5 rounded-[var(--radius-md)] text-sm font-semibold text-white/40 hover:text-white/70 transition-all no-underline"
+            className="flex items-center gap-2 px-3 py-2.5 rounded-[var(--radius-md)] text-sm font-semibold text-[#9A8070] hover:text-[#6B5550] transition-all no-underline"
           >
-            <span>←</span>
-            <span>Zurück zur Website</span>
+            ← Zurück zur Website
           </Link>
         </nav>
       </aside>

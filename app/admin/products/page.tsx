@@ -23,7 +23,6 @@ export default async function AdminProductsPage() {
 
       {products.length === 0 ? (
         <Card className="text-center py-16">
-          <p className="text-4xl mb-3">🖼</p>
           <p className="font-display text-xl font-bold mb-2">Noch keine Produkte</p>
           <p className="text-muted-foreground">Erstelle dein erstes Produkt!</p>
         </Card>
