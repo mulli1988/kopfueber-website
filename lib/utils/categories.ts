@@ -4,13 +4,16 @@ export const KITA_SUBCATEGORIES = [
   "Vorlagen für Portfolios",
   "Vorlagen zum Basteln",
   "Organisatorische Vorlagen",
+  "Wandposter",
+  "Spiele",
   "Ratgeber",
 ];
 
 export const FAMILIE_SUBCATEGORIES = [
-  "Familienalltag",
-  "Lernmaterial",
-  "Basteln & Kreativität",
+  "Vorlagen für den Alltag",
+  "Vorlagen zum Basteln",
+  "Wandposter",
+  "Spiele",
   "Ratgeber",
 ];
 
