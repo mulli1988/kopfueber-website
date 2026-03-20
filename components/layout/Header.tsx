@@ -22,13 +22,19 @@ export default function Header() {
 
         {/* Desktop Navigation ausgeblendet */}
 
-        {/* Rechts: Konto + Shop */}
+        {/* Rechts: Konto + Über mich + Shop */}
         <div className="hidden md:flex items-center gap-2">
           <Link
             href="/account"
             className="px-4 py-2 rounded-full text-sm font-semibold text-[#3D3535] hover:bg-[#FFF5F2] transition-colors no-underline"
           >
             Konto
+          </Link>
+          <Link
+            href="/about"
+            className="px-4 py-2 rounded-full text-sm font-semibold text-[#3D3535] hover:bg-[#FFF5F2] transition-colors no-underline"
+          >
+            Über mich
           </Link>
           <Link
             href="/shop"
