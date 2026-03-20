@@ -20,8 +20,7 @@ export default function Header() {
           />
         </Link>
 
-        {/* Desktop Navigation */}
-        <Navigation className="hidden md:flex" />
+        {/* Desktop Navigation ausgeblendet */}
 
         {/* Rechts: Konto + Shop */}
         <div className="hidden md:flex items-center gap-2">
