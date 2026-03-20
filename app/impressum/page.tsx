@@ -15,7 +15,10 @@ export default function ImpressumPage() {
         <h2>Angaben gemäß § 5 TMG</h2>
         <p>
           <strong>Julia Flagmeyer</strong><br />
-          Kopfüber
+          Kopfüber<br />
+          Calle de Mar Cantabrico 18<br />
+          38612 El Medano, Teneriffa<br />
+          Spanien
         </p>
 
         <h2>Kontakt</h2>
