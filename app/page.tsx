@@ -36,7 +36,7 @@ export default async function HomePage() {
             Von einer Erzieherin — mit Herz und Praxis-Know-how
           </p>
           <h1 className="font-display text-4xl sm:text-5xl font-black text-[#222222] leading-tight mb-4">
-            Druckfertige Materialien für den Kita-Alltag & das Familienleben
+            E-Books, Ratgeber & druckfertige Materialien für den Kita-Alltag & das Familienleben
           </h1>
           <p className="text-lg text-[#555555] leading-relaxed mb-8">
             Kein Design-Aufwand, kein langes Suchen — einfach herunterladen, ausdrucken und loslegen.
