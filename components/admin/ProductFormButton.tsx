@@ -7,6 +7,7 @@ import Modal from "@/components/ui/Modal";
 import Input from "@/components/ui/Input";
 import { UploadButton } from "@uploadthing/react";
 import type { OurFileRouter } from "@/lib/uploadthing";
+import { TOP_CATEGORIES, KITA_SUBCATEGORIES, FAMILIE_SUBCATEGORIES } from "@/lib/utils/categories";
 
 interface ProductData {
   _id?: string;
@@ -15,6 +16,7 @@ interface ProductData {
   description?: string;
   price?: number;
   category?: string;
+  subcategory?: string;
   tags?: string[];
   featured?: boolean;
   published?: boolean;
@@ -34,6 +36,7 @@ export default function ProductFormButton({ product }: { product?: ProductData }
     description:             product?.description ?? "",
     price:                   product?.price ? (product.price / 100).toString() : "",
     category:                product?.category ?? "",
+    subcategory:             product?.subcategory ?? "",
     tags:                    product?.tags?.join(", ") ?? "",
     featured:                product?.featured ?? false,
     published:               product?.published ?? false,
@@ -52,6 +55,7 @@ export default function ProductFormButton({ product }: { product?: ProductData }
       description:            form.description,
       price:                  Math.round(parseFloat(form.price) * 100),
       category:               form.category,
+      subcategory:            form.subcategory || undefined,
       tags:                   form.tags.split(",").map((t) => t.trim()).filter(Boolean),
       featured:               form.featured,
       published:              form.published,
@@ -106,9 +110,35 @@ export default function ProductFormButton({ product }: { product?: ProductData }
           <div className="grid grid-cols-2 gap-3">
             <Input label="Preis (€)" id="p-price" type="number" step="0.01" min="0"
               value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} required />
-            <Input label="Kategorie" id="p-cat" value={form.category}
-              onChange={(e) => setForm({ ...form, category: e.target.value })} required />
+            <div className="flex flex-col gap-1.5">
+              <label className="text-sm font-semibold">Bereich</label>
+              <select
+                value={form.category}
+                onChange={(e) => setForm({ ...form, category: e.target.value, subcategory: "" })}
+                className="w-full px-4 py-2.5 border-2 border-dark rounded-[var(--radius-md)] text-sm focus:outline-none focus:border-primary bg-white"
+                required
+              >
+                <option value="">— wählen —</option>
+                {TOP_CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
+              </select>
+            </div>
           </div>
+
+          {(form.category === "Für Kindergärten" || form.category === "Für Familien") && (
+            <div className="flex flex-col gap-1.5">
+              <label className="text-sm font-semibold">Unterkategorie</label>
+              <select
+                value={form.subcategory}
+                onChange={(e) => setForm({ ...form, subcategory: e.target.value })}
+                className="w-full px-4 py-2.5 border-2 border-dark rounded-[var(--radius-md)] text-sm focus:outline-none focus:border-primary bg-white"
+              >
+                <option value="">— keine —</option>
+                {(form.category === "Für Kindergärten" ? KITA_SUBCATEGORIES : FAMILIE_SUBCATEGORIES).map((s) => (
+                  <option key={s} value={s}>{s}</option>
+                ))}
+              </select>
+            </div>
+          )}
 
           <Input label="Tags (kommagetrennt)" id="p-tags" value={form.tags}
             onChange={(e) => setForm({ ...form, tags: e.target.value })}

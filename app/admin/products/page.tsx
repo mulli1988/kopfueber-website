@@ -63,6 +63,7 @@ export default async function AdminProductsPage() {
                         description: p.description,
                         price: p.price,
                         category: p.category,
+                        subcategory: p.subcategory,
                         tags: p.tags,
                         featured: p.featured,
                         published: p.published,

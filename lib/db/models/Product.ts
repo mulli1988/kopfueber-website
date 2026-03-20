@@ -8,6 +8,7 @@ export interface IProduct extends Document {
   images: string[]; // Uploadthing URLs
   downloadFile?: string; // Uploadthing URL (nur für digitale Produkte)
   category: string;
+  subcategory?: string;
   tags: string[];
   featured: boolean;
   includedInSubscription: boolean;
@@ -24,6 +25,7 @@ const ProductSchema = new Schema<IProduct>(
     images:      [{ type: String }],
     downloadFile:{ type: String },
     category:    { type: String, required: true },
+    subcategory: { type: String },
     tags:        [{ type: String }],
     featured:    { type: Boolean, default: false },
     includedInSubscription: { type: Boolean, default: false },
