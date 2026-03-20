@@ -35,8 +35,8 @@ export default async function HomePage() {
           <p className="text-xs font-bold uppercase tracking-widest text-[#81ABAD] mb-3">
             Von einer Erzieherin — mit Herz und Praxis-Know-how
           </p>
-          <h1 className="font-display text-4xl sm:text-5xl font-black text-[#222222] leading-tight mb-4">
-            E-Books, Ratgeber & druckfertige Materialien für den Kita-Alltag & das Familienleben
+          <h1 className="font-display text-3xl sm:text-4xl font-black text-[#222222] leading-tight mb-4">
+            E-Books, Ratgeber & druckfertige Materialien für Kitas & Familien
           </h1>
           <p className="text-lg text-[#555555] leading-relaxed mb-8">
             Kein Design-Aufwand, kein langes Suchen — einfach herunterladen, ausdrucken und loslegen.
