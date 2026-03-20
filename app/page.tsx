@@ -38,17 +38,9 @@ export default async function HomePage() {
           <h1 className="font-display text-3xl sm:text-4xl font-black text-[#222222] leading-tight mb-4">
             E-Books, Ratgeber & druckfertige Materialien für Kitas & Familien
           </h1>
-          <p className="text-lg text-[#555555] leading-relaxed mb-8">
+          <p className="text-lg text-[#555555] leading-relaxed">
             Kein Design-Aufwand, kein langes Suchen — einfach herunterladen, ausdrucken und loslegen.
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link href="/shop">
-              <Button size="lg">Alle Materialien ansehen</Button>
-            </Link>
-            <Link href="/blog">
-              <Button size="lg" variant="outline">Tipps & Inspiration lesen</Button>
-            </Link>
-          </div>
         </div>
       </section>
 
