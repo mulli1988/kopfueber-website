@@ -3,18 +3,18 @@
 import { useRouter, useSearchParams } from "next/navigation";
 
 const COLORS = [
-  { bg: "#FFF5F2", border: "#E8A090" },
-  { bg: "#C5E0E0", border: "#81ABAD" },
-  { bg: "#FFF8E8", border: "#D4A855" },
-  { bg: "#EBF5EB", border: "#6BA87A" },
-  { bg: "#EDE8F5", border: "#9B8EC4" },
-  { bg: "#FFF0EB", border: "#C07B6B" },
-  { bg: "#F0F4FF", border: "#8899DD" },
-  { bg: "#FEF6F0", border: "#E0A878" },
-  { bg: "#F0FAF5", border: "#5BB88A" },
-  { bg: "#FCF0F8", border: "#C88ABB" },
-  { bg: "#FAFAF0", border: "#AAAA66" },
-  { bg: "#F0F8FC", border: "#6AAABB" },
+  { bg: "#FDDDD4", border: "#D4654A" },  // Koralle
+  { bg: "#C5E0E0", border: "#2E8B8B" },  // Petrol
+  { bg: "#FFF3B0", border: "#C9A800" },  // Sonnengelb
+  { bg: "#D4EDDA", border: "#2E7D42" },  // Dunkelgrün
+  { bg: "#E8D5F5", border: "#7B3FB5" },  // Lila
+  { bg: "#FFD6E0", border: "#C41E5A" },  // Pink
+  { bg: "#CFE2FF", border: "#1A5FBB" },  // Blau
+  { bg: "#FFE5CC", border: "#C96A00" },  // Orange
+  { bg: "#D6F5E8", border: "#1A7A4A" },  // Mintgrün
+  { bg: "#F5D6D6", border: "#A01818" },  // Dunkelrot
+  { bg: "#D6E8FF", border: "#1A4A99" },  // Stahlblau
+  { bg: "#FFF0CC", border: "#B87A00" },  // Goldgelb
 ];
 
 interface Props {
