@@ -3,18 +3,18 @@
 import { useRouter, useSearchParams } from "next/navigation";
 
 const COLORS = [
-  { bg: "#FFF3B0", border: "#B89A00" },  // Gelb
-  { bg: "#C5E0E0", border: "#1E8080" },  // Petrol
-  { bg: "#CFE2FF", border: "#1A5FBB" },  // Blau
-  { bg: "#FFD6E7", border: "#CC1166" },  // Pink
-  { bg: "#E8D5F5", border: "#6A2BA0" },  // Lila
-  { bg: "#FFE0C0", border: "#CC5500" },  // Orange
-  { bg: "#D4EDDA", border: "#2E6B2E" },  // Grün
-  { bg: "#F5D0D0", border: "#AA1111" },  // Rot
-  { bg: "#C0F0F0", border: "#007777" },  // Türkis
-  { bg: "#F0E0C8", border: "#7A4A1A" },  // Braun
-  { bg: "#D0D8FF", border: "#3344BB" },  // Indigo
-  { bg: "#E0F5C0", border: "#3A7A00" },  // Lindgrün
+  { bg: "#cee5c2", border: "#7aaa64" },
+  { bg: "#ccc6db", border: "#8878aa" },
+  { bg: "#fafada", border: "#c0c077" },
+  { bg: "#eebcd7", border: "#cc7aaa" },
+  { bg: "#f8ded2", border: "#dd9977" },
+  { bg: "#cde1f2", border: "#7aabcc" },
+  { bg: "#ddb883", border: "#aa7733" },
+  { bg: "#93e3c6", border: "#3aaa88" },
+  { bg: "#bccacb", border: "#6a9090" },
+  { bg: "#cee5c2", border: "#7aaa64" },
+  { bg: "#ccc6db", border: "#8878aa" },
+  { bg: "#eebcd7", border: "#cc7aaa" },
 ];
 
 interface Props {
