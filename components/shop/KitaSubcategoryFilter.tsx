@@ -1,21 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-
-const COLORS = [
-  { bg: "#cee5c2", border: "#7aaa64" },
-  { bg: "#ccc6db", border: "#8878aa" },
-  { bg: "#fafada", border: "#c0c077" },
-  { bg: "#eebcd7", border: "#cc7aaa" },
-  { bg: "#f8ded2", border: "#dd9977" },
-  { bg: "#cde1f2", border: "#7aabcc" },
-  { bg: "#ddb883", border: "#aa7733" },
-  { bg: "#93e3c6", border: "#3aaa88" },
-  { bg: "#bccacb", border: "#6a9090" },
-  { bg: "#cee5c2", border: "#7aaa64" },
-  { bg: "#ccc6db", border: "#8878aa" },
-  { bg: "#eebcd7", border: "#cc7aaa" },
-];
+import { cn } from "@/lib/utils/cn";
 
 interface Props {
   subcategories: string[];
@@ -37,42 +23,24 @@ export default function KitaSubcategoryFilter({ subcategories, active, basePath 
     router.push(`${basePath}?${p.toString()}`);
   }
 
+  const btnBase = "px-4 py-2 rounded-full border-2 text-sm font-semibold transition-all";
+  const btnInactive = "bg-white border-[#E0D8D5] text-[#555555] hover:border-[#924d44] hover:text-[#924d44]";
+  const btnActive = "bg-[#924d44] border-[#924d44] text-white";
+
   return (
-    <div>
-      <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-3">Kategorien</p>
-    <div className="flex flex-wrap gap-3">
-      <button
-        onClick={() => select(null)}
-        className="px-5 py-3 rounded-2xl border-2 font-bold text-sm transition-all hover:-translate-y-0.5 text-[#3D3535]"
-        style={{
-          backgroundColor: "#FDDDD4",
-          borderColor: "#D68876",
-          boxShadow: !active ? "3px 4px 0px #C8A8A0" : undefined,
-          transform: !active ? "translateY(-2px)" : undefined,
-        }}
-      >
+    <div className="flex flex-wrap gap-2">
+      <button onClick={() => select(null)} className={cn(btnBase, !active ? btnActive : btnInactive)}>
         Alle
       </button>
-      {subcategories.map((sub, i) => {
-        const color = COLORS[i % COLORS.length];
-        const isActive = active === sub;
-        return (
-          <button
-            key={sub}
-            onClick={() => select(sub)}
-            className="px-5 py-3 rounded-2xl border-2 font-bold text-sm transition-all hover:-translate-y-0.5 text-[#3D3535]"
-            style={{
-              backgroundColor: color.bg,
-              borderColor: color.border,
-              boxShadow: isActive ? "3px 4px 0px #C8A8A0" : undefined,
-              transform: isActive ? "translateY(-2px)" : undefined,
-            }}
-          >
-            {sub}
-          </button>
-        );
-      })}
-    </div>
+      {subcategories.map((sub) => (
+        <button
+          key={sub}
+          onClick={() => select(sub)}
+          className={cn(btnBase, active === sub ? btnActive : btnInactive)}
+        >
+          {sub}
+        </button>
+      ))}
     </div>
   );
 }
