@@ -33,7 +33,7 @@ export default async function FurFamilienPage({ searchParams }: PageProps) {
 
         {/* Header */}
         <div className="text-center py-10 mb-2">
-          <h1 className="font-display text-5xl sm:text-6xl font-black text-[#B5943A] mb-4">
+          <h1 className="font-display text-5xl sm:text-6xl font-black text-[#ebcf7c] mb-4">
             Für Familien
           </h1>
           <p className="text-xl font-bold text-[#222222]">

@@ -21,7 +21,7 @@ export default async function BlogPage() {
   return (
     <div>
       <div className="text-center py-16 px-4">
-        <h1 className="font-display text-5xl sm:text-6xl font-black text-[#4A7A4A] mb-4">
+        <h1 className="font-display text-5xl sm:text-6xl font-black text-[#90b290] mb-4">
           Willkommen in meiner Blog-Oase
         </h1>
         <p className="text-xl font-bold text-[#222222]">
