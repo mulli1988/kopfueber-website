@@ -6,7 +6,6 @@ import Product from "@/lib/db/models/Product";
 import ProductCard from "@/components/shop/ProductCard";
 import KitaSubcategoryFilter from "@/components/shop/KitaSubcategoryFilter";
 import { FAMILIE_SUBCATEGORIES } from "@/lib/utils/categories";
-import PageBanner from "@/components/layout/PageBanner";
 
 export const metadata = {
   title: "Für Familien",
@@ -30,7 +29,6 @@ export default async function FurFamilienPage({ searchParams }: PageProps) {
 
   return (
     <div className="min-h-screen">
-      <PageBanner src="/banner-familien.jpg" alt="Kopfüber — Materialien für Familien" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
 
         {/* Header */}

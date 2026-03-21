@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Baloo_2, Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import DynamicBanner from "@/components/layout/DynamicBanner";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SessionProvider from "@/components/layout/SessionProvider";
@@ -51,6 +52,8 @@ export default function RootLayout({
       >
         <SessionProvider>
           <Header />
+
+          <DynamicBanner />
 
           {/* Pastell-Navigationsleiste */}
           <div className="flex">

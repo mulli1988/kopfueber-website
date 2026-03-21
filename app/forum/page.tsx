@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Button from "@/components/ui/Button";
-import PageBanner from "@/components/layout/PageBanner";
 
 export default function ForumPage() {
   const [email, setEmail] = useState("");
@@ -26,7 +25,6 @@ export default function ForumPage() {
 
   return (
     <div>
-      <PageBanner src="/banner-forum.jpg" alt="Kopfüber Forum — Community für Erzieherinnen und Eltern" />
     <div className="min-h-[60vh] flex items-center justify-center px-4 py-16">
       <div className="max-w-lg w-full text-center">
         <p className="text-xs font-bold uppercase tracking-widest text-[#81ABAD] mb-3">Coming Soon</p>
