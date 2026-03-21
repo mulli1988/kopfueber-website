@@ -22,6 +22,7 @@ interface ProductData {
   published?: boolean;
   includedInSubscription?: boolean;
   images?: string[];
+  videoUrl?: string;
   downloadFile?: string;
 }
 
@@ -42,6 +43,7 @@ export default function ProductFormButton({ product }: { product?: ProductData }
     published:               product?.published ?? false,
     includedInSubscription:  product?.includedInSubscription ?? false,
     images:                  product?.images ?? [] as string[],
+    videoUrl:                product?.videoUrl ?? "",
     downloadFile:            product?.downloadFile ?? "",
   });
 
@@ -61,6 +63,7 @@ export default function ProductFormButton({ product }: { product?: ProductData }
       published:              form.published,
       includedInSubscription: form.includedInSubscription,
       images:                 form.images,
+      videoUrl:               form.videoUrl || undefined,
       downloadFile:           form.downloadFile || undefined,
     };
 
@@ -182,6 +185,24 @@ export default function ProductFormButton({ product }: { product?: ProductData }
               onClientUploadComplete={(res) => setForm({ ...form, images: [...form.images, ...res.map((f) => f.ufsUrl)] })}
               onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
               appearance={{ button: "bg-primary text-white text-sm font-semibold px-3 py-1.5 rounded border-2 border-dark" }}
+            />
+          </div>
+
+          {/* Produktvideo */}
+          <div>
+            <p className="text-sm font-semibold mb-1">Produktvideo (optional)</p>
+            {form.videoUrl ? (
+              <div className="flex items-center gap-2 mb-2">
+                <p className="text-xs text-muted-foreground truncate flex-1">✓ Video hochgeladen</p>
+                <button type="button" onClick={() => setForm({ ...form, videoUrl: "" })}
+                  className="text-xs text-red-500 hover:underline">Entfernen</button>
+              </div>
+            ) : null}
+            <UploadButton<OurFileRouter, "productVideo">
+              endpoint="productVideo"
+              onClientUploadComplete={(res) => setForm({ ...form, videoUrl: res[0].ufsUrl })}
+              onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
+              appearance={{ button: "bg-[#81ABAD] text-white text-sm font-semibold px-3 py-1.5 rounded border-2 border-dark" }}
             />
           </div>
 

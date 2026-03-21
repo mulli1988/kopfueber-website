@@ -69,6 +69,7 @@ export default async function AdminProductsPage() {
                         published: p.published,
                         includedInSubscription: p.includedInSubscription,
                         images: p.images,
+                        videoUrl: p.videoUrl,
                         downloadFile: p.downloadFile,
                       }} />
                       <ProductDeleteButton productId={p._id.toString()} />

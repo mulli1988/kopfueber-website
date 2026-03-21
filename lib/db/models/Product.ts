@@ -6,6 +6,7 @@ export interface IProduct extends Document {
   description: string;
   price: number; // in Cent, z.B. 1200 = 12,00 €
   images: string[]; // Uploadthing URLs
+  videoUrl?: string; // Uploadthing URL (Produktvideo)
   downloadFile?: string; // Uploadthing URL (nur für digitale Produkte)
   category: string;
   subcategory?: string;
@@ -23,6 +24,7 @@ const ProductSchema = new Schema<IProduct>(
     description: { type: String, required: true },
     price:       { type: Number, required: true, min: 0 },
     images:      [{ type: String }],
+    videoUrl:    { type: String },
     downloadFile:{ type: String },
     category:    { type: String, required: true },
     subcategory: { type: String },

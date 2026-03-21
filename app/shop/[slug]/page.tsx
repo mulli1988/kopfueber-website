@@ -36,7 +36,7 @@ export default async function ProductPage({ params }: Props) {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Bilder */}
-        <ProductImageGallery images={product.images} title={product.title} />
+        <ProductImageGallery images={product.images} title={product.title} videoUrl={product.videoUrl} />
 
         {/* Info */}
         <div className="flex flex-col gap-6">

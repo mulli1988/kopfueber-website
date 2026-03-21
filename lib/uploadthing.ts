@@ -31,6 +31,17 @@ export const ourFileRouter = {
       return { url: file.ufsUrl };
     }),
 
+  // Produktvideos (Admin)
+  productVideo: f({ video: { maxFileSize: "256MB", maxFileCount: 1 } })
+    .middleware(async () => {
+      const session = await getServerSession(authOptions);
+      if (!session || session.user.role !== "admin") throw new Error("Nicht erlaubt");
+      return { userId: session.user.id };
+    })
+    .onUploadComplete(async ({ file }) => {
+      return { url: file.ufsUrl };
+    }),
+
   // Blog-Coverbilder (Admin)
   blogCover: f({ image: { maxFileSize: "4MB", maxFileCount: 1 } })
     .middleware(async () => {
