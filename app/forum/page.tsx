@@ -26,7 +26,7 @@ export default async function ForumPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
       {/* Header */}
       <div className="text-center py-10 mb-8">
-        <h1 className="font-display text-5xl sm:text-6xl font-black text-[#924d44] mb-4">
+        <h1 className="font-display text-5xl sm:text-6xl font-black text-[#C4704A] mb-4">
           Das Kopfüber-Forum
         </h1>
         <p className="text-xl font-bold text-[#222222] mb-3">

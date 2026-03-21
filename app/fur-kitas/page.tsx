@@ -33,7 +33,7 @@ export default async function FurKitasPage({ searchParams }: PageProps) {
 
         {/* Header */}
         <div className="text-center py-10 mb-2">
-          <h1 className="font-display text-5xl sm:text-6xl font-black text-[#81ABAD] mb-4">
+          <h1 className="font-display text-5xl sm:text-6xl font-black text-[#4A8F8F] mb-4">
             Für Kitas &amp; Erzieher
           </h1>
           <p className="text-xl font-bold text-[#222222]">
