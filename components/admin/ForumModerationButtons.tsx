@@ -33,16 +33,24 @@ export default function ForumModerationButtons({ threadId, pinned, locked }: Pro
 
   return (
     <div className="flex gap-1 justify-end flex-wrap">
-      <Button variant="outline" size="sm" onClick={() => update({ pinned: !pinned })}>
-        {pinned ? "📌 Lösen" : "📌 Anpinnen"}
-      </Button>
-      <Button variant="outline" size="sm" onClick={() => update({ locked: !locked })}>
-        {locked ? "🔓 Entsperren" : "🔒 Sperren"}
-      </Button>
-      <Button variant="outline" size="sm" onClick={handleDelete}
-        className="border-red-400 text-red-600 hover:bg-red-50">
+      <button
+        onClick={() => update({ pinned: !pinned })}
+        className="text-xs font-semibold px-3 py-1.5 rounded-full border-2 border-[#81ABAD] text-[#81ABAD] hover:bg-[#81ABAD] hover:text-white transition-all"
+      >
+        {pinned ? "Lösen" : "Anpinnen"}
+      </button>
+      <button
+        onClick={() => update({ locked: !locked })}
+        className="text-xs font-semibold px-3 py-1.5 rounded-full border-2 border-[#D68876] text-[#D68876] hover:bg-[#D68876] hover:text-white transition-all"
+      >
+        {locked ? "Entsperren" : "Sperren"}
+      </button>
+      <button
+        onClick={handleDelete}
+        className="text-xs font-semibold px-3 py-1.5 rounded-full border-2 border-[#F0DDD8] text-[#888] hover:border-red-300 hover:text-red-500 transition-all"
+      >
         Löschen
-      </Button>
+      </button>
     </div>
   );
 }

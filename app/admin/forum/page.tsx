@@ -1,12 +1,10 @@
 export const dynamic = "force-dynamic";
 
+import Link from "next/link";
 import { connectToDatabase } from "@/lib/db/mongodb";
 import ForumThread from "@/lib/db/models/ForumThread";
 import ForumCategory from "@/lib/db/models/ForumCategory";
-import Card from "@/components/ui/Card";
-import Badge from "@/components/ui/Badge";
 import ForumModerationButtons from "@/components/admin/ForumModerationButtons";
-import ForumCategoryFormButton from "@/components/admin/ForumCategoryFormButton";
 
 export const metadata = { title: "Admin — Forum" };
 
@@ -17,65 +15,84 @@ export default async function AdminForumPage() {
     ForumCategory.find().sort({ order: 1 }).lean(),
   ]);
 
+  const categoryNameMap = Object.fromEntries(categories.map((c) => [c.slug, c.name]));
+
   return (
     <div>
-      <h1 className="font-display text-4xl font-black mb-8">Forum</h1>
+      <h1 className="font-display text-4xl font-black mb-2">Forum-Moderation</h1>
+      <p className="text-[#888] mb-8">
+        Hier siehst du alle Beiträge aus dem Forum. Du kannst Beiträge{" "}
+        <strong>anpinnen</strong> (erscheinen ganz oben in der Kategorie),{" "}
+        <strong>sperren</strong> (niemand kann mehr antworten) oder{" "}
+        <strong>löschen</strong>.
+      </p>
 
-      {/* Kategorien */}
-      <div className="flex items-center justify-between mb-4 flex-wrap gap-4">
-        <h2 className="font-display text-xl font-bold">Kategorien</h2>
-        <ForumCategoryFormButton />
-      </div>
-      <div className="flex flex-wrap gap-2 mb-8">
-        {categories.map((cat) => (
-          <Badge key={cat.slug} variant="secondary">{cat.name}</Badge>
-        ))}
-        {categories.length === 0 && (
-          <p className="text-muted-foreground text-sm">Noch keine Kategorien — erstelle die erste!</p>
-        )}
+      {/* Kategorien-Übersicht */}
+      <div className="mb-10">
+        <h2 className="font-display text-xl font-bold mb-4">Kategorien</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {categories.map((cat) => (
+            <Link
+              key={cat.slug}
+              href={`/forum/${cat.slug}`}
+              target="_blank"
+              className="no-underline bg-white rounded-xl border-2 border-[#F0DDD8] px-4 py-3 hover:border-[#81ABAD] transition-all"
+            >
+              <p className="font-semibold text-[#222] text-sm">{cat.name}</p>
+              <p className="text-xs text-[#888] mt-0.5">
+                {cat.section === "kita" ? "Kitas & Erzieher" : "Eltern & Familien"} · {threads.filter(t => t.categorySlug === cat.slug).length} Threads
+              </p>
+            </Link>
+          ))}
+        </div>
       </div>
 
       {/* Threads */}
-      <h2 className="font-display text-xl font-bold mb-4">Alle Threads</h2>
+      <h2 className="font-display text-xl font-bold mb-4">
+        Alle Beiträge{" "}
+        <span className="text-[#888] font-normal text-base">({threads.length})</span>
+      </h2>
+
       {threads.length === 0 ? (
-        <Card className="text-center py-12">
-          <p className="text-muted-foreground">Noch keine Threads.</p>
-        </Card>
+        <div className="bg-white rounded-2xl border-2 border-[#F0DDD8] p-12 text-center text-[#888]">
+          Noch keine Beiträge im Forum.
+        </div>
       ) : (
-        <Card className="p-0 overflow-hidden">
-          <table className="w-full text-sm">
-            <thead className="bg-muted border-b-2 border-dark">
-              <tr>
-                <th className="text-left px-4 py-3 font-semibold">Thread</th>
-                <th className="text-left px-4 py-3 font-semibold hidden sm:table-cell">Kategorie</th>
-                <th className="text-left px-4 py-3 font-semibold hidden md:table-cell">Antworten</th>
-                <th className="text-right px-4 py-3 font-semibold">Aktionen</th>
-              </tr>
-            </thead>
-            <tbody>
-              {threads.map((thread, i) => (
-                <tr key={thread._id.toString()} className={i % 2 === 0 ? "bg-surface" : "bg-muted/40"}>
-                  <td className="px-4 py-3">
-                    <p className="font-semibold">{thread.title}</p>
-                    <div className="flex gap-1 mt-1">
-                      {thread.pinned && <Badge variant="accent" className="text-[10px]">📌</Badge>}
-                      {thread.locked && <Badge variant="muted" className="text-[10px]">🔒</Badge>}
-                    </div>
-                  </td>
-                  <td className="px-4 py-3 hidden sm:table-cell text-muted-foreground">{thread.categorySlug}</td>
-                  <td className="px-4 py-3 hidden md:table-cell">{thread.replyCount}</td>
-                  <td className="px-4 py-3 text-right">
-                    <ForumModerationButtons
-                      threadId={thread._id.toString()}
-                      pinned={thread.pinned}
-                      locked={thread.locked}
-                    />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </Card>
+        <div className="flex flex-col gap-3">
+          {threads.map((thread) => (
+            <div
+              key={thread._id.toString()}
+              className="bg-white rounded-2xl border-2 border-[#F0DDD8] p-4 flex items-center justify-between gap-4 flex-wrap"
+            >
+              <div>
+                <div className="flex items-center gap-2 flex-wrap mb-1">
+                  {thread.pinned && (
+                    <span className="text-xs bg-[#FFF5F2] text-[#D68876] border border-[#F0DDD8] rounded-full px-2 py-0.5 font-semibold">
+                      Angepinnt
+                    </span>
+                  )}
+                  {thread.locked && (
+                    <span className="text-xs bg-[#F5F5F5] text-[#888] border border-[#ddd] rounded-full px-2 py-0.5 font-semibold">
+                      Gesperrt
+                    </span>
+                  )}
+                </div>
+                <p className="font-semibold text-[#222] text-sm">{thread.title}</p>
+                <p className="text-xs text-[#888] mt-0.5">
+                  {categoryNameMap[thread.categorySlug] ?? thread.categorySlug} ·{" "}
+                  von {thread.authorName} ·{" "}
+                  {thread.replyCount} Antworten ·{" "}
+                  {new Date(thread.createdAt).toLocaleDateString("de-DE")}
+                </p>
+              </div>
+              <ForumModerationButtons
+                threadId={thread._id.toString()}
+                pinned={thread.pinned}
+                locked={thread.locked}
+              />
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
