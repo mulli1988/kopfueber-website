@@ -63,18 +63,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Trust-Bar */}
-      <div className="bg-white border-y border-[#F0DDD8] py-4 px-4">
-        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-x-8 text-sm text-[#555555] font-medium text-center">
-          <span>✓ 15+ Jahre Erfahrung</span>
-          <span className="hidden sm:inline text-[#F0DDD8]">|</span>
-          <span>✓ Sofort druckbereit</span>
-          <span className="hidden sm:inline text-[#F0DDD8]">|</span>
-          <span>✓ Für Kita & Familie</span>
-        </div>
-      </div>
 
-      {/* Neuheiten */}
+{/* Neuheiten */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
         <div className="text-center mb-8">
           <h2 className="font-display text-4xl font-black text-[#924d44]">Jetzt neu im Shop</h2>
