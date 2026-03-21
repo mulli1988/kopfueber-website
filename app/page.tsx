@@ -2,6 +2,7 @@ export const dynamic = "force-dynamic";
 
 import Link from "next/link";
 import Image from "next/image";
+import PageBanner from "@/components/layout/PageBanner";
 import Button from "@/components/ui/Button";
 import ProductCard from "@/components/shop/ProductCard";
 import ContactForm from "@/components/home/ContactForm";
@@ -28,6 +29,7 @@ export default async function HomePage() {
 
   return (
     <div>
+      <PageBanner src="/banner2.jpg" alt="Kopfüber — Liebevoll gestaltete Materialien zum Ausdrucken für Kita & Zuhause" />
 
       {/* Hero */}
       <section className="bg-[#FFF5F2] py-14 px-4 text-center">

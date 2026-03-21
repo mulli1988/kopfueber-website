@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import PageBanner from "@/components/layout/PageBanner";
 import { connectToDatabase } from "@/lib/db/mongodb";
 import BlogPost from "@/lib/db/models/BlogPost";
 import Badge from "@/components/ui/Badge";
@@ -20,6 +21,7 @@ export default async function BlogPage() {
 
   return (
     <div>
+      <PageBanner src="/banner-blog.jpg" alt="Kopfüber Blog — Tipps für Kita & Familie" />
       <div className="text-center py-16 px-4">
         <h1 className="font-display text-5xl sm:text-6xl font-black text-[#D68876] mb-4">
           Willkommen in meiner Blog-Oase

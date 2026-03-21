@@ -6,6 +6,7 @@ import Product from "@/lib/db/models/Product";
 import ProductCard from "@/components/shop/ProductCard";
 import KitaSubcategoryFilter from "@/components/shop/KitaSubcategoryFilter";
 import { KITA_SUBCATEGORIES } from "@/lib/utils/categories";
+import PageBanner from "@/components/layout/PageBanner";
 
 export const metadata = {
   title: "Für Kitas",
@@ -29,6 +30,7 @@ export default async function FurKitasPage({ searchParams }: PageProps) {
 
   return (
     <div className="min-h-screen">
+      <PageBanner src="/banner-kitas.jpg" alt="Kopfüber — Materialien für Kindergärten und Kitas" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
 
         {/* Header */}

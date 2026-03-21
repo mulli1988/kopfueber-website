@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Baloo_2, Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -52,18 +51,6 @@ export default function RootLayout({
       >
         <SessionProvider>
           <Header />
-
-          {/* Banner */}
-          <div className="bg-white">
-            <Image
-              src="/banner2.jpg"
-              alt="Kopfüber — Liebevoll gestaltete Materialien zum Ausdrucken für Kita & Zuhause"
-              width={3000}
-              height={750}
-              className="w-full h-auto"
-              priority
-            />
-          </div>
 
           {/* Pastell-Navigationsleiste */}
           <div className="flex">
