@@ -46,18 +46,13 @@ export default async function ForumPage() {
 
       {/* Kita-Bereich */}
       <section className="mb-12">
-        <div className="flex items-center gap-3 mb-5">
-          <div className="w-10 h-10 rounded-full bg-[#81ABAD] flex items-center justify-center text-white text-lg">
-            🏫
-          </div>
-          <div>
-            <h2 className="font-display text-2xl font-black text-[#222222]">
-              Für Kitas &amp; Erzieher
-            </h2>
-            <p className="text-sm text-[#555555]">
-              Pädagogischer Austausch, Ideen und Ressourcen
-            </p>
-          </div>
+        <div className="mb-5">
+          <h2 className="font-display text-2xl font-black text-[#81ABAD]">
+            Für Kitas &amp; Erzieher
+          </h2>
+          <p className="text-sm text-[#555555]">
+            Pädagogischer Austausch, Ideen und Ressourcen
+          </p>
         </div>
         <div className="flex flex-col gap-3">
           {kitaCategories.map((cat) => (
@@ -89,18 +84,13 @@ export default async function ForumPage() {
 
       {/* Eltern-Bereich */}
       <section>
-        <div className="flex items-center gap-3 mb-5">
-          <div className="w-10 h-10 rounded-full bg-[#D68876] flex items-center justify-center text-white text-lg">
-            👨‍👩‍👧
-          </div>
-          <div>
-            <h2 className="font-display text-2xl font-black text-[#222222]">
-              Für Eltern &amp; Familien
-            </h2>
-            <p className="text-sm text-[#555555]">
-              Familienalltag, Erziehung und Freizeitideen
-            </p>
-          </div>
+        <div className="mb-5">
+          <h2 className="font-display text-2xl font-black text-[#D68876]">
+            Für Eltern &amp; Familien
+          </h2>
+          <p className="text-sm text-[#555555]">
+            Familienalltag, Erziehung und Freizeitideen
+          </p>
         </div>
         <div className="flex flex-col gap-3">
           {elternCategories.map((cat) => (

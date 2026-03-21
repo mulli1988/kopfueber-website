@@ -37,12 +37,12 @@ export default async function ForumThreadPage({ params }: Props) {
         <div className="flex gap-2 mb-3">
           {thread.pinned && (
             <span className="text-xs bg-[#FFF5F2] text-[#D68876] border border-[#F0DDD8] rounded-full px-2 py-0.5 font-semibold">
-              📌 Angepinnt
+              Angepinnt
             </span>
           )}
           {thread.locked && (
             <span className="text-xs bg-[#F5F5F5] text-[#888] border border-[#ddd] rounded-full px-2 py-0.5 font-semibold">
-              🔒 Gesperrt
+              Gesperrt
             </span>
           )}
         </div>
