@@ -23,12 +23,12 @@ export default function KitaSubcategoryFilter({ subcategories, active, basePath 
     router.push(`${basePath}?${p.toString()}`);
   }
 
-  const btnBase = "px-4 py-2 rounded-full border-2 text-sm font-semibold transition-all";
+  const btnBase = "px-3 py-1.5 rounded-full border-2 text-xs font-semibold transition-all";
   const btnInactive = "bg-white border-[#E0D8D5] text-[#555555] hover:border-[#924d44] hover:text-[#924d44]";
   const btnActive = "bg-[#924d44] border-[#924d44] text-white";
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-1.5">
       <button onClick={() => select(null)} className={cn(btnBase, !active ? btnActive : btnInactive)}>
         Alle
       </button>
