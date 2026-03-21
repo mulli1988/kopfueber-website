@@ -1,69 +1,134 @@
-"use client";
+export const dynamic = "force-dynamic";
 
-import { useState } from "react";
-import Button from "@/components/ui/Button";
+import Link from "next/link";
+import { connectToDatabase } from "@/lib/db/mongodb";
+import ForumCategory from "@/lib/db/models/ForumCategory";
+import ForumThread from "@/lib/db/models/ForumThread";
 
-export default function ForumPage() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+export const metadata = { title: "Forum — Kopfüber Community" };
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setStatus("loading");
-    try {
-      const res = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, name: "" }),
-      });
-      if (!res.ok) throw new Error();
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
-  }
+export default async function ForumPage() {
+  await connectToDatabase();
+
+  const categories = await ForumCategory.find().sort({ order: 1 }).lean();
+
+  const threadCounts = await ForumThread.aggregate([
+    { $group: { _id: "$categorySlug", count: { $sum: 1 } } },
+  ]);
+  const countMap: Record<string, number> = Object.fromEntries(
+    threadCounts.map((t) => [t._id, t.count])
+  );
+
+  const kitaCategories = categories.filter((c) => c.section === "kita");
+  const elternCategories = categories.filter((c) => c.section === "eltern");
 
   return (
-    <div>
-    <div className="min-h-[60vh] flex items-center justify-center px-4 py-16">
-      <div className="max-w-lg w-full text-center">
-        <p className="text-xs font-bold uppercase tracking-widest text-[#81ABAD] mb-3">Coming Soon</p>
-        <h1 className="font-display text-4xl sm:text-5xl font-black text-[#222222] leading-tight mb-4">
-          Die Community entsteht
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+      {/* Header */}
+      <div className="text-center mb-12">
+        <p className="text-xs font-bold uppercase tracking-widest text-[#81ABAD] mb-3">
+          Community
+        </p>
+        <h1 className="font-display text-4xl sm:text-5xl font-black text-[#222222] mb-4">
+          Das Kopfüber-Forum
         </h1>
-        <p className="text-lg text-[#555555] leading-relaxed mb-4">
-          Hier entsteht ein Ort zum Austauschen, Fragen stellen und Ideen teilen —
-          für Erzieherinnen, Eltern und alle, die Kinder begleiten.
+        <p className="text-lg text-[#555555] leading-relaxed max-w-xl mx-auto">
+          Tauscht euch aus, stellt Fragen und teilt Ideen — mit Erzieherinnen
+          und Eltern aus ganz Deutschland.
         </p>
-        <p className="text-[#555555] mb-8">
-          Trag dich ein und werde informiert, sobald das Forum öffnet:
+        <p className="text-sm text-[#81ABAD] font-semibold mt-3">
+          Du musst eingeloggt sein, um Beiträge zu schreiben.{" "}
+          <Link href="/login" className="underline">
+            Jetzt einloggen →
+          </Link>
         </p>
-
-        {status === "success" ? (
-          <div className="bg-[#FFF5F2] rounded-3xl border-2 border-[#F0DDD8] p-8">
-            <p className="font-display text-xl font-black text-[#924d44] mb-1">Du bist dabei!</p>
-            <p className="text-[#555555] text-sm">Wir melden uns, wenn es losgeht.</p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Deine E-Mail-Adresse"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="flex-1 px-4 py-3 rounded-2xl border-2 border-[#F0DDD8] bg-white text-[#222222] placeholder-[#AAAAAA] focus:outline-none focus:border-[#81ABAD] transition-colors"
-            />
-            <Button type="submit" disabled={status === "loading"}>
-              {status === "loading" ? "Wird eingetragen…" : "Benachrichtigen"}
-            </Button>
-          </form>
-        )}
-        {status === "error" && (
-          <p className="text-red-500 text-sm mt-3">Etwas ist schiefgelaufen. Bitte versuche es nochmal.</p>
-        )}
       </div>
-    </div>
+
+      {/* Kita-Bereich */}
+      <section className="mb-12">
+        <div className="flex items-center gap-3 mb-5">
+          <div className="w-10 h-10 rounded-full bg-[#81ABAD] flex items-center justify-center text-white text-lg">
+            🏫
+          </div>
+          <div>
+            <h2 className="font-display text-2xl font-black text-[#222222]">
+              Für Kitas &amp; Erzieher
+            </h2>
+            <p className="text-sm text-[#555555]">
+              Pädagogischer Austausch, Ideen und Ressourcen
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3">
+          {kitaCategories.map((cat) => (
+            <Link
+              key={cat.slug}
+              href={`/forum/${cat.slug}`}
+              className="no-underline group"
+            >
+              <div className="bg-white rounded-2xl border-2 border-[#F0DDD8] p-5 flex items-center justify-between gap-4 hover:border-[#81ABAD] hover:shadow-md transition-all">
+                <div>
+                  <p className="font-bold text-[#222222] group-hover:text-[#81ABAD] transition-colors">
+                    {cat.name}
+                  </p>
+                  <p className="text-sm text-[#555555] mt-0.5">{cat.description}</p>
+                </div>
+                <div className="flex-shrink-0 text-right">
+                  <span className="text-xs font-semibold text-[#81ABAD] bg-[#F0F8F8] px-3 py-1 rounded-full">
+                    {countMap[cat.slug] ?? 0} Threads
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
+          {kitaCategories.length === 0 && (
+            <p className="text-[#555555] text-sm">Noch keine Kategorien vorhanden.</p>
+          )}
+        </div>
+      </section>
+
+      {/* Eltern-Bereich */}
+      <section>
+        <div className="flex items-center gap-3 mb-5">
+          <div className="w-10 h-10 rounded-full bg-[#D68876] flex items-center justify-center text-white text-lg">
+            👨‍👩‍👧
+          </div>
+          <div>
+            <h2 className="font-display text-2xl font-black text-[#222222]">
+              Für Eltern &amp; Familien
+            </h2>
+            <p className="text-sm text-[#555555]">
+              Familienalltag, Erziehung und Freizeitideen
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3">
+          {elternCategories.map((cat) => (
+            <Link
+              key={cat.slug}
+              href={`/forum/${cat.slug}`}
+              className="no-underline group"
+            >
+              <div className="bg-white rounded-2xl border-2 border-[#F0DDD8] p-5 flex items-center justify-between gap-4 hover:border-[#D68876] hover:shadow-md transition-all">
+                <div>
+                  <p className="font-bold text-[#222222] group-hover:text-[#D68876] transition-colors">
+                    {cat.name}
+                  </p>
+                  <p className="text-sm text-[#555555] mt-0.5">{cat.description}</p>
+                </div>
+                <div className="flex-shrink-0 text-right">
+                  <span className="text-xs font-semibold text-[#D68876] bg-[#FFF5F2] px-3 py-1 rounded-full">
+                    {countMap[cat.slug] ?? 0} Threads
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
+          {elternCategories.length === 0 && (
+            <p className="text-[#555555] text-sm">Noch keine Kategorien vorhanden.</p>
+          )}
+        </div>
+      </section>
     </div>
   );
 }

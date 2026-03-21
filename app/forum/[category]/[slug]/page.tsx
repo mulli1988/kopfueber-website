@@ -5,9 +5,6 @@ import Link from "next/link";
 import { connectToDatabase } from "@/lib/db/mongodb";
 import ForumThread from "@/lib/db/models/ForumThread";
 import ForumPost from "@/lib/db/models/ForumPost";
-import User from "@/lib/db/models/User";
-import Badge from "@/components/ui/Badge";
-import Card from "@/components/ui/Card";
 import ReplyForm from "@/components/forum/ReplyForm";
 
 interface Props {
@@ -21,59 +18,93 @@ export default async function ForumThreadPage({ params }: Props) {
   const thread = await ForumThread.findOne({ categorySlug: category, slug }).lean();
   if (!thread) notFound();
 
-  const posts = await ForumPost.find({ threadId: thread._id })
+  // replies = all posts except the first one (OP content is stored in thread.content)
+  const replies = await ForumPost.find({ threadId: thread._id })
     .sort({ createdAt: 1 })
+    .skip(1)
     .lean();
-
-  const authorIds = [...new Set(posts.map((p) => p.authorId.toString()))];
-  const authors = await User.find({ _id: { $in: authorIds } }).lean();
-  const authorMap = Object.fromEntries(authors.map((a) => [a._id.toString(), a.name]));
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
       <Link
         href={`/forum/${category}`}
-        className="text-sm font-semibold text-muted-foreground hover:text-foreground no-underline mb-6 inline-block"
+        className="text-sm font-semibold text-[#81ABAD] hover:underline no-underline mb-6 inline-block"
       >
         ← Zurück zur Kategorie
       </Link>
 
       <div className="mb-8">
         <div className="flex gap-2 mb-3">
-          {thread.pinned && <Badge variant="accent">📌 Angepinnt</Badge>}
-          {thread.locked && <Badge variant="muted">🔒 Gesperrt</Badge>}
+          {thread.pinned && (
+            <span className="text-xs bg-[#FFF5F2] text-[#D68876] border border-[#F0DDD8] rounded-full px-2 py-0.5 font-semibold">
+              📌 Angepinnt
+            </span>
+          )}
+          {thread.locked && (
+            <span className="text-xs bg-[#F5F5F5] text-[#888] border border-[#ddd] rounded-full px-2 py-0.5 font-semibold">
+              🔒 Gesperrt
+            </span>
+          )}
         </div>
-        <h1 className="font-display text-3xl sm:text-4xl font-black">{thread.title}</h1>
-        <p className="text-sm text-muted-foreground mt-2">
-          {thread.replyCount} Antworten · erstellt {new Date(thread.createdAt).toLocaleDateString("de-DE")}
+        <h1 className="font-display text-3xl sm:text-4xl font-black text-[#222222]">
+          {thread.title}
+        </h1>
+        <p className="text-sm text-[#888] mt-2">
+          {thread.replyCount} {thread.replyCount === 1 ? "Antwort" : "Antworten"} ·{" "}
+          erstellt {new Date(thread.createdAt).toLocaleDateString("de-DE")}
         </p>
       </div>
 
       {/* Posts */}
       <div className="flex flex-col gap-4 mb-10">
-        {posts.map((post, i) => (
-          <Card
-            key={post._id.toString()}
-            className={i === 0 ? "border-primary" : ""}
-          >
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold">
-                  {(authorMap[post.authorId.toString()] ?? "?")[0].toUpperCase()}
-                </div>
-                <span className="font-semibold text-sm">
-                  {authorMap[post.authorId.toString()] ?? "Unbekannt"}
-                </span>
-                {i === 0 && <Badge variant="primary">OP</Badge>}
+        {/* OP — thread content */}
+        <div className="bg-white rounded-2xl border-2 border-[#81ABAD] p-6">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-[#81ABAD] text-white flex items-center justify-center text-sm font-bold">
+                {(thread.authorName ?? "?")[0].toUpperCase()}
               </div>
-              <span className="text-xs text-muted-foreground">
+              <div>
+                <span className="font-semibold text-sm text-[#222222]">{thread.authorName}</span>
+                <span className="ml-2 text-xs bg-[#81ABAD] text-white rounded-full px-2 py-0.5 font-semibold">
+                  OP
+                </span>
+              </div>
+            </div>
+            <span className="text-xs text-[#888]">
+              {new Date(thread.createdAt).toLocaleDateString("de-DE", {
+                day: "numeric", month: "short", year: "numeric",
+              })}
+            </span>
+          </div>
+          <p className="text-sm leading-relaxed whitespace-pre-wrap text-[#333]">
+            {thread.content}
+          </p>
+        </div>
+
+        {/* Replies */}
+        {replies.map((post) => (
+          <div
+            key={post._id.toString()}
+            className="bg-white rounded-2xl border-2 border-[#F0DDD8] p-6"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-[#D68876] text-white flex items-center justify-center text-sm font-bold">
+                  {(post.authorName ?? "?")[0].toUpperCase()}
+                </div>
+                <span className="font-semibold text-sm text-[#222222]">{post.authorName}</span>
+              </div>
+              <span className="text-xs text-[#888]">
                 {new Date(post.createdAt).toLocaleDateString("de-DE", {
                   day: "numeric", month: "short", year: "numeric",
                 })}
               </span>
             </div>
-            <p className="text-sm leading-relaxed whitespace-pre-wrap">{post.content}</p>
-          </Card>
+            <p className="text-sm leading-relaxed whitespace-pre-wrap text-[#333]">
+              {post.content}
+            </p>
+          </div>
         ))}
       </div>
 

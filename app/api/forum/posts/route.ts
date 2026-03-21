@@ -21,11 +21,13 @@ export async function POST(req: Request) {
   if (!thread) return NextResponse.json({ error: "Thread nicht gefunden." }, { status: 404 });
   if (thread.locked) return NextResponse.json({ error: "Thread ist gesperrt." }, { status: 403 });
 
+  const authorName = session.user.name ?? session.user.email ?? "Unbekannt";
+
   const post = await ForumPost.create({
     threadId: new mongoose.Types.ObjectId(threadId),
     authorId: new mongoose.Types.ObjectId(session.user.id),
+    authorName,
     content: content.trim(),
-    isFirstPost: false,
   });
 
   await ForumThread.findByIdAndUpdate(threadId, {

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
 import Input from "@/components/ui/Input";
@@ -15,7 +16,16 @@ export default function NewThreadButton({ categorySlug }: { categorySlug: string
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
 
-  if (!session) return null;
+  if (!session) {
+    return (
+      <Link
+        href="/login"
+        className="text-sm font-semibold text-[#81ABAD] hover:underline no-underline"
+      >
+        Einloggen zum Schreiben →
+      </Link>
+    );
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -41,8 +51,8 @@ export default function NewThreadButton({ categorySlug }: { categorySlug: string
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>+ Neuer Thread</Button>
-      <Modal open={open} onClose={() => setOpen(false)} title="Neuer Thread">
+      <Button onClick={() => setOpen(true)}>+ Neuer Beitrag</Button>
+      <Modal open={open} onClose={() => setOpen(false)} title="Neuer Beitrag">
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <Input
             label="Titel"
@@ -53,19 +63,19 @@ export default function NewThreadButton({ categorySlug }: { categorySlug: string
             required
           />
           <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-semibold">Inhalt</label>
+            <label className="text-sm font-semibold text-[#222222]">Inhalt</label>
             <textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}
               rows={5}
               placeholder="Schreib deinen Beitrag…"
-              className="w-full px-4 py-3 bg-surface border-2 border-dark rounded-[var(--radius-md)] text-sm resize-none focus:outline-none focus:border-primary transition-colors"
+              className="w-full px-4 py-3 bg-white border-2 border-[#F0DDD8] rounded-xl text-sm resize-none focus:outline-none focus:border-[#81ABAD] transition-colors"
               required
             />
           </div>
           <div className="flex gap-3">
             <Button type="submit" disabled={loading}>
-              {loading ? "Wird erstellt…" : "Thread erstellen"}
+              {loading ? "Wird erstellt…" : "Beitrag erstellen"}
             </Button>
             <Button type="button" variant="outline" onClick={() => setOpen(false)}>
               Abbrechen

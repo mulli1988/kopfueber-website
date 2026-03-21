@@ -22,19 +22,23 @@ export async function POST(req: Request) {
   const count = await ForumThread.countDocuments({ categorySlug, slug: new RegExp(`^${baseSlug}`) });
   const slug = count > 0 ? `${baseSlug}-${count}` : baseSlug;
 
+  const authorName = session.user.name ?? session.user.email ?? "Unbekannt";
+
   const thread = await ForumThread.create({
     categorySlug,
     title,
     slug,
+    content,
     authorId: new mongoose.Types.ObjectId(session.user.id),
+    authorName,
     replyCount: 0,
   });
 
   await ForumPost.create({
     threadId: thread._id,
     authorId: new mongoose.Types.ObjectId(session.user.id),
+    authorName,
     content,
-    isFirstPost: true,
   });
 
   return NextResponse.json({ slug, categorySlug }, { status: 201 });

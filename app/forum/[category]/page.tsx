@@ -5,9 +5,6 @@ import { notFound } from "next/navigation";
 import { connectToDatabase } from "@/lib/db/mongodb";
 import ForumCategory from "@/lib/db/models/ForumCategory";
 import ForumThread from "@/lib/db/models/ForumThread";
-import User from "@/lib/db/models/User";
-import Card from "@/components/ui/Card";
-import Badge from "@/components/ui/Badge";
 import NewThreadButton from "@/components/forum/NewThreadButton";
 
 interface Props {
@@ -25,28 +22,27 @@ export default async function ForumCategoryPage({ params }: Props) {
     .sort({ pinned: -1, lastReplyAt: -1 })
     .lean();
 
-  const authorIds = [...new Set(threads.map((t) => t.authorId.toString()))];
-  const authors = await User.find({ _id: { $in: authorIds } }).lean();
-  const authorMap = Object.fromEntries(authors.map((a) => [a._id.toString(), a.name]));
-
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-      <Link href="/forum" className="text-sm font-semibold text-muted-foreground hover:text-foreground no-underline mb-6 inline-block">
+      <Link
+        href="/forum"
+        className="text-sm font-semibold text-[#81ABAD] hover:underline no-underline mb-6 inline-block"
+      >
         ← Zurück zum Forum
       </Link>
 
       <div className="flex items-end justify-between mb-8 flex-wrap gap-4">
         <div>
-          <h1 className="font-display text-4xl font-black">{cat.name}</h1>
-          <p className="text-muted-foreground mt-1">{cat.description}</p>
+          <h1 className="font-display text-4xl font-black text-[#222222]">{cat.name}</h1>
+          <p className="text-[#555555] mt-1">{cat.description}</p>
         </div>
         <NewThreadButton categorySlug={cat.slug} />
       </div>
 
       {threads.length === 0 ? (
-        <Card className="text-center py-12">
-          <p className="text-muted-foreground">Noch keine Threads — sei der Erste!</p>
-        </Card>
+        <div className="bg-white rounded-2xl border-2 border-[#F0DDD8] p-12 text-center">
+          <p className="text-[#555555]">Noch keine Beiträge — sei die Erste!</p>
+        </div>
       ) : (
         <div className="flex flex-col gap-3">
           {threads.map((thread) => (
@@ -55,22 +51,34 @@ export default async function ForumCategoryPage({ params }: Props) {
               href={`/forum/${category}/${thread.slug}`}
               className="no-underline block group"
             >
-              <Card hover className="flex items-center justify-between gap-4 flex-wrap py-4">
-                <div className="flex items-start gap-3">
-                  {thread.pinned && <Badge variant="accent">📌</Badge>}
-                  {thread.locked && <Badge variant="muted">🔒</Badge>}
+              <div className="bg-white rounded-2xl border-2 border-[#F0DDD8] p-5 flex items-center justify-between gap-4 flex-wrap hover:border-[#81ABAD] hover:shadow-md transition-all">
+                <div className="flex items-start gap-3 flex-1 min-w-0">
                   <div>
-                    <p className="font-semibold group-hover:text-primary transition-colors">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      {thread.pinned && (
+                        <span className="text-xs bg-[#FFF5F2] text-[#D68876] border border-[#F0DDD8] rounded-full px-2 py-0.5 font-semibold">
+                          📌 Angepinnt
+                        </span>
+                      )}
+                      {thread.locked && (
+                        <span className="text-xs bg-[#F5F5F5] text-[#888] border border-[#ddd] rounded-full px-2 py-0.5 font-semibold">
+                          🔒 Gesperrt
+                        </span>
+                      )}
+                    </div>
+                    <p className="font-bold text-[#222222] group-hover:text-[#81ABAD] transition-colors mt-1">
                       {thread.title}
                     </p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      von {authorMap[thread.authorId.toString()] ?? "Unbekannt"} ·{" "}
+                    <p className="text-xs text-[#888] mt-1">
+                      von {thread.authorName} ·{" "}
                       {new Date(thread.createdAt).toLocaleDateString("de-DE")}
                     </p>
                   </div>
                 </div>
-                <Badge variant="muted">{thread.replyCount} Antworten</Badge>
-              </Card>
+                <span className="text-xs font-semibold text-[#81ABAD] bg-[#F0F8F8] px-3 py-1 rounded-full flex-shrink-0">
+                  {thread.replyCount} Antworten
+                </span>
+              </div>
             </Link>
           ))}
         </div>
