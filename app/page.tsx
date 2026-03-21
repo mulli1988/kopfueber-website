@@ -120,6 +120,32 @@ export default async function HomePage() {
         </section>
       )}
 
+      {/* Bewertungen */}
+      <section className="bg-white py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#81ABAD] mb-2">Kundenstimmen</p>
+            <h2 className="font-display text-4xl font-black text-[#924d44]">Das sagen andere über Kopfüber</h2>
+            <p className="text-[#555555] mt-2">Echte Bewertungen von Erzieherinnen & Eltern</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { name: "Nancy",   text: "Ich bin begeistert. Artikel stand sofort zur Verfügung. Eine tolle Möglichkeit um den Morgenkreis zu visualisieren. Die Kinder haben es super angenommen und ich kann es sehr empfehlen." },
+              { name: "Lena",    text: "Super Aushänge — hab ich für die Eltern in der Krippe hängen." },
+              { name: "Franzi",  text: "Sehr schöne Vorlagen. Genau das passende was gesucht wurde." },
+              { name: "Aneta",   text: "Alles bestens. Schöne Sprüche und sehr geeignet für die Kita." },
+              { name: "Sabrina", text: "Richtig tolle und ansprechende Illustrationen." },
+            ].map(({ name, text }) => (
+              <div key={name} className="bg-[#FFF5F2] rounded-3xl border-2 border-[#F0DDD8] p-6 flex flex-col gap-3">
+                <div className="flex gap-0.5 text-[#D4A855] text-lg">{"★★★★★"}</div>
+                <p className="text-[#444444] leading-relaxed flex-1">"{text}"</p>
+                <p className="text-sm font-bold text-[#924d44]">— {name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Über mich */}
       <section className="bg-white py-16 px-4">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
