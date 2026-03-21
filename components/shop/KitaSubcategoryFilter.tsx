@@ -9,6 +9,12 @@ const COLORS = [
   { bg: "#EBF5EB", border: "#6BA87A" },
   { bg: "#EDE8F5", border: "#9B8EC4" },
   { bg: "#FFF0EB", border: "#C07B6B" },
+  { bg: "#F0F4FF", border: "#8899DD" },
+  { bg: "#FEF6F0", border: "#E0A878" },
+  { bg: "#F0FAF5", border: "#5BB88A" },
+  { bg: "#FCF0F8", border: "#C88ABB" },
+  { bg: "#FAFAF0", border: "#AAAA66" },
+  { bg: "#F0F8FC", border: "#6AAABB" },
 ];
 
 interface Props {
@@ -32,6 +38,8 @@ export default function KitaSubcategoryFilter({ subcategories, active, basePath 
   }
 
   return (
+    <div>
+      <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-3">Kategorien</p>
     <div className="flex flex-wrap gap-3">
       <button
         onClick={() => select(null)}
@@ -64,6 +72,7 @@ export default function KitaSubcategoryFilter({ subcategories, active, basePath 
           </button>
         );
       })}
+    </div>
     </div>
   );
 }
