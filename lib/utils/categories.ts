@@ -4,6 +4,7 @@ export const KITA_SUBCATEGORIES = [
   "Vorlagen für Portfolios",
   "Vorlagen zum Basteln",
   "Organisatorische Vorlagen",
+  "Tür-Aushänge",
   "Wandposter",
   "Spiele",
   "Ratgeber",
