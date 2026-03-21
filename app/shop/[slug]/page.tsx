@@ -1,12 +1,12 @@
 export const dynamic = "force-dynamic";
 
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import { connectToDatabase } from "@/lib/db/mongodb";
 import Product from "@/lib/db/models/Product";
 import { formatPrice } from "@/lib/utils/formatCurrency";
 import Badge from "@/components/ui/Badge";
 import BuyButton from "@/components/shop/BuyButton";
+import ProductImageGallery from "@/components/shop/ProductImageGallery";
 import type { Metadata } from "next";
 
 interface Props {
@@ -36,32 +36,7 @@ export default async function ProductPage({ params }: Props) {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Bilder */}
-        <div className="flex flex-col gap-4">
-          <div className="relative aspect-square w-full bg-muted border-2 border-dark rounded-[var(--radius-xl)] overflow-hidden">
-            {product.images[0] ? (
-              <Image
-                src={product.images[0]}
-                alt={product.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-8xl">🖼</div>
-            )}
-          </div>
-          {/* Weitere Bilder */}
-          {product.images.length > 1 && (
-            <div className="grid grid-cols-4 gap-2">
-              {product.images.slice(1).map((img: string, i: number) => (
-                <div key={i} className="relative aspect-square bg-muted border-2 border-dark rounded-[var(--radius-md)] overflow-hidden">
-                  <Image src={img} alt={`${product.title} ${i + 2}`} fill className="object-cover" sizes="25vw" />
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
+        <ProductImageGallery images={product.images} title={product.title} />
 
         {/* Info */}
         <div className="flex flex-col gap-6">
