@@ -1,15 +1,6 @@
 import { NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/db/mongodb";
-import mongoose from "mongoose";
-
-const ContactSchema = new mongoose.Schema({
-  name:      String,
-  email:     String,
-  message:   String,
-  createdAt: { type: Date, default: Date.now },
-});
-
-const Contact = mongoose.models.Contact || mongoose.model("Contact", ContactSchema);
+import Contact from "@/lib/db/models/Contact";
 
 export async function POST(req: Request) {
   try {

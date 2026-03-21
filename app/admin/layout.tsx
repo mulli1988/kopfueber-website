@@ -10,6 +10,7 @@ const navItems = [
   { href: "/admin/orders",   label: "Bestellungen" },
   { href: "/admin/forum",    label: "Forum" },
   { href: "/admin/reviews",  label: "Bewertungen" },
+  { href: "/admin/contact",  label: "Nachrichten" },
 ];
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
