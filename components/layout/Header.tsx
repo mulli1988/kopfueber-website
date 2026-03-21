@@ -25,6 +25,13 @@ export default function Header() {
         {/* Rechts: Konto + Über mich + Shop */}
         <div className="hidden md:flex items-center gap-2">
           <Link
+            href="/bewertungen"
+            className="px-4 py-2 rounded-full text-sm font-semibold text-[#D4A855] hover:bg-[#FFF8E8] transition-colors no-underline"
+            title="Bewertungen"
+          >
+            ★ Bewertungen
+          </Link>
+          <Link
             href="/account"
             className="px-4 py-2 rounded-full text-sm font-semibold text-[#3D3535] hover:bg-[#FFF5F2] transition-colors no-underline"
           >
