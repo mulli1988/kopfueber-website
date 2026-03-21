@@ -85,7 +85,7 @@ export default async function HomePage() {
         {products.length === 0 ? (
           <WaitlistForm />
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
             {products.map((p) => (
               <ProductCard
                 key={p._id.toString()}
@@ -148,7 +148,7 @@ export default async function HomePage() {
             <h2 className="font-display text-4xl font-black text-[#924d44]">Das sagen andere über Kopfüber</h2>
             <p className="text-[#555555] mt-2">Echte Bewertungen von Erzieherinnen & Eltern</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
             {reviews.slice(0, 3).map((r) => (
               <div key={r._id} className="bg-[#FFF5F2] rounded-3xl border-2 border-[#F0DDD8] p-6 flex flex-col gap-3">
                 <div className="text-[#D4A855] text-lg tracking-tight">{"★".repeat(r.rating)}{"☆".repeat(5 - r.rating)}</div>

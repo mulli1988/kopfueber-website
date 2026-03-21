@@ -57,16 +57,16 @@ export default function RootLayout({
 
           {/* Pastell-Navigationsleiste */}
           <div className="flex">
-            <Link href="/fur-kitas" className="flex-1 bg-[#C5E0E0] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#222222] uppercase tracking-widest">
+            <Link href="/fur-kitas" className="flex-1 bg-[#C5E0E0] hover:brightness-95 transition-all no-underline py-2.5 text-center text-xs sm:text-sm font-bold text-[#222222] uppercase tracking-wider whitespace-nowrap">
               Für Kitas
             </Link>
-            <Link href="/fur-familien" className="flex-1 bg-[#FFF8E8] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#222222] uppercase tracking-widest">
+            <Link href="/fur-familien" className="flex-1 bg-[#FFF8E8] hover:brightness-95 transition-all no-underline py-2.5 text-center text-xs sm:text-sm font-bold text-[#222222] uppercase tracking-wider whitespace-nowrap">
               Für Familien
             </Link>
-            <Link href="/blog" className="flex-1 bg-[#EBF5EB] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#222222] uppercase tracking-widest">
+            <Link href="/blog" className="flex-1 bg-[#EBF5EB] hover:brightness-95 transition-all no-underline py-2.5 text-center text-xs sm:text-sm font-bold text-[#222222] uppercase tracking-wider whitespace-nowrap">
               Blog
             </Link>
-            <Link href="/forum" className="flex-1 bg-[#FFF0EB] hover:brightness-95 transition-all no-underline py-3 text-center text-sm font-bold text-[#222222] uppercase tracking-widest">
+            <Link href="/forum" className="flex-1 bg-[#FFF0EB] hover:brightness-95 transition-all no-underline py-2.5 text-center text-xs sm:text-sm font-bold text-[#222222] uppercase tracking-wider whitespace-nowrap">
               Forum
             </Link>
           </div>
