@@ -32,10 +32,12 @@ export default async function FurFamilienPage({ searchParams }: PageProps) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
 
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="font-display text-4xl font-black mb-2">Für Familien</h1>
-          <p className="text-muted-foreground">
-            Druckfertige Materialien für den Familienalltag mit Kindern.
+        <div className="text-center py-10 mb-2">
+          <h1 className="font-display text-5xl sm:text-6xl font-black text-[#D68876] mb-4">
+            Für Familien
+          </h1>
+          <p className="text-xl font-bold text-[#222222]">
+            Druckfertige Materialien für den Familienalltag mit Kindern
           </p>
         </div>
 

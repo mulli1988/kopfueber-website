@@ -32,10 +32,12 @@ export default async function FurKitasPage({ searchParams }: PageProps) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
 
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="font-display text-4xl font-black mb-2">Für Kitas</h1>
-          <p className="text-muted-foreground">
-            Druckfertige Vorlagen und Materialien für den Kindergarten-Alltag.
+        <div className="text-center py-10 mb-2">
+          <h1 className="font-display text-5xl sm:text-6xl font-black text-[#81ABAD] mb-4">
+            Für Kitas &amp; Erzieher
+          </h1>
+          <p className="text-xl font-bold text-[#222222]">
+            Druckfertige Vorlagen und Materialien für den Kindergarten-Alltag
           </p>
         </div>
 

@@ -25,18 +25,14 @@ export default async function ForumPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
       {/* Header */}
-      <div className="text-center mb-12">
-        <p className="text-xs font-bold uppercase tracking-widest text-[#81ABAD] mb-3">
-          Community
-        </p>
-        <h1 className="font-display text-4xl sm:text-5xl font-black text-[#222222] mb-4">
+      <div className="text-center py-10 mb-8">
+        <h1 className="font-display text-5xl sm:text-6xl font-black text-[#924d44] mb-4">
           Das Kopfüber-Forum
         </h1>
-        <p className="text-lg text-[#555555] leading-relaxed max-w-xl mx-auto">
-          Tauscht euch aus, stellt Fragen und teilt Ideen — mit Erzieherinnen
-          und Eltern aus ganz Deutschland.
+        <p className="text-xl font-bold text-[#222222] mb-3">
+          Tauscht euch aus, stellt Fragen und teilt Ideen
         </p>
-        <p className="text-sm text-[#81ABAD] font-semibold mt-3">
+        <p className="text-sm text-[#81ABAD] font-semibold">
           Du musst eingeloggt sein, um Beiträge zu schreiben.{" "}
           <Link href="/login" className="underline">
             Jetzt einloggen →
