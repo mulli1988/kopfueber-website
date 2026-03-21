@@ -6,9 +6,11 @@ import Button from "@/components/ui/Button";
 import ProductCard from "@/components/shop/ProductCard";
 import ContactForm from "@/components/home/ContactForm";
 import WaitlistForm from "@/components/home/WaitlistForm";
+import ReviewForm from "@/components/home/ReviewForm";
 import { connectToDatabase } from "@/lib/db/mongodb";
 import Product from "@/lib/db/models/Product";
 import BlogPost from "@/lib/db/models/BlogPost";
+import Review from "@/lib/db/models/Review";
 
 async function getLatestProducts() {
   await connectToDatabase();
@@ -20,11 +22,30 @@ async function getLatestBlogPost() {
   return BlogPost.findOne({ published: true }).sort({ publishedAt: -1 }).lean();
 }
 
+async function getApprovedReviews() {
+  await connectToDatabase();
+  return Review.find({ approved: true }).sort({ createdAt: -1 }).lean();
+}
+
+// Etsy-Bewertungen als Fallback
+const ETSY_REVIEWS = [
+  { _id: "1", name: "Nancy",   rating: 5, text: "Ich bin begeistert. Artikel stand sofort zur Verfügung. Eine tolle Möglichkeit um den Morgenkreis zu visualisieren. Die Kinder haben es super angenommen und ich kann es sehr empfehlen." },
+  { _id: "2", name: "Lena",    rating: 5, text: "Super Aushänge — hab ich für die Eltern in der Krippe hängen." },
+  { _id: "3", name: "Franzi",  rating: 5, text: "Sehr schöne Vorlagen. Genau das passende was gesucht wurde." },
+  { _id: "4", name: "Aneta",   rating: 5, text: "Alles bestens. Schöne Sprüche und sehr geeignet für die Kita." },
+  { _id: "5", name: "Sabrina", rating: 5, text: "Richtig tolle und ansprechende Illustrationen." },
+];
+
 export default async function HomePage() {
-  const [products, latestPost] = await Promise.all([
+  const [products, latestPost, dbReviews] = await Promise.all([
     getLatestProducts(),
     getLatestBlogPost(),
+    getApprovedReviews(),
   ]);
+
+  const reviews = dbReviews.length > 0
+    ? dbReviews.map((r) => ({ _id: r._id.toString(), name: r.name, rating: r.rating, text: r.text }))
+    : ETSY_REVIEWS;
 
   return (
     <div>
@@ -128,20 +149,18 @@ export default async function HomePage() {
             <h2 className="font-display text-4xl font-black text-[#924d44]">Das sagen andere über Kopfüber</h2>
             <p className="text-[#555555] mt-2">Echte Bewertungen von Erzieherinnen & Eltern</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              { name: "Nancy",   text: "Ich bin begeistert. Artikel stand sofort zur Verfügung. Eine tolle Möglichkeit um den Morgenkreis zu visualisieren. Die Kinder haben es super angenommen und ich kann es sehr empfehlen." },
-              { name: "Lena",    text: "Super Aushänge — hab ich für die Eltern in der Krippe hängen." },
-              { name: "Franzi",  text: "Sehr schöne Vorlagen. Genau das passende was gesucht wurde." },
-              { name: "Aneta",   text: "Alles bestens. Schöne Sprüche und sehr geeignet für die Kita." },
-              { name: "Sabrina", text: "Richtig tolle und ansprechende Illustrationen." },
-            ].map(({ name, text }) => (
-              <div key={name} className="bg-[#FFF5F2] rounded-3xl border-2 border-[#F0DDD8] p-6 flex flex-col gap-3">
-                <div className="flex gap-0.5 text-[#D4A855] text-lg">{"★★★★★"}</div>
-                <p className="text-[#444444] leading-relaxed flex-1">"{text}"</p>
-                <p className="text-sm font-bold text-[#924d44]">— {name}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+            {reviews.map((r) => (
+              <div key={r._id} className="bg-[#FFF5F2] rounded-3xl border-2 border-[#F0DDD8] p-6 flex flex-col gap-3">
+                <div className="text-[#D4A855] text-lg tracking-tight">{"★".repeat(r.rating)}{"☆".repeat(5 - r.rating)}</div>
+                <p className="text-[#444444] leading-relaxed flex-1">"{r.text}"</p>
+                <p className="text-sm font-bold text-[#924d44]">— {r.name}</p>
               </div>
             ))}
+          </div>
+          <div className="max-w-xl mx-auto">
+            <h3 className="font-display text-2xl font-black text-center mb-6">Deine Erfahrung teilen</h3>
+            <ReviewForm />
           </div>
         </div>
       </section>
