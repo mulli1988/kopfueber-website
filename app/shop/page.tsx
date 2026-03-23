@@ -89,8 +89,9 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
                   slug:         p.slug,
                   price:        p.price,
                   images:       p.images,
-                  category:     category ?? p.category,
-                  downloadFile: p.downloadFile,
+                  category:        category ?? p.category,
+                  extraCategories: !category ? (p.categories ?? []) : undefined,
+                  downloadFile:    p.downloadFile,
                 }}
               />
             ))}

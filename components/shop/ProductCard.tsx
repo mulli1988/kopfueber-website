@@ -13,6 +13,7 @@ interface ProductCardProps {
     price: number;
     images: string[];
     category: string;
+    extraCategories?: string[];
     downloadFile?: string;
   };
 }
@@ -33,7 +34,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-5xl">🖼</div>
+            <div className="w-full h-full flex items-center justify-center bg-muted" />
           )}
           {isDigital && (
             <span className="absolute top-3 right-3 bg-accent border border-dark text-dark text-xs font-bold px-2 py-1 rounded-full">
@@ -42,7 +43,12 @@ export default function ProductCard({ product, className }: ProductCardProps) {
           )}
         </div>
         <div className="p-4">
-          <Badge variant="secondary" className="mb-2">{product.category}</Badge>
+          <div className="flex flex-wrap gap-1 mb-2">
+            <Badge variant="secondary">{product.category}</Badge>
+            {product.extraCategories?.map((cat) => (
+              <Badge key={cat} variant="secondary">{cat}</Badge>
+            ))}
+          </div>
           <h3 className="font-display text-lg font-bold leading-tight mb-2">{product.title}</h3>
           <p className="font-bold text-primary text-lg">{formatPrice(product.price)}</p>
         </div>
