@@ -3,8 +3,6 @@ export const dynamic = "force-dynamic";
 import { connectToDatabase } from "@/lib/db/mongodb";
 import Product from "@/lib/db/models/Product";
 import { formatPrice } from "@/lib/utils/formatCurrency";
-import Badge from "@/components/ui/Badge";
-import Card from "@/components/ui/Card";
 import ProductFormButton from "@/components/admin/ProductFormButton";
 import ProductDeleteButton from "@/components/admin/ProductDeleteButton";
 
@@ -22,64 +20,58 @@ export default async function AdminProductsPage() {
       </div>
 
       {products.length === 0 ? (
-        <Card className="text-center py-16">
-          <p className="font-display text-xl font-bold mb-2">Noch keine Produkte</p>
-          <p className="text-muted-foreground">Erstelle dein erstes Produkt!</p>
-        </Card>
+        <div className="bg-white rounded-2xl border-2 border-[#F0DDD8] p-12 text-center">
+          <p className="font-display text-xl font-bold mb-2 text-[#222]">Noch keine Produkte</p>
+          <p className="text-[#888]">Erstelle dein erstes Produkt!</p>
+        </div>
       ) : (
-        <Card className="p-0 overflow-hidden">
-          <table className="w-full text-sm">
-            <thead className="bg-muted border-b-2 border-dark">
-              <tr>
-                <th className="text-left px-4 py-3 font-semibold">Titel</th>
-                <th className="text-left px-4 py-3 font-semibold hidden sm:table-cell">Kategorie</th>
-                <th className="text-left px-4 py-3 font-semibold hidden md:table-cell">Preis</th>
-                <th className="text-left px-4 py-3 font-semibold hidden sm:table-cell">Status</th>
-                <th className="text-right px-4 py-3 font-semibold">Aktionen</th>
-              </tr>
-            </thead>
-            <tbody>
-              {products.map((p, i) => (
-                <tr key={p._id.toString()} className={i % 2 === 0 ? "bg-surface" : "bg-muted/40"}>
-                  <td className="px-4 py-3">
-                    <p className="font-semibold">{p.title}</p>
-                    {p.downloadFile && (
-                      <p className="text-xs text-muted-foreground">📥 Digitaler Download</p>
-                    )}
-                  </td>
-                  <td className="px-4 py-3 hidden sm:table-cell text-muted-foreground">{p.category}</td>
-                  <td className="px-4 py-3 hidden md:table-cell font-semibold">{formatPrice(p.price)}</td>
-                  <td className="px-4 py-3 hidden sm:table-cell">
-                    <Badge variant={p.published ? "secondary" : "muted"}>
-                      {p.published ? "Veröffentlicht" : "Entwurf"}
-                    </Badge>
-                  </td>
-                  <td className="px-4 py-3 text-right">
-                    <div className="flex gap-2 justify-end">
-                      <ProductFormButton product={{
-                        _id: p._id.toString(),
-                        title: p.title,
-                        slug: p.slug,
-                        description: p.description,
-                        price: p.price,
-                        category: p.category,
-                        subcategory: p.subcategory,
-                        tags: p.tags,
-                        featured: p.featured,
-                        published: p.published,
-                        includedInSubscription: p.includedInSubscription,
-                        images: p.images,
-                        videoUrl: p.videoUrl,
-                        downloadFile: p.downloadFile,
-                      }} />
-                      <ProductDeleteButton productId={p._id.toString()} />
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </Card>
+        <div className="flex flex-col gap-3">
+          {products.map((p) => (
+            <div
+              key={p._id.toString()}
+              className="bg-white rounded-2xl border-2 border-[#F0DDD8] p-4 flex items-center justify-between gap-3 flex-wrap"
+            >
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 flex-wrap mb-0.5">
+                  <span className={`text-xs font-bold rounded-full px-2 py-0.5 ${
+                    p.published
+                      ? "bg-[#EBF5EB] text-[#4A7A4A]"
+                      : "bg-[#F5F5F5] text-[#888]"
+                  }`}>
+                    {p.published ? "Veröffentlicht" : "Entwurf"}
+                  </span>
+                  {p.downloadFile && (
+                    <span className="text-xs text-[#888]">Digitaler Download</span>
+                  )}
+                </div>
+                <p className="font-bold text-[#222] truncate">{p.title}</p>
+                <p className="text-xs text-[#888] mt-0.5">
+                  {p.category} · {formatPrice(p.price)}
+                </p>
+              </div>
+              <div className="flex gap-2 flex-shrink-0">
+                <ProductFormButton product={{
+                  _id: p._id.toString(),
+                  title: p.title,
+                  slug: p.slug,
+                  description: p.description,
+                  price: p.price,
+                  category: p.category,
+                  categories: p.categories,
+                  subcategory: p.subcategory,
+                  tags: p.tags,
+                  featured: p.featured,
+                  published: p.published,
+                  includedInSubscription: p.includedInSubscription,
+                  images: p.images,
+                  videoUrl: p.videoUrl,
+                  downloadFile: p.downloadFile,
+                }} />
+                <ProductDeleteButton productId={p._id.toString()} />
+              </div>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

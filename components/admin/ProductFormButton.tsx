@@ -211,7 +211,7 @@ export default function ProductFormButton({ product }: { product?: ProductData }
               endpoint="productImage"
               onClientUploadComplete={(res) => setForm({ ...form, images: [...form.images, ...res.map((f) => f.ufsUrl)] })}
               onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
-              appearance={{ button: "bg-primary text-white text-sm font-semibold px-3 py-1.5 rounded border-2 border-dark" }}
+              appearance={{ button: "bg-primary text-white text-sm font-semibold px-3 py-1.5 rounded border-2 border-dark", container: "w-full" }}
             />
           </div>
 
@@ -229,7 +229,7 @@ export default function ProductFormButton({ product }: { product?: ProductData }
               endpoint="productVideo"
               onClientUploadComplete={(res) => setForm({ ...form, videoUrl: res[0].ufsUrl })}
               onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
-              appearance={{ button: "bg-[#81ABAD] text-white text-sm font-semibold px-3 py-1.5 rounded border-2 border-dark" }}
+              appearance={{ button: "bg-[#81ABAD] text-white text-sm font-semibold px-3 py-1.5 rounded border-2 border-dark", container: "w-full" }}
             />
           </div>
 
@@ -243,7 +243,7 @@ export default function ProductFormButton({ product }: { product?: ProductData }
               endpoint="productDownload"
               onClientUploadComplete={(res) => setForm({ ...form, downloadFile: res[0].ufsUrl })}
               onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
-              appearance={{ button: "bg-secondary text-dark text-sm font-semibold px-3 py-1.5 rounded border-2 border-dark" }}
+              appearance={{ button: "bg-secondary text-dark text-sm font-semibold px-3 py-1.5 rounded border-2 border-dark", container: "w-full" }}
             />
           </div>
 
