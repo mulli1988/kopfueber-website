@@ -8,6 +8,7 @@ export const KITA_SUBCATEGORIES = [
   "Wandposter",
   "Spiele",
   "Ratgeber",
+  "Feiertage und Feste",
 ];
 
 export const FAMILIE_SUBCATEGORIES = [
@@ -16,6 +17,7 @@ export const FAMILIE_SUBCATEGORIES = [
   "Wandposter",
   "Spiele",
   "Ratgeber",
+  "Feiertage und Feste",
 ];
 
 export const TOP_CATEGORIES = [
