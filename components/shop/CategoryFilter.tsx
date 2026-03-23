@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils/cn";
 
 interface Category {
   name: string;
-  emoji: string;
   color: string;
   border: string;
 }
