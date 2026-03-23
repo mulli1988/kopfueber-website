@@ -35,6 +35,15 @@ const ETSY_REVIEWS = [
   { _id: "5", name: "Sabrina", rating: 5, text: "Richtig tolle und ansprechende Illustrationen." },
 ];
 
+function lastItemClass(total: number): string {
+  const mobileFull = total % 2 !== 0;
+  const desktopFull = total % 3 === 1;
+  if (mobileFull && desktopFull) return "col-span-2 lg:col-span-3";
+  if (mobileFull) return "col-span-2 lg:col-span-1";
+  if (desktopFull) return "lg:col-span-3";
+  return "";
+}
+
 export default async function HomePage() {
   const [products, latestPost, dbReviews] = await Promise.all([
     getLatestProducts(),
@@ -78,9 +87,10 @@ export default async function HomePage() {
           <WaitlistForm />
         ) : (
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((p) => (
+            {products.map((p, i) => (
               <ProductCard
                 key={p._id.toString()}
+                className={i === products.length - 1 ? lastItemClass(products.length) : ""}
                 product={{
                   _id:          p._id.toString(),
                   title:        p.title,
