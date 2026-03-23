@@ -41,7 +41,7 @@ export default function ReviewForm() {
       {/* Sterne */}
       <div>
         <p className="text-sm font-bold mb-2">Deine Bewertung</p>
-        <div className="flex gap-1">
+        <div className="flex gap-2">
           {[1, 2, 3, 4, 5].map((star) => (
             <button
               key={star}
@@ -49,10 +49,14 @@ export default function ReviewForm() {
               onClick={() => setRating(star)}
               onMouseEnter={() => setHover(star)}
               onMouseLeave={() => setHover(0)}
-              className="text-3xl transition-colors leading-none"
-              style={{ color: star <= (hover || rating) ? "#D4A855" : "#D9D9D9" }}
+              className="w-10 h-10 rounded-full border-2 text-sm font-bold transition-all"
+              style={{
+                backgroundColor: star <= (hover || rating) ? "#D4A855" : "transparent",
+                borderColor: star <= (hover || rating) ? "#D4A855" : "#D9D9D9",
+                color: star <= (hover || rating) ? "#fff" : "#999",
+              }}
             >
-              ★
+              {star}
             </button>
           ))}
         </div>

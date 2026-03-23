@@ -29,7 +29,7 @@ export default function Header() {
             className="px-4 py-2 rounded-full text-sm font-semibold text-[#D4A855] hover:bg-[#FFF8E8] transition-colors no-underline"
             title="Bewertungen"
           >
-            ★ Bewertungen
+            Bewertungen
           </Link>
           <Link
             href="/account"

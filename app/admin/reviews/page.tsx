@@ -35,7 +35,7 @@ export default async function AdminReviewsPage() {
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
                   <p className="font-semibold">{r.name}</p>
-                  <span className="text-[#D4A855]">{"★".repeat(r.rating)}</span>
+                  <span className="text-xs font-bold text-[#D4A855]">{r.rating}/5</span>
                   <Badge variant="muted">Neu</Badge>
                 </div>
                 <p className="text-sm text-muted-foreground">"{r.text}"</p>
@@ -57,7 +57,7 @@ export default async function AdminReviewsPage() {
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
                   <p className="font-semibold">{r.name}</p>
-                  <span className="text-[#D4A855]">{"★".repeat(r.rating)}</span>
+                  <span className="text-xs font-bold text-[#D4A855]">{r.rating}/5</span>
                   <Badge variant="secondary">Live</Badge>
                 </div>
                 <p className="text-sm text-muted-foreground">"{r.text}"</p>

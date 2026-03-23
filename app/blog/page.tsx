@@ -33,7 +33,6 @@ export default async function BlogPage() {
 
       {posts.length === 0 ? (
         <Card className="text-center py-16">
-          <p className="text-4xl mb-4">✍️</p>
           <p className="font-display text-2xl font-bold mb-2">Noch keine Beiträge</p>
           <p className="text-muted-foreground">Schau bald wieder vorbei!</p>
         </Card>

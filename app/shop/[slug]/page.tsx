@@ -61,7 +61,7 @@ export default async function ProductPage({ params }: Props) {
             <BuyButton productId={product._id.toString()} />
             {isDigital && (
               <p className="text-sm text-muted-foreground mt-3">
-                ✓ Sofort nach dem Kauf zum Download verfügbar in deinem Konto
+                Sofort nach dem Kauf zum Download verfügbar in deinem Konto
               </p>
             )}
           </div>

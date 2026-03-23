@@ -39,7 +39,7 @@ export default async function BewertungenPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
         {allReviews.map((r) => (
           <div key={r._id} className="bg-[#FFF5F2] rounded-3xl border-2 border-[#F0DDD8] p-6 flex flex-col gap-3">
-            <div className="text-[#D4A855] text-lg">{"★".repeat(r.rating)}{"☆".repeat(5 - r.rating)}</div>
+            <p className="text-xs font-bold text-[#D4A855] uppercase tracking-widest">{r.rating} / 5 Sterne</p>
             <p className="text-[#444444] leading-relaxed flex-1">"{r.text}"</p>
             <p className="text-sm font-bold text-[#924d44]">— {r.name}</p>
           </div>

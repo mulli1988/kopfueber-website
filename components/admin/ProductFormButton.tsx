@@ -220,7 +220,7 @@ export default function ProductFormButton({ product }: { product?: ProductData }
             <p className="text-sm font-semibold mb-1">Produktvideo (optional)</p>
             {form.videoUrl ? (
               <div className="flex items-center gap-2 mb-2">
-                <p className="text-xs text-muted-foreground truncate flex-1">✓ Video hochgeladen</p>
+                <p className="text-xs text-muted-foreground truncate flex-1">Video hochgeladen</p>
                 <button type="button" onClick={() => setForm({ ...form, videoUrl: "" })}
                   className="text-xs text-red-500 hover:underline">Entfernen</button>
               </div>
@@ -237,7 +237,7 @@ export default function ProductFormButton({ product }: { product?: ProductData }
           <div>
             <p className="text-sm font-semibold mb-1">Download-Datei (optional)</p>
             {form.downloadFile && (
-              <p className="text-xs text-muted-foreground mb-1 truncate">✓ {form.downloadFile}</p>
+              <p className="text-xs text-muted-foreground mb-1 truncate">Datei hochgeladen</p>
             )}
             <UploadDropzone<OurFileRouter, "productDownload">
               endpoint="productDownload"

@@ -30,7 +30,6 @@ export default async function AdminOrdersPage() {
 
       {orders.length === 0 ? (
         <Card className="text-center py-16">
-          <p className="text-4xl mb-3">📦</p>
           <p className="font-display text-xl font-bold">Noch keine Bestellungen</p>
         </Card>
       ) : (
