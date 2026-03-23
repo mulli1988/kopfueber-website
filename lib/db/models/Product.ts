@@ -9,6 +9,7 @@ export interface IProduct extends Document {
   videoUrl?: string; // Uploadthing URL (Produktvideo)
   downloadFile?: string; // Uploadthing URL (nur für digitale Produkte)
   category: string;
+  categories: string[];
   subcategory?: string;
   tags: string[];
   featured: boolean;
@@ -27,6 +28,7 @@ const ProductSchema = new Schema<IProduct>(
     videoUrl:    { type: String },
     downloadFile:{ type: String },
     category:    { type: String, required: true },
+    categories:  [{ type: String }],
     subcategory: { type: String },
     tags:        [{ type: String }],
     featured:    { type: Boolean, default: false },

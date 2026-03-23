@@ -18,8 +18,10 @@ interface PageProps {
 
 async function getKitaProducts(sub?: string) {
   await connectToDatabase();
-  const filter: Record<string, unknown> = { published: true, category: "Für Kindergärten" };
-  if (sub) filter.subcategory = sub;
+  const base = { $or: [{ category: "Für Kindergärten" }, { categories: "Für Kindergärten" }] };
+  const filter = sub
+    ? { $and: [base, { published: true, subcategory: sub }] }
+    : { ...base, published: true };
   return Product.find(filter).sort({ createdAt: -1 }).lean();
 }
 

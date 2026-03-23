@@ -18,8 +18,10 @@ interface PageProps {
 
 async function getFamilieProducts(sub?: string) {
   await connectToDatabase();
-  const filter: Record<string, unknown> = { published: true, category: "Für Familien" };
-  if (sub) filter.subcategory = sub;
+  const base = { $or: [{ category: "Für Familien" }, { categories: "Für Familien" }] };
+  const filter = sub
+    ? { $and: [base, { published: true, subcategory: sub }] }
+    : { ...base, published: true };
   return Product.find(filter).sort({ createdAt: -1 }).lean();
 }
 

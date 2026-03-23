@@ -16,6 +16,7 @@ interface ProductData {
   description?: string;
   price?: number;
   category?: string;
+  categories?: string[];
   subcategory?: string;
   tags?: string[];
   featured?: boolean;
@@ -37,6 +38,7 @@ export default function ProductFormButton({ product }: { product?: ProductData }
     description:             product?.description ?? "",
     price:                   product?.price ? (product.price / 100).toString() : "",
     category:                product?.category ?? "",
+    categories:              product?.categories ?? [] as string[],
     subcategory:             product?.subcategory ?? "",
     tags:                    product?.tags?.join(", ") ?? "",
     featured:                product?.featured ?? false,
@@ -57,6 +59,7 @@ export default function ProductFormButton({ product }: { product?: ProductData }
       description:            form.description,
       price:                  Math.round(parseFloat(form.price) * 100),
       category:               form.category,
+      categories:             form.categories,
       subcategory:            form.subcategory || undefined,
       tags:                   form.tags.split(",").map((t) => t.trim()).filter(Boolean),
       featured:               form.featured,
@@ -127,7 +130,31 @@ export default function ProductFormButton({ product }: { product?: ProductData }
             </div>
           </div>
 
-          {(form.category === "Für Kindergärten" || form.category === "Für Familien") && (
+          {/* Auch anzeigen in */}
+          <div className="flex flex-col gap-1.5">
+            <label className="text-sm font-semibold">Auch anzeigen in</label>
+            <div className="flex gap-4">
+              {["Für Kindergärten", "Für Familien"].map((cat) => (
+                <label key={cat} className="flex items-center gap-2 text-sm cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={form.categories.includes(cat)}
+                    onChange={(e) => {
+                      const next = e.target.checked
+                        ? [...form.categories, cat]
+                        : form.categories.filter((c) => c !== cat);
+                      setForm({ ...form, categories: next });
+                    }}
+                    className="w-4 h-4 accent-[var(--color-primary)]"
+                  />
+                  {cat === "Für Kindergärten" ? "Für Kitas" : "Für Familien"}
+                </label>
+              ))}
+            </div>
+            <p className="text-xs text-[#888]">Damit erscheint der Artikel in beiden Bereichen.</p>
+          </div>
+
+          {(form.category === "Für Kindergärten" || form.category === "Für Familien" || form.categories.includes("Für Kindergärten") || form.categories.includes("Für Familien")) && (
             <div className="flex flex-col gap-1.5">
               <label className="text-sm font-semibold">Unterkategorie</label>
               <select
