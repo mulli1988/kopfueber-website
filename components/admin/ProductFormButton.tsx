@@ -207,12 +207,14 @@ export default function ProductFormButton({ product }: { product?: ProductData }
                 ))}
               </div>
             )}
-            <UploadButton<OurFileRouter, "productImage">
-              endpoint="productImage"
-              onClientUploadComplete={(res) => setForm({ ...form, images: [...form.images, ...res.map((f) => f.ufsUrl)] })}
-              onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
-              appearance={{ button: "bg-primary text-white text-sm font-semibold px-3 py-1.5 rounded border-2 border-dark", container: "w-full" }}
-            />
+            <div className="w-full overflow-hidden rounded-xl">
+              <UploadButton<OurFileRouter, "productImage">
+                endpoint="productImage"
+                onClientUploadComplete={(res) => setForm({ ...form, images: [...form.images, ...res.map((f) => f.ufsUrl)] })}
+                onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
+                appearance={{ button: "bg-primary text-white text-sm font-semibold px-3 py-1.5 rounded", container: "w-full" }}
+              />
+            </div>
           </div>
 
           {/* Produktvideo */}
@@ -225,12 +227,14 @@ export default function ProductFormButton({ product }: { product?: ProductData }
                   className="text-xs text-red-500 hover:underline">Entfernen</button>
               </div>
             ) : null}
-            <UploadButton<OurFileRouter, "productVideo">
-              endpoint="productVideo"
-              onClientUploadComplete={(res) => setForm({ ...form, videoUrl: res[0].ufsUrl })}
-              onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
-              appearance={{ button: "bg-[#81ABAD] text-white text-sm font-semibold px-3 py-1.5 rounded border-2 border-dark", container: "w-full" }}
-            />
+            <div className="w-full overflow-hidden rounded-xl">
+              <UploadButton<OurFileRouter, "productVideo">
+                endpoint="productVideo"
+                onClientUploadComplete={(res) => setForm({ ...form, videoUrl: res[0].ufsUrl })}
+                onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
+                appearance={{ button: "bg-[#81ABAD] text-white text-sm font-semibold px-3 py-1.5 rounded", container: "w-full" }}
+              />
+            </div>
           </div>
 
           {/* Download-Datei */}
@@ -239,12 +243,14 @@ export default function ProductFormButton({ product }: { product?: ProductData }
             {form.downloadFile && (
               <p className="text-xs text-muted-foreground mb-1 truncate">✓ {form.downloadFile}</p>
             )}
-            <UploadButton<OurFileRouter, "productDownload">
-              endpoint="productDownload"
-              onClientUploadComplete={(res) => setForm({ ...form, downloadFile: res[0].ufsUrl })}
-              onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
-              appearance={{ button: "bg-secondary text-dark text-sm font-semibold px-3 py-1.5 rounded border-2 border-dark", container: "w-full" }}
-            />
+            <div className="w-full overflow-hidden rounded-xl">
+              <UploadButton<OurFileRouter, "productDownload">
+                endpoint="productDownload"
+                onClientUploadComplete={(res) => setForm({ ...form, downloadFile: res[0].ufsUrl })}
+                onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
+                appearance={{ button: "bg-secondary text-dark text-sm font-semibold px-3 py-1.5 rounded", container: "w-full" }}
+              />
+            </div>
           </div>
 
           <div className="flex gap-3 pt-2">
