@@ -93,7 +93,7 @@ export default async function FurFamilienPage({ searchParams }: PageProps) {
                   slug:         p.slug,
                   price:        p.price,
                   images:       p.images,
-                  category:     p.category,
+                  category:     "Für Familien",
                   downloadFile: p.downloadFile,
                 }}
               />

@@ -93,7 +93,7 @@ export default async function FurKitasPage({ searchParams }: PageProps) {
                   slug:         p.slug,
                   price:        p.price,
                   images:       p.images,
-                  category:     p.category,
+                  category:     "Für Kitas",
                   downloadFile: p.downloadFile,
                 }}
               />
