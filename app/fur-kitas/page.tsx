@@ -74,9 +74,10 @@ export default async function FurKitasPage({ searchParams }: PageProps) {
           </div>
         ) : (
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((p) => (
+            {products.map((p, i) => (
               <ProductCard
                 key={p._id.toString()}
+                className={products.length % 2 !== 0 && i === products.length - 1 ? "col-span-2 lg:col-span-1" : ""}
                 product={{
                   _id:          p._id.toString(),
                   title:        p.title,

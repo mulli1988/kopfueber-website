@@ -5,6 +5,7 @@ import Badge from "@/components/ui/Badge";
 import Card from "@/components/ui/Card";
 
 interface ProductCardProps {
+  className?: string;
   product: {
     _id: string;
     title: string;
@@ -16,11 +17,11 @@ interface ProductCardProps {
   };
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, className }: ProductCardProps) {
   const isDigital = !!product.downloadFile;
 
   return (
-    <Link href={`/shop/${product.slug}`} className="no-underline block">
+    <Link href={`/shop/${product.slug}`} className={`no-underline block${className ? ` ${className}` : ""}`}>
       <Card hover className="p-0 overflow-hidden h-full">
         <div className="relative w-full aspect-square bg-muted border-b-2 border-dark">
           {product.images[0] ? (

@@ -13,7 +13,7 @@ import Review from "@/lib/db/models/Review";
 
 async function getLatestProducts() {
   await connectToDatabase();
-  return Product.find({ published: true }).sort({ createdAt: -1 }).limit(3).lean();
+  return Product.find({ published: true }).sort({ createdAt: -1 }).limit(4).lean();
 }
 
 async function getLatestBlogPost() {
