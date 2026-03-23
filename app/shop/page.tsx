@@ -18,12 +18,8 @@ export const metadata = {
 
 // Feste Kategorien mit Icons – spiegeln den Etsy-Shop wider
 export const SHOP_CATEGORIES = [
-  { name: "Für Kindergärten",  emoji: "🏫", color: "bg-[#C5E0E0]", border: "border-[#81ABAD]" },
-  { name: "Für Familien",      emoji: "👨‍👩‍👧", color: "bg-[#FFF8E8]", border: "border-[#D4A855]" },
-  { name: "Wandposter",        emoji: "🖼️",  color: "bg-[#FEF0D0]", border: "border-[#C9A84C]" },
-  { name: "Weihnachten",       emoji: "🎄",  color: "bg-[#EBF5EB]", border: "border-[#6BA87A]" },
-  { name: "English Collection",emoji: "🌍",  color: "bg-[#FFF0EB]", border: "border-[#C07B6B]" },
-  { name: "Kurse und Ratgeber",emoji: "📚",  color: "bg-[#EDE8F5]", border: "border-[#9B8EC4]" },
+  { name: "Für Kindergärten", emoji: "🏫", color: "bg-[#C5E0E0]", border: "border-[#81ABAD]" },
+  { name: "Für Familien",     emoji: "👨‍👩‍👧", color: "bg-[#FFF8E8]", border: "border-[#D4A855]" },
 ];
 
 async function getProducts(category?: string) {
