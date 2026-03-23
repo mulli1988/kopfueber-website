@@ -25,14 +25,6 @@ async function getFamilieProducts(sub?: string) {
   return Product.find(filter).sort({ createdAt: -1 }).lean();
 }
 
-function lastItemClass(total: number): string {
-  const mobileFull = total % 2 !== 0;
-  const desktopFull = total % 3 === 1;
-  if (mobileFull && desktopFull) return "col-span-2 lg:col-span-3";
-  if (mobileFull) return "col-span-2 lg:col-span-1";
-  if (desktopFull) return "lg:col-span-3";
-  return "";
-}
 
 export default async function FurFamilienPage({ searchParams }: PageProps) {
   const { sub } = await searchParams;
@@ -83,10 +75,9 @@ export default async function FurFamilienPage({ searchParams }: PageProps) {
           </div>
         ) : (
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((p, i) => (
+            {products.map((p) => (
               <ProductCard
                 key={p._id.toString()}
-                className={i === products.length - 1 ? lastItemClass(products.length) : ""}
                 product={{
                   _id:          p._id.toString(),
                   title:        p.title,
