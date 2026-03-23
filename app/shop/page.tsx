@@ -24,9 +24,13 @@ export const SHOP_CATEGORIES = [
 
 async function getProducts(category?: string) {
   await connectToDatabase();
-  const filter: Record<string, unknown> = { published: true };
-  if (category) filter.category = category;
-  return Product.find(filter).sort({ createdAt: -1 }).lean();
+  if (category) {
+    return Product.find({
+      published: true,
+      $or: [{ category }, { categories: category }],
+    }).sort({ createdAt: -1 }).lean();
+  }
+  return Product.find({ published: true }).sort({ createdAt: -1 }).lean();
 }
 
 export default async function ShopPage({ searchParams }: ShopPageProps) {
