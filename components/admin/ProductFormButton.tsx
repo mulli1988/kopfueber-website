@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
 import Input from "@/components/ui/Input";
-import { UploadButton } from "@uploadthing/react";
+import { UploadDropzone } from "@uploadthing/react";
 import type { OurFileRouter } from "@/lib/uploadthing";
 import { TOP_CATEGORIES, KITA_SUBCATEGORIES, FAMILIE_SUBCATEGORIES } from "@/lib/utils/categories";
 
@@ -207,14 +207,12 @@ export default function ProductFormButton({ product }: { product?: ProductData }
                 ))}
               </div>
             )}
-            <div className="w-full overflow-hidden rounded-xl">
-              <UploadButton<OurFileRouter, "productImage">
-                endpoint="productImage"
-                onClientUploadComplete={(res) => setForm({ ...form, images: [...form.images, ...res.map((f) => f.ufsUrl)] })}
-                onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
-                appearance={{ button: "bg-primary text-white text-sm font-semibold px-3 py-1.5 rounded", container: "w-full" }}
-              />
-            </div>
+            <UploadDropzone<OurFileRouter, "productImage">
+              endpoint="productImage"
+              onClientUploadComplete={(res) => setForm({ ...form, images: [...form.images, ...res.map((f) => f.ufsUrl)] })}
+              onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
+              appearance={{ container: "w-full border-2 border-dashed border-[#F0DDD8] rounded-xl py-4", button: "bg-[#81ABAD] text-white text-sm font-semibold px-4 py-2 rounded-xl mt-2", label: "text-sm text-[#888]", allowedContent: "text-xs text-[#aaa]" }}
+            />
           </div>
 
           {/* Produktvideo */}
@@ -227,14 +225,12 @@ export default function ProductFormButton({ product }: { product?: ProductData }
                   className="text-xs text-red-500 hover:underline">Entfernen</button>
               </div>
             ) : null}
-            <div className="w-full overflow-hidden rounded-xl">
-              <UploadButton<OurFileRouter, "productVideo">
-                endpoint="productVideo"
-                onClientUploadComplete={(res) => setForm({ ...form, videoUrl: res[0].ufsUrl })}
-                onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
-                appearance={{ button: "bg-[#81ABAD] text-white text-sm font-semibold px-3 py-1.5 rounded", container: "w-full" }}
-              />
-            </div>
+            <UploadDropzone<OurFileRouter, "productVideo">
+              endpoint="productVideo"
+              onClientUploadComplete={(res) => setForm({ ...form, videoUrl: res[0].ufsUrl })}
+              onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
+              appearance={{ container: "w-full border-2 border-dashed border-[#F0DDD8] rounded-xl py-4", button: "bg-[#81ABAD] text-white text-sm font-semibold px-4 py-2 rounded-xl mt-2", label: "text-sm text-[#888]", allowedContent: "text-xs text-[#aaa]" }}
+            />
           </div>
 
           {/* Download-Datei */}
@@ -243,14 +239,12 @@ export default function ProductFormButton({ product }: { product?: ProductData }
             {form.downloadFile && (
               <p className="text-xs text-muted-foreground mb-1 truncate">✓ {form.downloadFile}</p>
             )}
-            <div className="w-full overflow-hidden rounded-xl">
-              <UploadButton<OurFileRouter, "productDownload">
-                endpoint="productDownload"
-                onClientUploadComplete={(res) => setForm({ ...form, downloadFile: res[0].ufsUrl })}
-                onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
-                appearance={{ button: "bg-secondary text-dark text-sm font-semibold px-3 py-1.5 rounded", container: "w-full" }}
-              />
-            </div>
+            <UploadDropzone<OurFileRouter, "productDownload">
+              endpoint="productDownload"
+              onClientUploadComplete={(res) => setForm({ ...form, downloadFile: res[0].ufsUrl })}
+              onUploadError={(e) => alert(`Upload-Fehler: ${e.message}`)}
+              appearance={{ container: "w-full border-2 border-dashed border-[#F0DDD8] rounded-xl py-4", button: "bg-[#D68876] text-white text-sm font-semibold px-4 py-2 rounded-xl mt-2", label: "text-sm text-[#888]", allowedContent: "text-xs text-[#aaa]" }}
+            />
           </div>
 
           <div className="flex gap-3 pt-2">
