@@ -61,7 +61,7 @@ export default function RootLayout({
               Kitas und Co.
             </Link>
             <Link href="/fur-familien" className="flex-1 bg-[#FFF8E8] hover:brightness-95 transition-all no-underline py-2.5 text-center text-xs sm:text-sm font-bold text-[#222222] uppercase tracking-wider whitespace-nowrap">
-              Für Familien
+              Familien
             </Link>
             <Link href="/blog" className="flex-1 bg-[#EBF5EB] hover:brightness-95 transition-all no-underline py-2.5 text-center text-xs sm:text-sm font-bold text-[#222222] uppercase tracking-wider whitespace-nowrap">
               Blog

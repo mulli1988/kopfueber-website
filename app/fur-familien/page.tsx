@@ -8,7 +8,7 @@ import KitaSubcategoryFilter from "@/components/shop/KitaSubcategoryFilter";
 import { FAMILIE_SUBCATEGORIES } from "@/lib/utils/categories";
 
 export const metadata = {
-  title: "Für Familien",
+  title: "Familien",
   description: "Druckfertige Materialien für den Familienalltag: Lernmaterial, Basteln, Ratgeber und mehr.",
 };
 
@@ -37,7 +37,7 @@ export default async function FurFamilienPage({ searchParams }: PageProps) {
         {/* Header */}
         <div className="text-center py-10 mb-2">
           <h1 className="font-display text-5xl sm:text-6xl font-black text-[#ebcf7c] mb-4">
-            Für Familien
+            Familien
           </h1>
           <p className="text-xl font-bold text-[#222222]">
             Druckfertige Materialien für den Familienalltag mit Kindern
@@ -84,7 +84,7 @@ export default async function FurFamilienPage({ searchParams }: PageProps) {
                   slug:         p.slug,
                   price:        p.price,
                   images:       p.images,
-                  category:     "Für Familien",
+                  category:     "Familien",
                   downloadFile: p.downloadFile,
                 }}
               />

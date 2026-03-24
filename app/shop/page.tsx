@@ -19,7 +19,7 @@ export const metadata = {
 // Feste Kategorien mit Icons – spiegeln den Etsy-Shop wider
 export const SHOP_CATEGORIES = [
   { name: "Für Kindergärten", label: "Kitas und Co.", color: "bg-[#C5E0E0]", border: "border-[#81ABAD]" },
-  { name: "Für Familien",     label: "Für Familien",  color: "bg-[#FFF8E8]", border: "border-[#D4A855]" },
+  { name: "Für Familien",     label: "Familien",      color: "bg-[#FFF8E8]", border: "border-[#D4A855]" },
 ];
 
 async function getProducts(category?: string) {
