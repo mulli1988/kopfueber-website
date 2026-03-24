@@ -40,7 +40,7 @@ export default async function FurKitasPage({ searchParams }: PageProps) {
             Kitas und Co.
           </h1>
           <p className="text-xl font-bold text-[#222222]">
-            Druckfertige Vorlagen und Materialien für den Kindergarten-Alltag
+            Druckfertige Vorlagen und Materialien für den Kita-Alltag
           </p>
         </div>
 
