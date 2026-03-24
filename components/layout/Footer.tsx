@@ -49,8 +49,9 @@ export default function Footer() {
                 { href: "/about",   label: "Über mich" },
                 { href: "/blog",    label: "Blog" },
                 { href: "/forum",   label: "Community" },
-                { href: "/impressum", label: "Impressum" },
+                { href: "/impressum",   label: "Impressum" },
                 { href: "/datenschutz", label: "Datenschutz" },
+                { href: "/agb",         label: "AGB" },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className="text-white/70 hover:text-white transition-colors no-underline">
