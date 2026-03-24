@@ -40,7 +40,7 @@ export default async function FurFamilienPage({ searchParams }: PageProps) {
             Familien
           </h1>
           <p className="text-xl font-bold text-[#222222]">
-            Druckfertige Materialien für den Familienalltag mit Kindern
+            Druckfertige Materialien und vieles mehr, für den Familienalltag mit Kindern
           </p>
         </div>
 
