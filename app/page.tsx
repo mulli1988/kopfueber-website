@@ -59,7 +59,7 @@ export default async function HomePage() {
             E-Books, Ratgeber & druckfertige Materialien für Kitas & Familien
           </h1>
           <p className="text-lg text-[#555555] leading-relaxed">
-            Kein Design-Aufwand, kein langes Suchen — einfach herunterladen, ausdrucken und loslegen.
+            Einfach herunterladen und sofort loslegen — ohne Aufwand, direkt einsetzbar.
           </p>
         </div>
       </section>
