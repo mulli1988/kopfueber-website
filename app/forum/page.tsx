@@ -44,7 +44,7 @@ export default async function ForumPage() {
       <section className="mb-12">
         <div className="mb-5">
           <h2 className="font-display text-2xl font-black text-[#81ABAD]">
-            Für Kitas &amp; Erzieher
+            Kitas und Co.
           </h2>
           <p className="text-sm text-[#555555]">
             Pädagogischer Austausch, Ideen und Ressourcen

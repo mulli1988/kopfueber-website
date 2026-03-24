@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils/cn";
 
 interface Category {
   name: string;
+  label?: string;
   color: string;
   border: string;
 }
@@ -62,7 +63,7 @@ export default function CategoryFilter({ categories, activeCategory }: CategoryF
             boxShadow: activeCategory === cat.name ? "3px 4px 0px #C8A8A0" : undefined,
           }}
         >
-          {cat.name}
+          {cat.label ?? cat.name}
         </button>
       ))}
     </div>

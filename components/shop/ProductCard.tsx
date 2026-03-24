@@ -19,7 +19,7 @@ interface ProductCardProps {
 }
 
 function displayCategory(cat: string) {
-  return cat === "Für Kindergärten" ? "Für Kitas" : cat;
+  return cat === "Für Kindergärten" || cat === "Für Kitas" ? "Kitas und Co." : cat;
 }
 
 export default function ProductCard({ product, className }: ProductCardProps) {

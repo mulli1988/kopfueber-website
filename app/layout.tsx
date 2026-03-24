@@ -58,7 +58,7 @@ export default function RootLayout({
           {/* Pastell-Navigationsleiste */}
           <div className="flex">
             <Link href="/fur-kitas" className="flex-1 bg-[#C5E0E0] hover:brightness-95 transition-all no-underline py-2.5 text-center text-xs sm:text-sm font-bold text-[#222222] uppercase tracking-wider whitespace-nowrap">
-              Für Kitas
+              Kitas und Co.
             </Link>
             <Link href="/fur-familien" className="flex-1 bg-[#FFF8E8] hover:brightness-95 transition-all no-underline py-2.5 text-center text-xs sm:text-sm font-bold text-[#222222] uppercase tracking-wider whitespace-nowrap">
               Für Familien

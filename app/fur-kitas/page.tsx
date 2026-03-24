@@ -8,7 +8,7 @@ import KitaSubcategoryFilter from "@/components/shop/KitaSubcategoryFilter";
 import { KITA_SUBCATEGORIES } from "@/lib/utils/categories";
 
 export const metadata = {
-  title: "Für Kitas",
+  title: "Kitas und Co.",
   description: "Druckfertige Vorlagen und Materialien für den Kita-Alltag: Elternarbeit, Portfolios, Basteln und mehr.",
 };
 
@@ -37,7 +37,7 @@ export default async function FurKitasPage({ searchParams }: PageProps) {
         {/* Header */}
         <div className="text-center py-10 mb-2">
           <h1 className="font-display text-5xl sm:text-6xl font-black text-[#4A8F8F] mb-4">
-            Für Kitas &amp; Erzieher
+            Kitas und Co.
           </h1>
           <p className="text-xl font-bold text-[#222222]">
             Druckfertige Vorlagen und Materialien für den Kindergarten-Alltag
@@ -84,7 +84,7 @@ export default async function FurKitasPage({ searchParams }: PageProps) {
                   slug:         p.slug,
                   price:        p.price,
                   images:       p.images,
-                  category:     "Für Kitas",
+                  category:     "Kitas und Co.",
                   downloadFile: p.downloadFile,
                 }}
               />

@@ -18,8 +18,8 @@ export const metadata = {
 
 // Feste Kategorien mit Icons – spiegeln den Etsy-Shop wider
 export const SHOP_CATEGORIES = [
-  { name: "Für Kindergärten", color: "bg-[#C5E0E0]", border: "border-[#81ABAD]" },
-  { name: "Für Familien",     color: "bg-[#FFF8E8]", border: "border-[#D4A855]" },
+  { name: "Für Kindergärten", label: "Kitas und Co.", color: "bg-[#C5E0E0]", border: "border-[#81ABAD]" },
+  { name: "Für Familien",     label: "Für Familien",  color: "bg-[#FFF8E8]", border: "border-[#D4A855]" },
 ];
 
 async function getProducts(category?: string) {
@@ -59,7 +59,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
               <span className={`px-4 py-2 rounded-2xl border-2 ${activeCategory.color} ${activeCategory.border}`} />
             )}
             <div>
-              <h2 className="font-display text-3xl font-black">{category}</h2>
+              <h2 className="font-display text-3xl font-black">{activeCategory?.label ?? category}</h2>
               <p className="text-muted-foreground text-sm">
                 {products.length} {products.length === 1 ? "Produkt" : "Produkte"}
               </p>

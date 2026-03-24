@@ -147,7 +147,7 @@ export default function ProductFormButton({ product }: { product?: ProductData }
                     }}
                     className="w-4 h-4 accent-[var(--color-primary)]"
                   />
-                  {cat === "Für Kindergärten" ? "Für Kitas" : "Für Familien"}
+                  {cat === "Für Kindergärten" ? "Kitas und Co." : "Für Familien"}
                 </label>
               ))}
             </div>
