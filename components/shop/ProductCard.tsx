@@ -18,6 +18,10 @@ interface ProductCardProps {
   };
 }
 
+function displayCategory(cat: string) {
+  return cat === "Für Kindergärten" ? "Für Kitas" : cat;
+}
+
 export default function ProductCard({ product, className }: ProductCardProps) {
   const isDigital = !!product.downloadFile;
 
@@ -44,9 +48,9 @@ export default function ProductCard({ product, className }: ProductCardProps) {
         </div>
         <div className="p-4">
           <div className="flex flex-wrap gap-1 mb-2">
-            <Badge variant="secondary">{product.category}</Badge>
+            <Badge variant="secondary">{displayCategory(product.category)}</Badge>
             {product.extraCategories?.map((cat) => (
-              <Badge key={cat} variant="secondary">{cat}</Badge>
+              <Badge key={cat} variant="secondary">{displayCategory(cat)}</Badge>
             ))}
           </div>
           <h3 className="font-display text-lg font-bold leading-tight mb-2">{product.title}</h3>
