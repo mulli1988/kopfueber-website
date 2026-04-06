@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Button from "@/components/ui/Button";
 
 export default function ContactForm() {
@@ -69,6 +70,10 @@ export default function ContactForm() {
         <Button type="submit" size="lg" disabled={status === "sending"}>
           {status === "sending" ? "Wird gesendet…" : "Nachricht senden →"}
         </Button>
+        <p className="text-xs text-[#AAAAAA] mt-2">
+          Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer{" "}
+          <Link href="/datenschutz" className="underline">Datenschutzerklärung</Link> zu.
+        </p>
       </div>
       {status === "error" && (
         <p className="text-sm text-red-500">Etwas ist schiefgelaufen. Bitte versuche es nochmal.</p>

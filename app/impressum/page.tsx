@@ -21,6 +21,14 @@ export default function ImpressumPage() {
           Spanien
         </p>
 
+        <h2>Verantwortlich für redaktionelle Inhalte</h2>
+        <p>
+          Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV:<br />
+          Julia Flagmeyer<br />
+          Calle de Mar Cantabrico 18<br />
+          38612 El Medano, Teneriffa, Spanien
+        </p>
+
         <h2>Kontakt</h2>
         <p>
           E-Mail: <a href="mailto:Julyfleur@outlook.com">Julyfleur@outlook.com</a>

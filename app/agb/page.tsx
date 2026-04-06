@@ -37,10 +37,10 @@ export default function AgbPage() {
 
         <h2>§ 4 Preise und Zahlung</h2>
         <p>
-          Alle Preise sind Endpreise in Euro (€). Die Zahlung erfolgt über Stripe. Akzeptiert werden
-          gängige Kredit- und Debitkarten sowie weitere von Stripe angebotene Zahlungsmethoden.
-          Die Transaktion wird direkt zwischen dir und Stripe abgewickelt — der Anbieter speichert
-          keine Zahlungsdaten.
+          Alle Preise sind Endpreise in Euro (€) inkl. der jeweils geltenden Mehrwertsteuer. Die
+          Zahlung erfolgt über Stripe. Akzeptiert werden gängige Kredit- und Debitkarten sowie
+          weitere von Stripe angebotene Zahlungsmethoden. Die Transaktion wird direkt zwischen dir
+          und Stripe abgewickelt — der Anbieter speichert keine Zahlungsdaten.
         </p>
 
         <h2>§ 5 Lieferung digitaler Inhalte</h2>
@@ -87,7 +87,26 @@ export default function AgbPage() {
           Verantwortung.
         </p>
 
-        <h2>§ 10 Anwendbares Recht und Gerichtsstand</h2>
+        <h2>§ 10 Abonnements</h2>
+        <p>
+          Bestimmte Inhalte sind im Rahmen eines monatlichen Abonnements erhältlich. Das Abonnement
+          läuft auf unbestimmte Zeit mit einer monatlichen Mindestlaufzeit und verlängert sich
+          automatisch um jeweils einen Monat, sofern es nicht rechtzeitig gekündigt wird.
+        </p>
+        <p>
+          Die Kündigung ist jederzeit zum Ende des laufenden Abrechnungsmonats möglich. Bitte sende
+          deine Kündigung per E-Mail an{" "}
+          <a href="mailto:Julyfleur@outlook.com">Julyfleur@outlook.com</a>. Bereits bezahlte
+          Abonnementzeiträume werden nicht erstattet.
+        </p>
+
+        <h2>§ 11 Vertragssprache</h2>
+        <p>
+          Die Vertragssprache ist Deutsch. Der Vertragstext wird nach Vertragsschluss gespeichert
+          und ist dir in deinem Kundenkonto zugänglich.
+        </p>
+
+        <h2>§ 12 Anwendbares Recht und Gerichtsstand</h2>
         <p>
           Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts.
           Für Verbraucher gilt diese Rechtswahl nur, sofern dadurch nicht zwingende
@@ -95,7 +114,7 @@ export default function AgbPage() {
           entzogen werden.
         </p>
 
-        <h2>§ 11 Streitschlichtung</h2>
+        <h2>§ 13 Streitschlichtung</h2>
         <p>
           Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit:{" "}
           <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">
@@ -104,14 +123,14 @@ export default function AgbPage() {
           vor einer Verbraucherschlichtungsstelle teilzunehmen.
         </p>
 
-        <h2>§ 12 Änderungen der AGB</h2>
+        <h2>§ 14 Änderungen der AGB</h2>
         <p>
           Wir behalten uns vor, diese AGB jederzeit zu ändern. Die jeweils aktuelle Version ist auf
           dieser Seite abrufbar. Für bereits abgeschlossene Käufe gelten die AGB zum Zeitpunkt des
           Kaufs.
         </p>
 
-        <p className="text-sm text-muted-foreground mt-8">Stand: März 2026</p>
+        <p className="text-sm text-muted-foreground mt-8">Stand: April 2026</p>
 
       </div>
     </div>

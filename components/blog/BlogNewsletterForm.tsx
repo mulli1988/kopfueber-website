@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Button from "@/components/ui/Button";
 
 export default function BlogNewsletterForm() {
@@ -57,6 +58,10 @@ export default function BlogNewsletterForm() {
       {status === "error" && (
         <p className="text-red-500 text-sm mt-3">Etwas ist schiefgelaufen. Bitte versuche es nochmal.</p>
       )}
+      <p className="text-xs text-[#AAAAAA] mt-3">
+        Mit der Eintragung stimmst du zu, Neuigkeiten von Kopfüber zu erhalten. Weitere Infos in der{" "}
+        <Link href="/datenschutz" className="underline">Datenschutzerklärung</Link>.
+      </p>
     </div>
   );
 }

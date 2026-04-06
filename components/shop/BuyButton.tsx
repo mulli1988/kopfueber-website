@@ -9,9 +9,10 @@ interface BuyButtonProps {
   productId: string;
   mode?: "payment" | "subscription";
   label?: string;
+  disabled?: boolean;
 }
 
-export default function BuyButton({ productId, mode = "payment", label }: BuyButtonProps) {
+export default function BuyButton({ productId, mode = "payment", label, disabled: externalDisabled }: BuyButtonProps) {
   const { data: session } = useSession();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -39,7 +40,7 @@ export default function BuyButton({ productId, mode = "payment", label }: BuyBut
   }
 
   return (
-    <Button size="lg" onClick={handleBuy} disabled={loading} className="w-full sm:w-auto">
+    <Button size="lg" onClick={handleBuy} disabled={loading || externalDisabled} className="w-full sm:w-auto">
       {loading ? "Weiterleitung…" : label ?? (mode === "subscription" ? "Abo abschließen" : "Jetzt kaufen")}
     </Button>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Button from "@/components/ui/Button";
 
 export default function WaitlistForm() {
@@ -66,7 +67,10 @@ export default function WaitlistForm() {
       {status === "error" && (
         <p className="text-red-500 text-sm mt-3">Etwas ist schiefgelaufen. Bitte versuche es nochmal.</p>
       )}
-      <p className="text-xs text-[#AAAAAA] mt-4">Kein Spam. Nur echte Neuigkeiten, wenn es soweit ist.</p>
+      <p className="text-xs text-[#AAAAAA] mt-4">
+        Kein Spam. Nur echte Neuigkeiten, wenn es soweit ist. Weitere Infos in der{" "}
+        <Link href="/datenschutz" className="underline">Datenschutzerklärung</Link>.
+      </p>
     </div>
   );
 }

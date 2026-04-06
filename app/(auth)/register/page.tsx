@@ -88,6 +88,11 @@ export default function RegisterPage() {
             <Button type="submit" size="lg" disabled={loading} className="w-full mt-2">
               {loading ? "Wird erstellt…" : "Konto erstellen"}
             </Button>
+            <p className="text-xs text-muted-foreground text-center mt-2">
+              Mit der Registrierung akzeptierst du unsere{" "}
+              <Link href="/agb" className="underline">AGB</Link> und bestätigst, die{" "}
+              <Link href="/datenschutz" className="underline">Datenschutzerklärung</Link> gelesen zu haben.
+            </p>
           </form>
         </Card>
 

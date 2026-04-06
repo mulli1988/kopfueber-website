@@ -5,7 +5,7 @@ import { connectToDatabase } from "@/lib/db/mongodb";
 import Product from "@/lib/db/models/Product";
 import { formatPrice } from "@/lib/utils/formatCurrency";
 import Badge from "@/components/ui/Badge";
-import BuyButton from "@/components/shop/BuyButton";
+import BuySection from "@/components/shop/BuySection";
 import ProductImageGallery from "@/components/shop/ProductImageGallery";
 import type { Metadata } from "next";
 
@@ -58,12 +58,7 @@ export default async function ProductPage({ params }: Props) {
           )}
 
           <div className="border-t-2 border-border pt-6">
-            <BuyButton productId={product._id.toString()} />
-            {isDigital && (
-              <p className="text-sm text-muted-foreground mt-3">
-                Sofort nach dem Kauf zum Download verfügbar in deinem Konto
-              </p>
-            )}
+            <BuySection productId={product._id.toString()} isDigital={isDigital} />
           </div>
         </div>
       </div>

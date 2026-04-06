@@ -36,11 +36,19 @@ export default function DatenschutzPage() {
           <li><strong>Konto-Daten:</strong> Name, E-Mail-Adresse und Passwort (verschlüsselt gespeichert) bei der Registrierung</li>
           <li><strong>Kauf-Daten:</strong> Bestellinformationen und Zahlungsdaten (Zahlungsabwicklung durch Stripe — wir speichern keine Kartendaten)</li>
           <li><strong>Kontaktformular:</strong> Name und E-Mail-Adresse bei Anfragen über das Kontaktformular</li>
-          <li><strong>Warteliste:</strong> E-Mail-Adresse bei der Eintragung in unsere Benachrichtigungsliste</li>
+          <li><strong>Benachrichtigungsliste:</strong> E-Mail-Adresse bei der Eintragung in unsere Neuigkeitenliste</li>
           <li><strong>Technische Daten:</strong> IP-Adresse, Browser-Typ und Zugriffszeiten (Serverlogs)</li>
         </ul>
 
-        <h2>4. Wofür wir Daten verwenden</h2>
+        <h2>4. Rechtsgrundlagen der Verarbeitung (Art. 6 DSGVO)</h2>
+        <ul>
+          <li><strong>Konto-Daten &amp; Kauf-Daten:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</li>
+          <li><strong>Kontaktformular:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bearbeitung von Anfragen) bzw. lit. b, wenn die Anfrage vertragsrelevant ist</li>
+          <li><strong>Benachrichtigungsliste:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)</li>
+          <li><strong>Technische Daten / Serverlogs:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am sicheren Betrieb der Website)</li>
+        </ul>
+
+        <h2>5. Wofür wir Daten verwenden</h2>
         <ul>
           <li>Bereitstellung der Website und des Shops</li>
           <li>Abwicklung von Bestellungen und digitalen Downloads</li>
@@ -48,26 +56,42 @@ export default function DatenschutzPage() {
           <li>Benachrichtigung bei neuen Produkten (nur bei ausdrücklicher Eintragung)</li>
         </ul>
 
-        <h2>5. Drittanbieter</h2>
+        <h2>6. Drittanbieter</h2>
         <ul>
           <li><strong>Stripe</strong> (Zahlungsabwicklung) — <a href="https://stripe.com/de/privacy" target="_blank" rel="noopener noreferrer">stripe.com/de/privacy</a></li>
-          <li><strong>Railway</strong> (Hosting & Datenbank) — <a href="https://railway.app/legal/privacy" target="_blank" rel="noopener noreferrer">railway.app/legal/privacy</a></li>
-          <li><strong>Instagram</strong> — Auf unseren Seiten sind Funktionen des Dienstes Instagram eingebunden (Instagram Inc., 1601 Willow Road, Menlo Park, CA, 94025, USA). Weitere Informationen: <a href="https://instagram.com/about/legal/privacy/" target="_blank" rel="noopener noreferrer">instagram.com/about/legal/privacy/</a></li>
+          <li><strong>Railway</strong> (Hosting &amp; Datenbank) — <a href="https://railway.app/legal/privacy" target="_blank" rel="noopener noreferrer">railway.app/legal/privacy</a></li>
+          <li><strong>UploadThing</strong> (Dateispeicherung für Produkte und Downloads) — <a href="https://uploadthing.com/privacy-policy" target="_blank" rel="noopener noreferrer">uploadthing.com/privacy-policy</a></li>
+          <li><strong>Instagram</strong> — Wir verlinken auf unser Instagram-Profil (instagram.com/july.fleur). Es sind keine Instagram-Inhalte direkt auf dieser Website eingebettet.</li>
         </ul>
 
-        <h2>6. Cookies</h2>
+        <h2>7. Übermittlung in Drittländer</h2>
+        <p>
+          Einige der oben genannten Drittanbieter (Stripe, Railway) haben ihren Sitz in den USA und
+          verarbeiten Daten dort. Die Übermittlung erfolgt auf Grundlage von
+          EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO) oder eines
+          Angemessenheitsbeschlusses der EU-Kommission. Nähere Informationen findest du in den
+          Datenschutzerklärungen der jeweiligen Anbieter.
+        </p>
+
+        <h2>8. Cookies</h2>
         <p>
           Wir verwenden ausschließlich technisch notwendige Cookies für die Anmeldung (Session-Cookie).
           Es werden keine Tracking- oder Werbe-Cookies gesetzt. Cookies richten auf Ihrem Rechner
-          keinen Schaden an und enthalten keine Viren. Sie können Ihren Browser so einstellen, dass
+          keinen Schaden an und enthalten keine Viren. Du kannst deinen Browser so einstellen, dass
           Cookies abgelehnt werden; dies kann jedoch die Funktionalität der Website einschränken.
         </p>
 
-        <h2>7. Deine Rechte (DSGVO)</h2>
+        <h2>9. Deine Rechte (DSGVO)</h2>
         <p>
-          Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung
-          deiner Daten (Art. 15–18 DSGVO). Wende dich dazu an{" "}
-          <a href="mailto:Julyfleur@outlook.com">Julyfleur@outlook.com</a>.
+          Du hast das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17),
+          Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch
+          (Art. 21 DSGVO). Wurde die Verarbeitung auf eine Einwilligung gestützt, kannst du diese
+          jederzeit ohne Angabe von Gründen widerrufen (Art. 7 Abs. 3 DSGVO) — die Rechtmäßigkeit
+          der bis dahin erfolgten Verarbeitung bleibt hiervon unberührt.
+        </p>
+        <p>
+          Wende dich für alle datenschutzbezogenen Anfragen an:{" "}
+          <a href="mailto:Julyfleur@outlook.com">Julyfleur@outlook.com</a>
         </p>
         <p>
           Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte
@@ -75,7 +99,15 @@ export default function DatenschutzPage() {
           widersprochen.
         </p>
 
-        <h2>8. Datenspeicherung</h2>
+        <h2>10. Beschwerderecht bei einer Aufsichtsbehörde (Art. 77 DSGVO)</h2>
+        <p>
+          Du hast das Recht, dich jederzeit bei einer Datenschutz-Aufsichtsbehörde über die
+          Verarbeitung deiner personenbezogenen Daten zu beschweren. Die zuständige Aufsichtsbehörde
+          richtet sich nach deinem gewöhnlichen Aufenthaltsort oder Arbeitsort sowie dem Ort des
+          mutmaßlichen Verstoßes.
+        </p>
+
+        <h2>11. Datenspeicherung</h2>
         <p>
           Deine Daten werden nicht länger aufbewahrt als gesetzlich erforderlich oder für die
           Erfüllung des jeweiligen Zwecks notwendig.
